@@ -26,6 +26,17 @@ public class Game : MonoBehaviour
     private void Start()
     {
         _player.Play();
+        _level.LevelFinished += OnLevelFinished;
         _level.StartNextWave();
+    }
+
+    private void OnDestroy()
+    {
+        _level.LevelFinished -= OnLevelFinished;
+    }
+
+    private void OnLevelFinished()
+    {
+        Debug.Log("Level finished.");
     }
 }

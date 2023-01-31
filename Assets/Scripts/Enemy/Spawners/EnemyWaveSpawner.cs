@@ -27,10 +27,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     private void Update()
     {
         if (_spawnedSequencesCount == _currentWave.SequenceCount)
-        {
             FinishSpawning();
-            return;
-        }
 
         _elapsedTime += Time.deltaTime;
 
@@ -49,7 +46,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
         _currentWave = wave ?? throw new ArgumentNullException();
         _spawnedSequencesCount = 0;
-        _elapsedTime = 0;
+        _elapsedTime = wave.SecondsBetweenSequences;
         enabled = true;
     }
 

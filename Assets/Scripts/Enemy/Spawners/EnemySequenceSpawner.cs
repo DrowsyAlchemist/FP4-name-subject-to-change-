@@ -39,7 +39,7 @@ public class EnemySequenceSpawner : MonoBehaviour
         _currentSequence = sequence ?? throw new ArgumentNullException();
         _isSequenceFinished = false;
         _spawnedEnemyCount = 0;
-        _elapsedTime = 0;
+        _elapsedTime = sequence.SpawnDelay;
         enabled = true;
     }
 

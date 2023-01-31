@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
 
     private static Level _instance;
     private int _spawnedWavesCount;
+    private float _elapsedTime;
 
     public bool IsFinished => _spawnedWavesCount == _levelSetup.WavesCount;
 
@@ -22,6 +23,14 @@ public class Level : MonoBehaviour
 
         _enemyWaveSpawner.WaveFinished += OnWaveFinished;
         enabled = false;
+    }
+
+    private void Update()
+    {
+        if (_elapsedTime > _levelSetup.SecondsBetweenWaves)
+            StartNextWave();
+
+        _elapsedTime += Time.deltaTime;
     }
 
     private void OnDestroy()
@@ -39,11 +48,14 @@ public class Level : MonoBehaviour
 
         _enemyWaveSpawner.SpawnWave(_levelSetup.GetWave(_spawnedWavesCount));
         _spawnedWavesCount++;
+        _elapsedTime = 0;
     }
 
     private void OnWaveFinished()
     {
         if (IsFinished)
             LevelFinished?.Invoke();
+        else
+            enabled = true;
     }
 }
