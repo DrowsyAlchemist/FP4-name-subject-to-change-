@@ -254,6 +254,7 @@ MonoBehaviour:
   _player: {fileID: 1329437252}
   _store: {fileID: 0}
   _level: {fileID: 808878917}
+  _levelSetup: {fileID: 11400000, guid: dc84322f5219f074a83bc657611ec7dd, type: 2}
 --- !u!4 &523543973
 Transform:
   m_ObjectHideFlags: 0
@@ -410,7 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a810da0d409d84988ec65546ab36b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelSetup: {fileID: 11400000, guid: dc84322f5219f074a83bc657611ec7dd, type: 2}
   _enemyWaveSpawner: {fileID: 808878919}
 --- !u!114 &808878918
 MonoBehaviour:
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 808878915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf418cf815a92944488887a06f836a1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 308d1548d7d887b498d81dd370fabbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySpawner: {fileID: 1730059377}
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f7919e0f0f0674d882c769bae3432f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sequenceSpawner: {fileID: 808878918}
+  _orderSpawner: {fileID: 808878918}
 --- !u!1 &855704748
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -10,8 +11,14 @@ public class EnemySpawner : MonoBehaviour
     public void Spawn(Enemy template)
     {
         if (template == null)
-            throw new System.ArgumentNullException();
+            throw new ArgumentNullException();
 
+        StartCoroutine(SpawnEnemy(template));
+    }
+
+    private IEnumerator SpawnEnemy(Enemy template)
+    {
+        yield return new WaitForEndOfFrame();
         int spawnPointIndex = UnityEngine.Random.Range(0, _spawnPoints.Length);
         Transform spawnPoint = _spawnPoints[spawnPointIndex];
         Enemy enemy = Instantiate(template, spawnPoint.position, Quaternion.identity, null);

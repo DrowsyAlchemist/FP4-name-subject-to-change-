@@ -4,7 +4,8 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Store _store;
-    [SerializeField] private Level _level;
+    [SerializeField] private LevelSpawner _level;
+    [SerializeField] private LevelSetup _levelSetup;
 
     private static Game _instance;
 
@@ -26,13 +27,13 @@ public class Game : MonoBehaviour
     private void Start()
     {
         _player.Play();
-        _level.LevelFinished += OnLevelFinished;
-        _level.StartNextWave();
+        _level.StartLevel(_levelSetup);
+        _level.SequenceFinished += OnLevelFinished;
     }
 
     private void OnDestroy()
     {
-        _level.LevelFinished -= OnLevelFinished;
+        _level.SequenceFinished -= OnLevelFinished;
     }
 
     private void OnLevelFinished()

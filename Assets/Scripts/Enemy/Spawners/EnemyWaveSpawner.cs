@@ -1,69 +1,34 @@
-using System;
 using UnityEngine;
 
-public class EnemyWaveSpawner : MonoBehaviour
+public sealed class EnemyWaveSpawner : SequenceSpawner
 {
-    [SerializeField] private EnemySequenceSpawner _sequenceSpawner;
+    [SerializeField] private EnemyOrderSpawner _orderSpawner;
 
-    private Wave _currentWave;
-    private int _spawnedSequencesCount;
-    private float _elapsedTime;
+    private EnemyWave _enemyWave;
 
-    public bool IsWaveFinished { get; private set; } = true;
-
-    public event Action WaveFinished;
-
-    private void Awake()
+    protected override void Awake()
     {
-        enabled = false;
-        _sequenceSpawner.SequenceFinished += OnSequenceFinished;
+        base.Awake();
+        _orderSpawner.SequenceFinished += OnOrderSpawned;
     }
 
     private void OnDestroy()
     {
-        _sequenceSpawner.SequenceFinished -= OnSequenceFinished;
+        _orderSpawner.SequenceFinished -= OnOrderSpawned;
     }
 
-    private void Update()
+    public void SpawnWave(EnemyWave wave)
     {
-        if (_spawnedSequencesCount == _currentWave.SequenceCount)
-            FinishSpawning();
-
-        _elapsedTime += Time.deltaTime;
-
-        if (_elapsedTime > _currentWave.SecondsBetweenSequences)
-        {
-            _elapsedTime = 0;
-            SpawnSequence();
-            enabled = false;
-        }
+        _enemyWave = wave ?? throw new System.ArgumentNullException();
+        SpawnSequence(wave);
     }
 
-    public void SpawnWave(Wave wave)
+    protected override void SpawnNext()
     {
-        if (IsWaveFinished == false)
-            throw new InvalidOperationException("Previous sequence is not finished.");
-
-        _currentWave = wave ?? throw new ArgumentNullException();
-        _spawnedSequencesCount = 0;
-        _elapsedTime = wave.SecondsBetweenSequences;
-        enabled = true;
+        _orderSpawner.SpawnOrder(_enemyWave.GetSequence(SpawnedSequencesCount));
     }
 
-    private void SpawnSequence()
-    {
-        _sequenceSpawner.SpawnSequence(_currentWave.GetSequence(_spawnedSequencesCount));
-        _spawnedSequencesCount++;
-    }
-
-    private void FinishSpawning()
-    {
-        WaveFinished?.Invoke();
-        IsWaveFinished = true;
-        enabled = false;
-    }
-
-    private void OnSequenceFinished()
+    private void OnOrderSpawned()
     {
         enabled = true;
     }
