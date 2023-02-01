@@ -7,6 +7,10 @@ public class Game : MonoBehaviour
     [SerializeField] private LevelSpawner _level;
     [SerializeField] private LevelSetup _levelSetup;
 
+    [SerializeField] private ManaRenderer _manaRenderer;
+
+    [SerializeField] private EnemySpawner _enemySpawner;
+
     private static Game _instance;
 
     public ManaStorage ManaStorage { get; private set; }
@@ -21,6 +25,8 @@ public class Game : MonoBehaviour
         {
             _instance = this;
             ManaStorage = new ManaStorage();
+            _manaRenderer.Render(ManaStorage);
+            _enemySpawner.EnemySpawned += OnEnemySpawned;
         }
     }
 
@@ -34,10 +40,22 @@ public class Game : MonoBehaviour
     private void OnDestroy()
     {
         _level.SequenceFinished -= OnLevelFinished;
+        _enemySpawner.EnemySpawned -= OnEnemySpawned;
     }
 
     private void OnLevelFinished()
     {
         Debug.Log("Level finished.");
+    }
+
+    private void OnEnemySpawned(Enemy enemy)
+    {
+        enemy.Died += OnEnemyDied;
+    }
+
+    private void OnEnemyDied(Enemy enemy)
+    {
+        enemy.Died -= OnEnemyDied;
+        ManaStorage.TakeMana(enemy.Reward);
     }
 }

@@ -5,11 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private int _initialHealth = 3;
+    [SerializeField] private int _reward = 2;
+
+    public int Reward => _reward;
 
     private Mover _mover;
     private Health _health;
 
-    public event Action Died;
+    public event Action<Enemy> Died;
 
     private void Awake()
     {
@@ -41,7 +44,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         if (health <= 0)
         {
             Die();
-            Died?.Invoke();
+            Died?.Invoke(this);
         }
     }
 
