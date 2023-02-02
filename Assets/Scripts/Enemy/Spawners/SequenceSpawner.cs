@@ -9,6 +9,7 @@ public abstract class SequenceSpawner : MonoBehaviour
 
     protected int SpawnedSequencesCount { get; private set; }
     protected bool CanSpawnNext => _elapsedTime > _currentSequence.SpawnDelay;
+    protected bool HasNext => SpawnedSequencesCount < _currentSequence.Count;
 
     public event Action SequenceFinished;
 
@@ -19,12 +20,12 @@ public abstract class SequenceSpawner : MonoBehaviour
 
     protected void Update()
     {
-        if (SpawnedSequencesCount == _currentSequence.Count)
+        if (HasNext == false)
             FinishSpawning();
 
         _elapsedTime += Time.deltaTime;
 
-        if (CanSpawnNext)
+        if (CanSpawnNext && HasNext)
         {
             _elapsedTime = 0;
             SpawnNext();

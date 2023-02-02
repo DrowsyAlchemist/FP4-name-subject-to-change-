@@ -1,11 +1,15 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterAnimator))]
 public abstract class EnemyState : MonoBehaviour
 {
     [SerializeField] private EnemyTransition[] _transitions;
 
-    private void Awake()
+    protected CharacterAnimator EnemyAnimator { get; private set; }
+
+    protected virtual void Awake()
     {
+        EnemyAnimator = GetComponent<CharacterAnimator>();
         enabled = false;
     }
 

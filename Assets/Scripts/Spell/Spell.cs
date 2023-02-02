@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Mover))]
+[RequireComponent(typeof(Collider))]
 public class Spell : MonoBehaviour
 {
     [SerializeField] private int _damage = 1;
@@ -12,9 +13,9 @@ public class Spell : MonoBehaviour
         _mover = GetComponent<Mover>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.TryGetComponent(out ITakeDamage subject))
+        if (other.TryGetComponent(out ITakeDamage subject))
         {
             subject.TakeDamage(_damage);
             Collapse();
@@ -29,5 +30,10 @@ public class Spell : MonoBehaviour
     private void Collapse()
     {
         Destroy(gameObject);
+    }
+
+    private void OnValidate()
+    {
+        GetComponent<Collider>().isTrigger = true;
     }
 }

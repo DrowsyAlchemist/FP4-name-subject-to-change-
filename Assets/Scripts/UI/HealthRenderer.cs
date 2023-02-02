@@ -30,7 +30,9 @@ public class HealthRenderer : MonoBehaviour
 
     private void UpdateRenderer()
     {
-        _healthText.text = _health.CurrentHealth + " / " + _health.MaxHealth;
+        if (_healthText != null)
+            _healthText.text = _health.CurrentHealth + " / " + _health.MaxHealth;
+
         _slider.value = (float)_health.CurrentHealth / _health.MaxHealth;
     }
 

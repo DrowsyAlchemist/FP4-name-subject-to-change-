@@ -7,12 +7,15 @@ public class Game : MonoBehaviour
     [SerializeField] private LevelSpawner _level;
     [SerializeField] private LevelSetup _levelSetup;
 
+    [SerializeField] private Wall _wall;
+
     [SerializeField] private ManaRenderer _manaRenderer;
 
     [SerializeField] private EnemySpawner _enemySpawner;
 
     private static Game _instance;
 
+    public static Wall Wall => _instance._wall;
     public ManaStorage ManaStorage { get; private set; }
 
     private void Awake()

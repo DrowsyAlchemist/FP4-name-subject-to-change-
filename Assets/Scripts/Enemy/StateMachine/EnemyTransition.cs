@@ -12,7 +12,7 @@ public abstract class EnemyTransition : MonoBehaviour
         enabled = false;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         NeedTransit = false;
     }
