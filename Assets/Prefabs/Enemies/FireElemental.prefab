@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4293232615275962215}
   - component: {fileID: 3081572989341082457}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: FireElemental
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   _initialHealth: 3
   _healthRenderer: {fileID: 8740829464646366101}
   _reward: 2
+  _element: 1
 --- !u!114 &-2794802183646383720
 MonoBehaviour:
   m_ObjectHideFlags: 0

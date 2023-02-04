@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour, ITakeDamage
     [SerializeField] private int _initialHealth = 3;
     [SerializeField] private HealthRenderer _healthRenderer;
     [SerializeField] private int _reward = 2;
+    [SerializeField] private ElementType _element;
 
     private EnemyStateMachine _stateMachine;
     private CharacterAnimator _animator;
 
+    public ElementType Element => _element;
     public int Reward => _reward;
 
     private Health _health;
@@ -25,7 +27,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         _animator = GetComponent<CharacterAnimator>();
         _stateMachine = GetComponent<EnemyStateMachine>();
-        _health = new Health(_initialHealth);
+        _health = new Health(_initialHealth, _element);
         _healthRenderer.Render(_health);
         _health.CurrentHealthChanged += OnHealthChanged;
     }
@@ -35,15 +37,12 @@ public class Enemy : MonoBehaviour, ITakeDamage
         _health.CurrentHealthChanged -= OnHealthChanged;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage, ElementType transmittingElement)
     {
-        if (damage < 0)
-            throw new ArgumentOutOfRangeException();
-
-        _health.ReduceHealth(damage);
+        _health.TakeDamage(damage, transmittingElement);
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthChanged(float health)
     {
         if (health <= 0)
         {

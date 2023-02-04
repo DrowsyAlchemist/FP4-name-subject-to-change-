@@ -1,28 +1,32 @@
 using System;
 
-public class Health
+public class Health: ITakeDamage
 {
-    public int MaxHealth { get; private set; }
-    public int CurrentHealth { get; private set; }
+    private readonly ElementType _element;
 
-    public event Action<int> MaxHealthChanged;
-    public event Action<int> CurrentHealthChanged;
+    public float MaxHealth { get; private set; }
+    public float CurrentHealth { get; private set; }
 
-    public Health(int maxHealth)
+    public event Action<float> MaxHealthChanged;
+    public event Action<float> CurrentHealthChanged;
+
+    public Health(float maxHealth, ElementType element)
     {
         if (maxHealth <= 0)
             throw new ArgumentOutOfRangeException();
 
         MaxHealth = maxHealth;
         CurrentHealth = maxHealth;
+        _element = element;
     }
 
-    public void ReduceHealth(int value)
+    public void TakeDamage(float damage, ElementType transmittingElement)
     {
-        if (value < 0)
+        if (damage < 0)
             throw new ArgumentOutOfRangeException();
 
-        CurrentHealth -= value;
+        damage *= ElementsInteraction.GetInteractionModifier(transmittingElement, _element);
+        CurrentHealth -= damage;
 
         if (CurrentHealth < 0)
             CurrentHealth = 0;

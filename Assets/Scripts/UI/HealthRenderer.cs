@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ public class HealthRenderer : MonoBehaviour
         health.CurrentHealthChanged += OnHealthChanged;
     }
 
-    private void OnHealthChanged(int _)
+    private void OnHealthChanged(float _)
     {
         UpdateRenderer();
     }
@@ -31,9 +32,12 @@ public class HealthRenderer : MonoBehaviour
     private void UpdateRenderer()
     {
         if (_healthText != null)
-            _healthText.text = _health.CurrentHealth + " / " + _health.MaxHealth;
-
-        _slider.value = (float)_health.CurrentHealth / _health.MaxHealth;
+        {
+            int currentHealth = (int)Math.Round(_health.CurrentHealth, MidpointRounding.AwayFromZero);
+            int maxHealth = (int)Math.Round(_health.MaxHealth, MidpointRounding.AwayFromZero);
+            _healthText.text = currentHealth + " / " + maxHealth;
+        }
+        _slider.value = _health.CurrentHealth / _health.MaxHealth;
     }
 
     private void UnsubscribeFromHealth(Health health)

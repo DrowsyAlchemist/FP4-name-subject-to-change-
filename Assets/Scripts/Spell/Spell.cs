@@ -5,8 +5,12 @@ using UnityEngine;
 public class Spell : MonoBehaviour
 {
     [SerializeField] private int _damage = 1;
+    [SerializeField] private ElementType _element;
+    [SerializeField] private SpellData _spellData;
 
     private Mover _mover;
+
+    public SpellData SpellData => _spellData;
 
     private void Awake()
     {
@@ -17,7 +21,7 @@ public class Spell : MonoBehaviour
     {
         if (other.TryGetComponent(out ITakeDamage subject))
         {
-            subject.TakeDamage(_damage);
+            subject.TakeDamage(_damage, _element);
             Collapse();
         }
     }
