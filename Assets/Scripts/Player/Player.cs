@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     private Mover _mover;
 
-    public Health ManaStorage { get; private set; }
+    public SpellCaster SpellCaster=> _spellCaster;
 
     private void Awake()
     {

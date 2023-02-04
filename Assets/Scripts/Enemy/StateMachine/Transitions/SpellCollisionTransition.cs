@@ -6,7 +6,7 @@ public class SpellCollisionTransition : EnemyTransition
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Spell _))
+        if (other.TryGetComponent(out CombatSpell _))
             NeedTransit = true;
     }
 }

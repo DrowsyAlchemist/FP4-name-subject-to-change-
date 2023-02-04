@@ -5,9 +5,9 @@ public class SpellCaster : MonoBehaviour
     [SerializeField] private float _secondsBetweenCasts = 0.5f;
     [SerializeField] private Transform _castPoint;
 
-    [SerializeField] private Spell _defaultSpellTemplate;
+    [SerializeField] private CombatSpell _defaultSpellTemplate;
 
-    private Spell _spellTemplate;
+    private CombatSpell _spellTemplate;
     private float _elapsedTime;
 
     private void Awake()
@@ -27,7 +27,7 @@ public class SpellCaster : MonoBehaviour
         }
     }
 
-    public void SetSpell(Spell spellTemplate)
+    public void SetSpell(CombatSpell spellTemplate)
     {
         _spellTemplate = spellTemplate ?? throw new System.ArgumentNullException();
     }

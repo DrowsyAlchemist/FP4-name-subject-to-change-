@@ -18,7 +18,7 @@ public sealed class LevelSpawner : SequenceSpawner
         _enemyWaveSpawner.SequenceFinished -= OnWaveFinished;
     }
 
-    public void StartLevel(LevelSetup levelSetup)
+    public void StartSpawn(LevelSetup levelSetup)
     {
         if (_isStarted)
             throw new System.InvalidOperationException("Level is already started.");

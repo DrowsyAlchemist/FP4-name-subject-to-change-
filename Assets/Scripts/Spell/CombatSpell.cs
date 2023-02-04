@@ -2,15 +2,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Collider))]
-public class Spell : MonoBehaviour
+public class CombatSpell : UpgradeableSpell
 {
     [SerializeField] private int _damage = 1;
     [SerializeField] private ElementType _element;
-    [SerializeField] private SpellData _spellData;
 
     private Mover _mover;
-
-    public SpellData SpellData => _spellData;
 
     private void Awake()
     {

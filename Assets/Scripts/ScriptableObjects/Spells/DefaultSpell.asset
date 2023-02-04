@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc3031ce94ca34d47b03af506b89db8e, type: 3}
-  m_Name: FireSpell
+  m_Name: DefaultSpell
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 3c6f5b7a54bd84489ba7d655c5b7b812, type: 3}
-  _lable: FireSpell
-  _cost: 1
+  _sprite: {fileID: 21300000, guid: 2adcfbfe5db0e45f0abd58d13e6f6e40, type: 3}
+  _lable: DefaultSpell
+  _cost: 0
   _secondLevelUpgradeCost: 2
   _thirdLevelUpgradeCost: 3
   _fourthLevelUpgradeCost: 4

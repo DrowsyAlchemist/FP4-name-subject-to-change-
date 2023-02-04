@@ -93,9 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782d72a0d22965e45877ddae0f2d58ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialhealth: 10
   _spellCaster: {fileID: 6815113053937657822}
-  _healthRenderer: {fileID: 0}
 --- !u!1 &1284605284765505662
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5953704f1718a46abbc26d7a55b4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _secondsBetweenCasts: 0.5
+  _secondsBetweenCasts: 1
   _castPoint: {fileID: 1284605284765505663}
-  _defaultSpellTemplate: {fileID: 4785126266395327685, guid: 22a45643666353d4a8f1f029714d9ebc, type: 3}
+  _defaultSpellTemplate: {fileID: -6474589379477742165, guid: 22a45643666353d4a8f1f029714d9ebc, type: 3}
 --- !u!1001 &1284605283855281430
 PrefabInstance:
   m_ObjectHideFlags: 0
