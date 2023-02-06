@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4785126266395327738}
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
-  - component: {fileID: -6474589379477742165}
+  - component: {fileID: 4785126266395327685}
   m_Layer: 0
-  m_Name: DefaultSpell
+  m_Name: EarthFirstLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d15897a066fc1bd4e873db20d70da822, type: 2}
+  - {fileID: 2100000, guid: 5ac51c7de07714d4ab6e74dc98bf9525, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
---- !u!114 &-6474589379477742165
+--- !u!114 &4785126266395327685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785126266395327736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec0003b65e75f4448b0dac05d9edc51, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: DefaultSpell
-  _data: {fileID: 11400000, guid: 12de20428f24c5641884a63503a27f1c, type: 2}
+  _sprite: {fileID: 21300000, guid: c94ac9d283c31496a94910ba9ac982ae, type: 3}
+  _lable: EarthSpell
+  _cost: 2
   _damage: 1
-  _element: 0
+  _element: 4

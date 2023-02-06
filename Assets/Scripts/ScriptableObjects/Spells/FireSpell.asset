@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3031ce94ca34d47b03af506b89db8e, type: 3}
   m_Name: FireSpell
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 3c6f5b7a54bd84489ba7d655c5b7b812, type: 3}
-  _lable: FireSpell
-  _cost: 1
-  _secondLevelUpgradeCost: 2
-  _thirdLevelUpgradeCost: 3
-  _fourthLevelUpgradeCost: 4
+  _id: FireSpell
+  _firstLevelSpell: {fileID: 4785126266395327685, guid: 34a4295d3ec03b54892e994f28d360ea, type: 3}
+  _secondLevelSpell: {fileID: 4785126266395327685, guid: 67509b693545c0e45acf18608cfdc332, type: 3}
+  _thirdLevelSpell: {fileID: 4785126266395327685, guid: 8044169a4ab3e2f4a963c99d9994bb1d, type: 3}
+  _fourthLevelSpell: {fileID: 4785126266395327685, guid: c4fbcf467ba57ce4ea179109efa07c8b, type: 3}

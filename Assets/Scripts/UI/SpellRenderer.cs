@@ -6,10 +6,11 @@ public class SpellRenderer : MonoBehaviour
 {
     [SerializeField] private Image _image;
     [SerializeField] private Button _button;
+    [SerializeField] private Image _highlightedFrame;
 
-    private UpgradeableSpell _spell;
+    public UpgradeableSpellData SpellData { get; private set; }
 
-    public event Action<UpgradeableSpell> ButtonClicked;
+    public event Action<SpellRenderer> ButtonClicked;
 
     private void Start()
     {
@@ -21,14 +22,32 @@ public class SpellRenderer : MonoBehaviour
         _button.onClick.RemoveListener(OnButtonClick);
     }
 
-    public void Render(UpgradeableSpell spell)
+    public void SetHighlighted(bool isHighlighted)
     {
-        _spell = spell??throw new ArgumentNullException();
-        _image.sprite = spell.Data.Sprite;
+        _highlightedFrame.gameObject.SetActive(isHighlighted);
+    }
+
+    public void Render(UpgradeableSpellData spellData)
+    {
+        if (SpellData != null)
+            SpellData.Upgrated -= OnSpellUpgraded;
+
+        SpellData = spellData ?? throw new ArgumentNullException();
+        spellData.Upgrated += OnSpellUpgraded;
+    }
+
+    private void UpdateRender()
+    {
+        _image.sprite = SpellData.GetCurrentSpell().Sprite;
     }
 
     private void OnButtonClick()
     {
-        ButtonClicked?.Invoke(_spell);
+        ButtonClicked?.Invoke(this);
+    }
+
+    private void OnSpellUpgraded()
+    {
+        UpdateRender();
     }
 }

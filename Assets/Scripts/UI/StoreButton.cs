@@ -19,6 +19,7 @@ public class StoreButton : MonoBehaviour
     private void OnButtonClick()
     {
         bool isMenuOpen = _storeMenu.gameObject.activeSelf;
+        Time.timeScale = isMenuOpen ? 1 : 0;
         _storeMenu.gameObject.SetActive(isMenuOpen == false);
     }
 }

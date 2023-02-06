@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4785126266395327686}
   - component: {fileID: 4785126266395327685}
   m_Layer: 0
-  m_Name: LightningSpell
+  m_Name: WaterSecondLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c57751e748651a4c9bd8f9f48e8cf5e, type: 2}
+  - {fileID: 2100000, guid: 69c3c648559bfd34eaae3ff327107596, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,10 +121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785126266395327736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec0003b65e75f4448b0dac05d9edc51, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: LightningSpell
-  _data: {fileID: 11400000, guid: a74365b0c9ad17b4d808de69332fda8b, type: 2}
-  _damage: 1
-  _element: 3
+  _sprite: {fileID: 21300000, guid: fa3b5af8b8a824631a410c89b9a37527, type: 3}
+  _lable: WaterSpell
+  _cost: 5
+  _damage: 2
+  _element: 5

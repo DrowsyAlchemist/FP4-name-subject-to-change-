@@ -1,20 +1,12 @@
-using System;
 using UnityEngine;
 
-public class UpgradeableSpell : MonoBehaviour
+public abstract class UpgradeableSpell : MonoBehaviour
 {
-    [SerializeField] private string _id;
-    [SerializeField] private UpgradeableSpellData _data;
+    [SerializeField] private Sprite _sprite;
+    [SerializeField] private string _lable;
+    [SerializeField] private int _cost;
 
-    public UpgradeableSpellData Data => _data;
-    public int UpgrageLevel => PlayerPrefs.GetInt(_id, 0);
-
-    public event Action Upgraded;
-
-    public void Upgrade()
-    {
-        PlayerPrefs.SetInt(_id, UpgrageLevel + 1);
-        PlayerPrefs.Save();
-        Upgraded?.Invoke();
-    }
+    public Sprite Sprite => _sprite;
+    public string Lable => _lable;
+    public int Cost => _cost;
 }

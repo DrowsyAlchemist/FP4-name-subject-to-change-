@@ -1,19 +1,52 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "UpgradeableItem", menuName = "ScriptableObjects/UpgradeableItem", order = 51)]
 public class UpgradeableSpellData : ScriptableObject
 {
-    [SerializeField] private Sprite _sprite;
-    [SerializeField] private string _lable;
-    [SerializeField] private int _cost;
-    [SerializeField] private int _secondLevelUpgradeCost;
-    [SerializeField] private int _thirdLevelUpgradeCost;
-    [SerializeField] private int _fourthLevelUpgradeCost;
+    [SerializeField] private string _id;
+    [SerializeField] private UpgradeableSpell _firstLevelSpell;
+    [SerializeField] private UpgradeableSpell _secondLevelSpell;
+    [SerializeField] private UpgradeableSpell _thirdLevelSpell;
+    [SerializeField] private UpgradeableSpell _fourthLevelSpell;
 
-    public Sprite Sprite => _sprite;
-    public string Lable => _lable;
-    public int Cost => _cost;
-    public int SecondLevelUpgradeCost { get; }
-    public int ThirdLevelUpgradeCost { get; }
-    public int FourthLevelUpgradeCost { get; }
+    public readonly int MaxLevel = 4;
+
+    public int UpgradeLevel => PlayerPrefs.GetInt(_id, 0);
+
+    public event Action Upgrated;
+
+    public UpgradeableSpell GetCurrentSpell()
+    {
+        return GetSpell(UpgradeLevel);
+    }
+
+    public UpgradeableSpell GetSpell(int upgradeLevel)
+    {
+        switch (upgradeLevel)
+        {
+            case 1:
+                return _firstLevelSpell;
+            case 2:
+                return _secondLevelSpell;
+            case 3:
+                return _thirdLevelSpell;
+            case 4:
+                return _fourthLevelSpell;
+            default:
+                throw new System.NotImplementedException();
+        }
+    }
+
+    public int GetNextLevelCost()
+    {
+        return GetSpell(UpgradeLevel + 1).Cost;
+    }
+
+    public void Upgrade()
+    {
+        PlayerPrefs.SetInt(_id, UpgradeLevel + 1);
+        PlayerPrefs.Save();
+        Upgrated?.Invoke();
+    }
 }
