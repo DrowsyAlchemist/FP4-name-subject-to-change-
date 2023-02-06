@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4785126266395327738}
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
-  - component: {fileID: 4785126266395327685}
+  - component: {fileID: -4001876475553752627}
   m_Layer: 0
   m_Name: WindThirdLevel
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4785126266395327736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.43724543, y: -8.428896, z: -3.759}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
---- !u!114 &4785126266395327685
+--- !u!114 &-4001876475553752627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785126266395327736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
+  m_Script: {fileID: 11500000, guid: f6ea1aaf76b17b64ab74931b3744dcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 2485c9e6454994b36a896bc87d27d1b3, type: 3}

@@ -10,7 +10,7 @@ public class UpgradeableSpellData : ScriptableObject
     [SerializeField] private UpgradeableSpell _thirdLevelSpell;
     [SerializeField] private UpgradeableSpell _fourthLevelSpell;
 
-    public readonly int MaxLevel = 4;
+    public readonly int MaxLevel = 3;
 
     public int UpgradeLevel => PlayerPrefs.GetInt(_id, 0);
 

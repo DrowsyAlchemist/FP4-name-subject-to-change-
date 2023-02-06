@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4785126266395327738}
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
-  - component: {fileID: 4785126266395327685}
+  - component: {fileID: -4793317783182816516}
   m_Layer: 0
   m_Name: WindSecondLevel
   m_TagString: Untagged
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
---- !u!114 &4785126266395327685
+--- !u!114 &-4793317783182816516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785126266395327736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
+  m_Script: {fileID: 11500000, guid: c29ac469b02dc1545888fc7c0034651a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 2485c9e6454994b36a896bc87d27d1b3, type: 3}
@@ -129,3 +129,7 @@ MonoBehaviour:
   _cost: 45
   _damage: 2
   _element: 2
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  _explosionRadius: 1.75

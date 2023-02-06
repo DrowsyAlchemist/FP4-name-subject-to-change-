@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4785126266395327738}
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
-  - component: {fileID: 4785126266395327685}
+  - component: {fileID: 6592590523475553745}
   m_Layer: 0
   m_Name: EarthSecondLevel
   m_TagString: Untagged
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
---- !u!114 &4785126266395327685
+--- !u!114 &6592590523475553745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,11 +121,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785126266395327736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
+  m_Script: {fileID: 11500000, guid: c29ac469b02dc1545888fc7c0034651a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: c94ac9d283c31496a94910ba9ac982ae, type: 3}
+  _sprite: {fileID: 21300000, guid: b3d8dbe835c404179842f9f9595f2bf0, type: 3}
   _lable: EarthSpell
   _cost: 4
   _damage: 2
   _element: 4
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  _explosionRadius: 1.75

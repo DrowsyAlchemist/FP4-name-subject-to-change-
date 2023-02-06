@@ -5,10 +5,9 @@ public class FirstLevelCombatSpell : CombatSpell
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out ITakeDamage subject))
-        {
             subject.TakeDamage(Damage, Element);
-            Collapse();
-        }
+
+        Collapse();
     }
     private void Collapse()
     {
