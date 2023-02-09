@@ -52,7 +52,7 @@ public abstract class SequenceSpawner : MonoBehaviour
     private void FinishSpawning()
     {
         enabled = false;
-        SequenceFinished?.Invoke();
         _isFinished = true;
+        SequenceFinished?.Invoke();
     }
 }

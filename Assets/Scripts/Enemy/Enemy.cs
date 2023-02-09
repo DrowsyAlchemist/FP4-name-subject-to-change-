@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     public event Action<Enemy> Died;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _animator = GetComponent<CharacterAnimator>();
         _stateMachine = GetComponent<EnemyStateMachine>();
@@ -35,6 +35,12 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private void OnDestroy()
     {
         _health.CurrentHealthChanged -= OnHealthChanged;
+    }
+
+    public void StopAction()
+    {
+        _stateMachine.Pause();
+        _animator.PlayIdle();
     }
 
     public void TakeDamage(float damage, ElementType transmittingElement)

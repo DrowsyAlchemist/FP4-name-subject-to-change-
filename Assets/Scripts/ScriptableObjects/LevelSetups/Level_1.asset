@@ -14,16 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _secondsBetweenWaves: 3
   _waves:
-  - _secondsBetweenSequences: 3
+  - _secondsBetweenOrders: 0
     _enemySequences:
-    - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
-      _enemyCount: 3
-      _spawnDelay: 1
-    - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
-      _enemyCount: 2
-      _spawnDelay: 2
-  - _secondsBetweenSequences: 1
-    _enemySequences:
-    - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
-      _enemyCount: 10
-      _spawnDelay: 0.2
+    - _enemyTemplate: {fileID: -6418793296405238603, guid: 2af022c18cbea7849aff2ba6522e104f, type: 3}
+      _enemyCount: 1
+      _spawnDelay: 0

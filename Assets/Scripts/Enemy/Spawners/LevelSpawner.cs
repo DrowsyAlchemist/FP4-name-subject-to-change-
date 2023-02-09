@@ -4,7 +4,6 @@ public sealed class LevelSpawner : SequenceSpawner
 {
     [SerializeField] private EnemyWaveSpawner _enemyWaveSpawner;
 
-    private bool _isStarted;
     private LevelSetup _levelSetup;
 
     protected override void Awake()
@@ -20,11 +19,7 @@ public sealed class LevelSpawner : SequenceSpawner
 
     public void StartSpawn(LevelSetup levelSetup)
     {
-        if (_isStarted)
-            throw new System.InvalidOperationException("Level is already started.");
-
         _levelSetup = levelSetup ?? throw new System.ArgumentNullException();
-        _isStarted = true;
         SpawnSequence(levelSetup);
     }
 

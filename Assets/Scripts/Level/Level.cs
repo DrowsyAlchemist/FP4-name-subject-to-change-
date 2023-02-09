@@ -1,14 +1,33 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Level : MonoBehaviour
 {
     [SerializeField] private LevelSpawner _levelSpawner;
-    [SerializeField] private LevelSetup _levelSetup;
+    [SerializeField] private List<LevelSetup> _levelSetups;
 
-    public void StartLevel()
+    public int CurrentLevel { get; private set; } = -1;
+
+    public event Action LevelFinished;
+
+    private void Awake()
     {
-        _levelSpawner.StartSpawn(_levelSetup);
         _levelSpawner.SequenceFinished += OnLevelFinished;
+    }
+
+    public void StartNextLevel()
+    {
+        CurrentLevel++;
+
+        if (CurrentLevel < _levelSetups.Count)
+        {
+            _levelSpawner.StartSpawn(_levelSetups[CurrentLevel]);
+        }
+        else
+        {
+            Debug.Log("Levels ran over.");
+        }
     }
 
     private void OnDestroy()
@@ -18,6 +37,6 @@ public class Level : MonoBehaviour
 
     private void OnLevelFinished()
     {
-        Debug.Log("Level finished.");
+        LevelFinished?.Invoke();
     }
 }

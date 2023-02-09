@@ -9,6 +9,7 @@ public class Health: ITakeDamage
 
     public event Action<float> MaxHealthChanged;
     public event Action<float> CurrentHealthChanged;
+    public event Action HealthIsOver;
 
     public Health(float maxHealth, ElementType element)
     {
@@ -28,9 +29,11 @@ public class Health: ITakeDamage
         damage *= ElementsInteraction.GetInteractionModifier(transmittingElement, _element);
         CurrentHealth -= damage;
 
-        if (CurrentHealth < 0)
+        if (CurrentHealth <= 0)
+        {
             CurrentHealth = 0;
-
+            HealthIsOver?.Invoke();
+        }
         CurrentHealthChanged?.Invoke(CurrentHealth);
     }
 
@@ -43,9 +46,13 @@ public class Health: ITakeDamage
         MaxHealthChanged?.Invoke(MaxHealth);
     }
 
-    public void RestoreHealth()
+    public void RestoreHealth(float value)
     {
-        CurrentHealth = MaxHealth;
+        CurrentHealth += value;
+
+        if (CurrentHealth > MaxHealth)
+            CurrentHealth = MaxHealth;
+
         CurrentHealthChanged?.Invoke(CurrentHealth);
     }
 }

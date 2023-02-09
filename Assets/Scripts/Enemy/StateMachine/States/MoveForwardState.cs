@@ -5,7 +5,6 @@ public class MoveForwardState : EnemyState
 {
     [SerializeField] private float _speed = 2;
 
-    private readonly Vector3 _defaultDirection = Vector3.back;
     private Rigidbody _rigidbody;
 
     protected override void Awake()
@@ -21,6 +20,6 @@ public class MoveForwardState : EnemyState
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = _speed * _defaultDirection;
+        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, -1 * _speed);
     }
 }
