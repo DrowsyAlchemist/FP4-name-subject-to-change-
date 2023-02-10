@@ -8,6 +8,8 @@ public class MagicShield : MonoBehaviour, ITakeDamage
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _speed;
     [SerializeField] private HealthRenderer _healthRenderer;
+    [SerializeField] private MagicShieldData _data;
+    [SerializeField] private MeshRenderer _meshRenderer;
 
     private Rigidbody _rigidbody;
     private Health _health;
@@ -20,6 +22,7 @@ public class MagicShield : MonoBehaviour, ITakeDamage
     {
         _rigidbody = GetComponent<Rigidbody>();
         ElementType element = (ElementType)UnityEngine.Random.Range(1, 6);
+        _meshRenderer.material = _data.GetMaterial(element);
         _health = new Health(_maxHealth, element);
         _healthRenderer.Render(_health);
         _health.HealthIsOver += OnHealthIsOver;

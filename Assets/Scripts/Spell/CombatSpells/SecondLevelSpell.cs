@@ -16,14 +16,20 @@ public class SecondLevelSpell : CombatSpell
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.down, Color.yellow, 1);
         #endregion
 
-        Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius, _targetLayers);
+        if (other.TryGetComponent(out MagicShield shield))
+        {
+            shield.TakeDamage(Damage, Element);
+        }
+        else
+        {
+            Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius, _targetLayers);
 
-        if (hits.Length > 0)
-            foreach (Collider hit in hits)
-                if ((1 << hit.GetComponent<Collider>().gameObject.layer & _targetLayers) > 0)
-                    if (hit.GetComponent<Collider>().TryGetComponent(out ITakeDamage target))
-                        target.TakeDamage(Damage, Element);
-
+            if (hits.Length > 0)
+                foreach (Collider hit in hits)
+                    if ((1 << hit.gameObject.layer & _targetLayers) > 0)
+                        if (hit.TryGetComponent(out ITakeDamage target))
+                            target.TakeDamage(Damage, Element);
+        }
         Collapse();
     }
 

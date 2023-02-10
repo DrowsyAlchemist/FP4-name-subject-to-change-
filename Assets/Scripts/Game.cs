@@ -9,6 +9,8 @@ public class Game : MonoBehaviour
     [SerializeField] private Wall _wall;
     [SerializeField] private EnemySpawner _enemySpawner;
 
+    [SerializeField] private LevelMessage _levelMessage;
+
     private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
@@ -33,6 +35,7 @@ public class Game : MonoBehaviour
         _enemySpawner.AllowSpawning();
         _level.LevelFinished += OnLevelFinished;
         _level.StartNextLevel();
+        _levelMessage.Show("Level " + (_level.CurrentLevel + 1) + " is started");
         enabled = false;
     }
 
@@ -44,20 +47,19 @@ public class Game : MonoBehaviour
             _wall.Health.RestoreHealth(_wall.Health.MaxHealth / 2);
             _level.StartNextLevel();
             enabled = false;
-            Debug.Log("Level " + _level.CurrentLevel + " is started.");
+            _levelMessage.Show("Level " + (_level.CurrentLevel + 1) + " is started");
         }
     }
 
     private void OnLevelFinished()
     {
         enabled = true;
-        Debug.Log("Spawning on level " + _level.CurrentLevel + " is finished.");
     }
 
     private void OnWallDestroyed()
     {
         _wall.Destroyed -= OnWallDestroyed;
-        Debug.Log("GameOver");
+        _levelMessage.Show("GameOver");
         _player.StopPlaying();
         _enemySpawner.StopSpawning();
         _aliveEnemiesHolder.StopAllEnemies();

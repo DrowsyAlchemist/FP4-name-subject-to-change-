@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5cf9c68b8f76f4c98af49a02c8f278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialhealth: 100
+  _initialhealth: 10
   _healthRenderer: {fileID: 0}
   _element: 0

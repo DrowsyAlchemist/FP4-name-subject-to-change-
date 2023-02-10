@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ac7291a3c857042b6f495be9aaaae6, type: 3}
+  m_Name: MagicShield
+  m_EditorClassIdentifier: 
+  _fireShieldMaterial: {fileID: 2100000, guid: 2f30115cf00a6b44caf4547a6f9cf69b, type: 2}
+  _windShieldMaterial: {fileID: 2100000, guid: 88485dca38ca9f34f938f1b8e74910d9, type: 2}
+  _lightningShieldMaterial: {fileID: 2100000, guid: 8102246956ab15544baccd96b9357c12, type: 2}
+  _earthShieldMaterial: {fileID: 2100000, guid: ed1bd1eae7075154e91c87a5b4d01af4, type: 2}
+  _waterShieldMaterial: {fileID: 2100000, guid: 0da04d6b79eb89442a878a07546a9d3b, type: 2}
