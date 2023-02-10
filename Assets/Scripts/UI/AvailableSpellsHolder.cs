@@ -11,14 +11,25 @@ public class AvailableSpellsHolder : MonoBehaviour
     private void OnDestroy()
     {
         foreach (var renderer in _container.GetComponentsInChildren<SpellRenderer>())
+        {
             renderer.ButtonClicked -= OnRendererClick;
+            renderer.SpellData.Upgrated -= OnSpellUpgraded;
+        }
     }
 
-    public void AddSpell(UpgradeableSpellData spellData)
+    public void SetDefaultSpell(UpgradeableSpellData defaultSpell)
     {
+        var defaultSpellRenderer = AddSpell(defaultSpell);
+        OnRendererClick(defaultSpellRenderer);
+    }
+
+    public SpellRenderer AddSpell(UpgradeableSpellData spellData)
+    {
+        spellData.Upgrated += OnSpellUpgraded;
         var spellRenderer = Instantiate(_spellRenderer, _container);
         spellRenderer.Render(spellData);
         spellRenderer.ButtonClicked += OnRendererClick;
+        return spellRenderer;
     }
 
     private void OnRendererClick(SpellRenderer spellRenderer)
@@ -32,5 +43,11 @@ public class AvailableSpellsHolder : MonoBehaviour
             _highlighted = spellRenderer;
             _caster.SetSpell(combatSpell);
         }
+    }
+
+    private void OnSpellUpgraded(UpgradeableSpellData spellData)
+    {
+        if (spellData == _highlighted.SpellData)
+            _caster.SetSpell(spellData.GetCurrentSpell() as CombatSpell);
     }
 }

@@ -41,12 +41,17 @@ public class MagicShield : MonoBehaviour, ITakeDamage
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out Wall _))
-            Destroy(gameObject);
+            Collapse();
     }
 
     private void OnHealthIsOver()
     {
         _health.HealthIsOver -= OnHealthIsOver;
+        Collapse();
+    }
+
+    private void Collapse()
+    {
         Destroyed?.Invoke();
         Destroy(gameObject);
     }

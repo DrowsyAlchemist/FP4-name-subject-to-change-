@@ -5,15 +5,12 @@ public class SpellCaster : MonoBehaviour
     [SerializeField] private float _secondsBetweenCasts = 0.5f;
     [SerializeField] private Transform _castPoint;
 
-    [SerializeField] private CombatSpell _defaultSpellTemplate;
-
     private CombatSpell _spellTemplate;
     private float _elapsedTime;
 
     private void Awake()
     {
         enabled = false;
-        SetSpell(_defaultSpellTemplate);
     }
 
     private void Update()

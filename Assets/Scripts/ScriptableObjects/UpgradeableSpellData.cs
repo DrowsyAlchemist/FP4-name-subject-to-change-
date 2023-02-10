@@ -14,7 +14,7 @@ public class UpgradeableSpellData : ScriptableObject
 
     public int UpgradeLevel => PlayerPrefs.GetInt(_id, 0);
 
-    public event Action Upgrated;
+    public event Action<UpgradeableSpellData> Upgrated;
 
     public UpgradeableSpell GetCurrentSpell()
     {
@@ -34,7 +34,7 @@ public class UpgradeableSpellData : ScriptableObject
             case 4:
                 return _fourthLevelSpell;
             default:
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
         }
     }
 
@@ -47,6 +47,6 @@ public class UpgradeableSpellData : ScriptableObject
     {
         PlayerPrefs.SetInt(_id, UpgradeLevel + 1);
         PlayerPrefs.Save();
-        Upgrated?.Invoke();
+        Upgrated?.Invoke(this);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class SpellRenderer : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Button _button;
     [SerializeField] private Image _highlightedFrame;
+    [SerializeField] private TMP_Text _levelText;
+
 
     public UpgradeableSpellData SpellData { get; private set; }
 
@@ -34,11 +37,13 @@ public class SpellRenderer : MonoBehaviour
 
         SpellData = spellData ?? throw new ArgumentNullException();
         spellData.Upgrated += OnSpellUpgraded;
+        UpdateRender(spellData);
     }
 
-    private void UpdateRender()
+    private void UpdateRender(UpgradeableSpellData spellData)
     {
-        _image.sprite = SpellData.GetCurrentSpell().Sprite;
+        _image.sprite = spellData.GetCurrentSpell().Sprite;
+        _levelText.text = spellData.UpgradeLevel.ToString();
     }
 
     private void OnButtonClick()
@@ -46,8 +51,8 @@ public class SpellRenderer : MonoBehaviour
         ButtonClicked?.Invoke(this);
     }
 
-    private void OnSpellUpgraded()
+    private void OnSpellUpgraded(UpgradeableSpellData spellData)
     {
-        UpdateRender();
+        UpdateRender(spellData);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class StoreMenu : MonoBehaviour
 {
+    [SerializeField] private UpgradeableSpellData _defaultSpell;
     [SerializeField] private List<UpgradeableSpellData> _waresData;
     [SerializeField] private WareRenderer _wareRendererTemplate;
     [SerializeField] private RectTransform _waresContainer;
@@ -26,6 +27,10 @@ public class StoreMenu : MonoBehaviour
 
     public void Fill()
     {
+        _defaultSpell.Upgrade();
+        AddWare(_defaultSpell);
+        _playerSpellsHolder.SetDefaultSpell(_defaultSpell);
+
         foreach (var wareData in _waresData)
             AddWare(wareData);
     }
