@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 3794f280dbc1a43e0b04594ca6a1a998, type: 3}
-  _lable: DefaultSpell2
-  _cost: 3
-  _damage: 4
+  _sprite: {fileID: 21300000, guid: a8d438de861ba7440985df84a2683092, type: 3}
+  _lable: Light
+  _cost: 10
+  _damage: 15
   _element: 0

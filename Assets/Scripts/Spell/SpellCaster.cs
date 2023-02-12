@@ -34,6 +34,7 @@ public class SpellCaster : MonoBehaviour
         if (_spellTemplate == null)
             throw new System.InvalidOperationException();
 
+        _elapsedTime = 0;
         enabled = true;
     }
 

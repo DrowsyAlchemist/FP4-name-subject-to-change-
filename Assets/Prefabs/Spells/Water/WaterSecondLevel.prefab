@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29ac469b02dc1545888fc7c0034651a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: fa3b5af8b8a824631a410c89b9a37527, type: 3}
-  _lable: WaterSpell
+  _sprite: {fileID: 21300000, guid: eeae5c5cd0c3184449ead7e6398e9b0b, type: 3}
+  _lable: Water
   _cost: 5
   _damage: 2
   _element: 5

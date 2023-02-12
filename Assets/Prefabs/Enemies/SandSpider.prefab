@@ -353,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4520133561324810047}
   - component: {fileID: 4520133561324810042}
-  - component: {fileID: -4636677439572509594}
+  - component: {fileID: 7284948549425387155}
   - component: {fileID: 8677068163778304373}
   - component: {fileID: 4520133561324810040}
   - component: {fileID: 7630886281267146401}
@@ -379,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 4520133561324810035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: -0.7}
+  m_LocalScale: {x: 0.4, y: 0.4, z: -0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1677262048834876384}
@@ -403,8 +403,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!135 &-4636677439572509594
-SphereCollider:
+--- !u!136 &7284948549425387155
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -413,9 +413,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.3
-  m_Center: {x: 0, y: 1.3, z: -0.3}
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &8677068163778304373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477b5c1abdf0cb046bc9b759269ecec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 3
+  _initialHealth: 30
   _healthRenderer: {fileID: 5304447108040010924}
   _reward: 2
   _element: 4
@@ -473,7 +474,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 5251742563393623562}
   - {fileID: 471629069615094961}
-  _speed: 1.5
+  _speed: 2.5
 --- !u!114 &5251742563393623562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1878976116627881056}
+  _velocity: 0
 --- !u!114 &1878976116627881056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2944421332196631207}
-  _seconds: 1
+  _seconds: 0.7
 --- !u!1 &5160023341566725691
 GameObject:
   m_ObjectHideFlags: 0

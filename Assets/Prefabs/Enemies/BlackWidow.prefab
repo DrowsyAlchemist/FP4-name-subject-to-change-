@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657523496991153132}
   - component: {fileID: 4657523496991153129}
-  - component: {fileID: 5122006358193455201}
+  - component: {fileID: -8410937177852409970}
   - component: {fileID: 464793192936254886}
   - component: {fileID: 4657523496991153131}
   - component: {fileID: 1728889483961768562}
@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 4657523496991153120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: -0.7}
+  m_LocalScale: {x: 0.4, y: 0.4, z: -0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7592701209655150387}
@@ -149,8 +149,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!135 &5122006358193455201
-SphereCollider:
+--- !u!136 &-8410937177852409970
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,9 +159,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.3
-  m_Center: {x: 0, y: 1.3, z: -0.3}
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &464793192936254886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477b5c1abdf0cb046bc9b759269ecec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 3
+  _initialHealth: 40
   _healthRenderer: {fileID: 4000687397136619647}
-  _reward: 2
+  _reward: 4
   _element: 3
 --- !u!114 &1728889483961768562
 MonoBehaviour:
@@ -219,7 +220,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 3961361717959008985}
   - {fileID: 8688557847371360354}
-  _speed: 1.5
+  _speed: 2.2
 --- !u!114 &3961361717959008985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 6252345306945345140}
-  _seconds: 1
+  _seconds: 0.7
 --- !u!1 &7312506960781768226
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 2430214093452905648}
-  _speed: 8
+  _speed: 8.5
 --- !u!114 &1284605283971598044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +230,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _secondsBetweenCasts: 1
   _castPoint: {fileID: 1284605284765505663}
-  _defaultSpellTemplate: {fileID: -6474589379477742165, guid: 22a45643666353d4a8f1f029714d9ebc, type: 3}
 --- !u!1001 &1284605283855281430
 PrefabInstance:
   m_ObjectHideFlags: 0

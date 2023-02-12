@@ -37,7 +37,7 @@ public class Health: ITakeDamage
         CurrentHealthChanged?.Invoke(CurrentHealth);
     }
 
-    public void IncreaseMaxHealth(int value)
+    public void IncreaseMaxHealth(float value)
     {
         if (value <= 0)
             throw new ArgumentOutOfRangeException("value");

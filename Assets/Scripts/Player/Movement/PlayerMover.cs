@@ -20,7 +20,7 @@ public class PlayerMover : Mover
 
     private void Update()
     {
-        Vector3 direction = _input.GetDirection();
+        Vector3 direction = _input.GetDirection().normalized;
         _rigidbody.velocity = direction * _speed;
     }
 }

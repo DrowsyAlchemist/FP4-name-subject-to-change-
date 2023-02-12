@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class Game : MonoBehaviour
         else
         {
             _instance = this;
-
         }
     }
 
@@ -39,19 +39,13 @@ public class Game : MonoBehaviour
         _menuWindow.PlayButtonClicked += StartGame;
     }
 
-    private void OnDestroy()
-    {
-        _menuWindow.PlayButtonClicked -= StartGame;
-    }
-
     private void Update()
     {
         if (_aliveEnemiesHolder.Count == 0)
         {
             _levelMessage.Show("Victory!");
             _player.StopPlaying();
-            _wall.Health.IncreaseMaxHealth(10);
-            _wall.Health.RestoreHealth(_wall.Health.MaxHealth / 2);
+            _wall.Upgrade();
             enabled = false;
             StartCoroutine(StartNextLevelWithDelay(_secondsBetweenLevels));
         }
@@ -67,7 +61,7 @@ public class Game : MonoBehaviour
         _wall.Destroyed += OnWallDestroyed;
         _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
         _enemySpawner.AllowSpawning();
-        _level.LevelFinished += OnLevelFinished;
+        _level.LevelFinished += () => enabled = true;
         StartCoroutine(StartNextLevelWithDelay(0));
     }
 
@@ -79,11 +73,6 @@ public class Game : MonoBehaviour
         _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
     }
 
-    private void OnLevelFinished()
-    {
-        enabled = true;
-    }
-
     private void OnWallDestroyed()
     {
         _wall.Destroyed -= OnWallDestroyed;
@@ -91,12 +80,12 @@ public class Game : MonoBehaviour
         _player.StopPlaying();
         _enemySpawner.StopSpawning();
         _aliveEnemiesHolder.StopAllEnemies();
-        StartCoroutine(ShowMenu());
+        StartCoroutine(Restart());
     }
 
-    private IEnumerator ShowMenu()
+    private IEnumerator Restart()
     {
         yield return new WaitForSeconds(2);
-        _menuWindow.Open();
+        SceneManager.LoadScene(0);
     }
 }

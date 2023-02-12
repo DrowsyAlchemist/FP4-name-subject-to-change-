@@ -10,15 +10,6 @@ public class StoreMenu : MonoBehaviour
     [SerializeField] private AvailableSpellsHolder _playerSpellsHolder;
     [SerializeField] private Mana _playerMana;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameObject.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }
-
     private void OnDestroy()
     {
         foreach (var wareRenderer in _waresContainer.GetComponentsInChildren<WareRenderer>())
@@ -50,11 +41,10 @@ public class StoreMenu : MonoBehaviour
         if (_playerMana.ManaStorage.CanGiveMana(cost))
         {
             _playerMana.ManaStorage.GiveMana(cost);
-
-            if (renderer.WareData.UpgradeLevel == 0)
-                _playerSpellsHolder.AddSpell(renderer.WareData);
-
             ware.Upgrade();
+
+            if (renderer.WareData.UpgradeLevel == 1)
+                _playerSpellsHolder.AddSpell(renderer.WareData);
         }
     }
 }

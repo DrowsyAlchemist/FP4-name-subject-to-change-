@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29ac469b02dc1545888fc7c0034651a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 2485c9e6454994b36a896bc87d27d1b3, type: 3}
-  _lable: WindSpell
-  _cost: 45
+  _sprite: {fileID: 21300000, guid: 18b2fad355233d94687fd4b8eec64c87, type: 3}
+  _lable: Wind
+  _cost: 1000
   _damage: 2
   _element: 2
   _targetLayers:
