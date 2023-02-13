@@ -114,4 +114,4 @@ MonoBehaviour:
   _healthRenderer: {fileID: 0}
   _element: 0
   _healthUpgradeModifier: 0.2
-  _healthRestoreModifier: 0.5
+  _healthRestoreModifier: 0.3

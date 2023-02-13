@@ -8,7 +8,7 @@ public class Wall : MonoBehaviour, ITakeDamage
     [SerializeField] private ElementType _element;
 
     [SerializeField] private float _healthUpgradeModifier = 0.2f;
-    [SerializeField] private float _healthRestoreModifier = 0.5f;
+    [SerializeField] private float _healthRestoreModifier = 0.3f;
 
     private Health _health;
 

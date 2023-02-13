@@ -1,6 +1,6 @@
 public enum ElementType
 {
-    Default,
+    Light,
     Fire,
     Wind,
     Lightning,

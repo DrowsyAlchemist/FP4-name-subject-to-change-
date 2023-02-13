@@ -126,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: a8d438de861ba7440985df84a2683092, type: 3}
   _lable: Light
-  _cost: 50
-  _damage: 15
+  _cost: 200
+  _damage: 25
   _element: 0
   _targetLayers:
     serializedVersion: 2

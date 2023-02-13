@@ -26,7 +26,7 @@ public class Health: ITakeDamage
         if (damage < 0)
             throw new ArgumentOutOfRangeException();
 
-        damage *= ElementsInteraction.GetInteractionModifier(transmittingElement, _element);
+        damage *= Element.GetInteractionModifier(transmittingElement, _element);
         CurrentHealth -= damage;
 
         if (CurrentHealth <= 0)

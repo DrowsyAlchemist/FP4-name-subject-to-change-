@@ -126,6 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 6abdae2595ec1154688adfcb6d98621e, type: 3}
   _lable: Lightning
-  _cost: 1000
+  _cost: 30
   _damage: 20
   _element: 3

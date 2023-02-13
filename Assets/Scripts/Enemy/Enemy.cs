@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour, ITakeDamage
     [SerializeField] private int _reward = 2;
     [SerializeField] private ElementType _element;
 
+    [SerializeField] private ElementShower _elementShower;
+
     private EnemyStateMachine _stateMachine;
     private CharacterAnimator _animator;
 
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     public void TakeDamage(float damage, ElementType transmittingElement)
     {
         _health.TakeDamage(damage, transmittingElement);
+        _elementShower.Show(Element);
     }
 
     private void OnHealthChanged(float health)
