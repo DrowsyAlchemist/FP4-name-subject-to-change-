@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343667705536961124}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 2, z: 0.41}
+  m_LocalScale: {x: 6, y: 2, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,5 +113,5 @@ MonoBehaviour:
   _initialhealth: 100
   _healthRenderer: {fileID: 0}
   _element: 0
-  _healthUpgradeModifier: 0.2
-  _healthRestoreModifier: 0.3
+  _healthUpgradeModifier: 0.05
+  _healthRestoreModifier: 0.1

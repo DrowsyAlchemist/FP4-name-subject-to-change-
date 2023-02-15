@@ -8,12 +8,12 @@ public class AttackState : EnemyState
     [SerializeField] private float _secondsBetweenAttacks;
     [SerializeField] private float _attackDelay;
 
-    private ElementType _element;
+    private Enemy _enemy;
     private float _elapsedTime;
 
     private void Start()
     {
-        _element = GetComponent<Enemy>().Element;
+        _enemy = GetComponent<Enemy>();
     }
 
     private void OnEnable()
@@ -37,6 +37,8 @@ public class AttackState : EnemyState
     {
         EnemyAnimator.PlayAttack();
         yield return new WaitForSeconds(_attackDelay);
-        Game.Wall.TakeDamage(_damage, _element);
+
+        if (_enemy.IsAlive)
+            Game.Wall.TakeDamage(_damage, _enemy.Element);
     }
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc3031ce94ca34d47b03af506b89db8e, type: 3}
-  m_Name: DefaultSpell
+  m_Name: LightSpell
   m_EditorClassIdentifier: 
-  _id: DefaultSpell
+  _id: LightSpell
   _firstLevelSpell: {fileID: -6474589379477742165, guid: 22a45643666353d4a8f1f029714d9ebc, type: 3}
-  _secondLevelSpell: {fileID: -3433314907896393448, guid: a790dacc7c3889a4aa1a5b5cfb0d2e82, type: 3}
-  _thirdLevelSpell: {fileID: -3375604009042061482, guid: f54a713904f3c604584f3522254e0899, type: 3}
+  _secondLevelSpell: {fileID: -3375604009042061482, guid: f54a713904f3c604584f3522254e0899, type: 3}
+  _thirdLevelSpell: {fileID: -3433314907896393448, guid: a790dacc7c3889a4aa1a5b5cfb0d2e82, type: 3}
   _fourthLevelSpell: {fileID: -6474589379477742165, guid: c3aa2604fc6953a4180d408b16b230f1, type: 3}

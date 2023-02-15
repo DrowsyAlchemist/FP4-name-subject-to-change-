@@ -185,7 +185,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 184
+    width: 218
     height: 559
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
@@ -216,7 +216,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 183
+    width: 217
     height: 538
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 1a660000
       m_LastClickedID: 0
-      m_ExpandedIDs: dc08ecffc69ffcff8c36fdff746afeff1e6bfeff966ffeff7472feff5e6effff2afbffff8c620000ee62000018630000206300005a63000084630000b2630000be630000de6300003a6400004e640000526400007464000098640000ac640000
+      m_ExpandedIDs: c036e5ffdc08ecffc69ffcff8c36fdff746afeff1e6bfeff966ffeff7472feff5e6effff2afbffff8c620000ee62000018630000206300005a63000084630000b2630000be630000de630000e8630000146400003a6400004e64000052640000626400007464000098640000ac640000b0640000c2640000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -266,12 +266,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 184
+    x: 218
     y: 0
-    width: 491
+    width: 457
     height: 559
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -297,9 +297,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 184
+    x: 218
     y: 73
-    width: 489
+    width: 455
     height: 538
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.1432625, y: -7.997266, z: 9.392911}
+    m_Target: {x: -1.1032176, y: -6.292057, z: 4.570283}
     speed: 2
-    m_Value: {x: -1.1432625, y: -7.997266, z: 9.392911}
+    m_Value: {x: -1.1032176, y: -6.292057, z: 4.570283}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -606,13 +606,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.004745634, y: -0.9952676, z: 0.0658433, w: 0.07176551}
+    m_Target: {x: 0.4431173, y: 0.0037572058, z: -0.0018459304, w: 0.8964939}
     speed: 2
-    m_Value: {x: 0.004745478, y: -0.9952349, z: 0.06584113, w: 0.07176315}
+    m_Value: {x: 0.4431014, y: 0.003757071, z: -0.0018458641, w: 0.8964617}
   m_Size:
-    m_Target: 3.06724
+    m_Target: 13.939574
     speed: 2
-    m_Value: 3.06724
+    m_Value: 13.939574
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -861,7 +861,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1723364
+  m_LastSelectedObjectID: 25528
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 139933
+  controlID: 166189
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -955,21 +955,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Enemies
+    - Assets/Scripts/ScriptableObjects/Spells
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Enemies
+  - Assets/Scripts/ScriptableObjects/Spells
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub\FP4-name-subject-to-change-
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 389}
-    m_SelectedIDs: b6710000
-    m_LastClickedID: 29110
+    scrollPos: {x: 0, y: 629}
+    m_SelectedIDs: ce710000
+    m_LastClickedID: 29134
     m_ExpandedIDs: 0000000050710000527100005471000056710000587100005a7100005c7100005e71000060710000627100006471000066710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1023,8 +1023,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 1a660000
+    m_LastClickedInstanceID: 26138
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300008cbd00006abd000072bd000050bd00009a99030068e8010090650000c0e8010042e901009a6500007a6d0600846d060000000000cc660000d0620100
     m_RenameOverlay:
@@ -1149,22 +1149,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/UI
+    - Assets/Prefabs/Spells/Wind
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/UI
+  - Assets/Prefabs/Spells/Wind
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub\FP4-name-subject-to-change-
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 437}
-    m_SelectedIDs: bc710000
-    m_LastClickedID: 29116
-    m_ExpandedIDs: 0000000050710000527100005471000056710000587100005a7100005c7100005e71000060710000627100006471000066710000
+    scrollPos: {x: 0, y: 533}
+    m_SelectedIDs: 5cea0000
+    m_LastClickedID: 59996
+    m_ExpandedIDs: 0000000050710000527100005471000056710000587100005a7100005c7100005e71000060710000627100006471000066710000ba710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1217,24 +1217,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 1a660000
+    m_LastClickedInstanceID: 26138
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 646600008cbd000076bd000072bd00006abd0000104f0300044f03000a4f0300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Water
+      m_OriginalName: Water
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 59994
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 16}
     m_CreateAssetUtility:

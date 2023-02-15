@@ -15,13 +15,13 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     [SerializeField] private ElementShower _elementShower;
 
+    private Health _health;
     private EnemyStateMachine _stateMachine;
     private CharacterAnimator _animator;
 
     public ElementType Element => _element;
     public int Reward => _reward;
-
-    private Health _health;
+    public bool IsAlive { get; private set; } = true;
 
     public event Action<Enemy> Died;
 
@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         if (health <= 0)
         {
+            IsAlive = false;
             StartCoroutine(Die());
             Died?.Invoke(this);
         }

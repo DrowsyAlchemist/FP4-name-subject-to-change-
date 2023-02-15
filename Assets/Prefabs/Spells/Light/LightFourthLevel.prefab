@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4785126266395327686}
   - component: {fileID: -6474589379477742165}
   m_Layer: 0
-  m_Name: DefaultFourthLevel
+  m_Name: LightFourthLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

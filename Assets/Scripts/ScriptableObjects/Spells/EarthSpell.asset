@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: EarthSpell
   _firstLevelSpell: {fileID: 4785126266395327685, guid: 9b4090748ba08e5489142190c8525131, type: 3}
-  _secondLevelSpell: {fileID: 6592590523475553745, guid: 2da5a1e9c4b279e4cad09f9790a12bce, type: 3}
-  _thirdLevelSpell: {fileID: 6076625020219967941, guid: 7f2f6605af97a464c8b8618ed3e158c3, type: 3}
+  _secondLevelSpell: {fileID: 6076625020219967941, guid: 7f2f6605af97a464c8b8618ed3e158c3, type: 3}
+  _thirdLevelSpell: {fileID: 6592590523475553745, guid: 2da5a1e9c4b279e4cad09f9790a12bce, type: 3}
   _fourthLevelSpell: {fileID: 4785126266395327685, guid: 4633997d2e41d664b96be1d6effdcc2a, type: 3}

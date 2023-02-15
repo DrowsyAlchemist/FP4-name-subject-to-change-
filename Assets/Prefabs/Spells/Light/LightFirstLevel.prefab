@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4785126266395327738}
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
-  - component: {fileID: -3433314907896393448}
+  - component: {fileID: -6474589379477742165}
   m_Layer: 0
-  m_Name: DefaultSecondLevel
+  m_Name: LightFirstLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
---- !u!114 &-3433314907896393448
+--- !u!114 &-6474589379477742165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,15 +121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785126266395327736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29ac469b02dc1545888fc7c0034651a, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38c57d0b043a45ae88ad502a497f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: a8d438de861ba7440985df84a2683092, type: 3}
   _lable: Light
-  _cost: 200
-  _damage: 25
+  _cost: 0
+  _damage: 15
   _element: 0
-  _targetLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  _explosionRadius: 1.75
