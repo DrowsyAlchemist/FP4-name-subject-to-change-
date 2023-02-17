@@ -32,6 +32,16 @@ public class Wall : MonoBehaviour, ITakeDamage
         _health.RestoreHealth(_health.MaxHealth * _healthRestoreModifier);
     }
 
+    public void RestoreHealth(float percents)
+    {
+        if (percents < 0)
+            throw new ArgumentOutOfRangeException();
+
+        int maxPercent = 100;
+        float restoreValue = _health.MaxHealth * percents / maxPercent;
+        _health.RestoreHealth(restoreValue);
+    }
+
     private void OnHealthOver()
     {
         _health.HealthIsOver -= OnHealthOver;

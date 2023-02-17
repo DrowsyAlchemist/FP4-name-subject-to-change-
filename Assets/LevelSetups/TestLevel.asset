@@ -16,6 +16,6 @@ MonoBehaviour:
   _waves:
   - _secondsBetweenOrders: 0
     _enemySequences:
-    - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
+    - _enemyTemplate: {fileID: 4224802919306438436, guid: 8e797b54786a7ee43913a550dd985a01, type: 3}
       _enemyCount: 2
       _spawnDelay: 1

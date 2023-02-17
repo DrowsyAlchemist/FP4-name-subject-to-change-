@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477b5c1abdf0cb046bc9b759269ecec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 3
+  _initialHealth: 130
   _healthRenderer: {fileID: 2905788651486927928}
-  _reward: 2
+  _reward: 30
   _element: 5
   _elementShower: {fileID: 5707601840985825116}
 --- !u!114 &7925601961243141821
@@ -233,7 +233,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 5546972734753168918}
   - {fileID: 184839426541278381}
-  _speed: 1.5
+  _speed: 3.3
 --- !u!114 &5546972734753168918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
-  _damage: 5
+  _damage: 15
   _secondsBetweenAttacks: 1.35
   _attackDelay: 0.3
 --- !u!114 &184839426541278381

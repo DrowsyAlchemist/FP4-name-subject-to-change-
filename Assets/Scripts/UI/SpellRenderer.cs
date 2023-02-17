@@ -10,7 +10,6 @@ public class SpellRenderer : MonoBehaviour
     [SerializeField] private Image _highlightedFrame;
     [SerializeField] private TMP_Text _levelText;
 
-
     public UpgradeableSpellData SpellData { get; private set; }
 
     public event Action<SpellRenderer> ButtonClicked;

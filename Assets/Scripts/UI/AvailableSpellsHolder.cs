@@ -43,6 +43,14 @@ public class AvailableSpellsHolder : MonoBehaviour
             _highlighted = spellRenderer;
             _caster.SetSpell(combatSpell);
         }
+        else if (spellRenderer.SpellData.GetCurrentSpell() is WallRepairSpell wallRepairSpell)
+        {
+            wallRepairSpell.Use();
+        }
+        else
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     private void OnSpellUpgraded(UpgradeableSpellData spellData)

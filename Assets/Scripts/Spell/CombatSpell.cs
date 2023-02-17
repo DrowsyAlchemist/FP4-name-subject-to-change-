@@ -17,11 +17,17 @@ public abstract class CombatSpell : UpgradeableSpell
         _mover = GetComponent<Mover>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Hit(other);
+    }
+
+    protected abstract void Hit(Collider collider);
+
     public void Launch()
     {
         _mover.StartMovement();
     }
-
 
     private void OnValidate()
     {

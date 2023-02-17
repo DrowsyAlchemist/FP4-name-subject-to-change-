@@ -24,13 +24,9 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         if (_instance != null)
-        {
             Destroy(gameObject);
-        }
         else
-        {
             _instance = this;
-        }
     }
 
     private void Start()
