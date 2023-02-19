@@ -4,11 +4,10 @@ using UnityEngine;
 public class Wall : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private float _initialhealth = 100;
-    [SerializeField] private HealthRenderer _healthRenderer;
+    [SerializeField] private float _wallRepairBetweenLevelsPercents = 15;
     [SerializeField] private ElementType _element;
-
-    [SerializeField] private float _healthUpgradeModifier = 0.2f;
-    [SerializeField] private float _healthRestoreModifier = 0.3f;
+    [SerializeField] private HealthRenderer _healthRenderer;
+    [SerializeField] private Game _game;
 
     private Health _health;
 
@@ -19,6 +18,7 @@ public class Wall : MonoBehaviour, ITakeDamage
         _health = new Health(_initialhealth, _element);
         _health.HealthIsOver += OnHealthOver;
         _healthRenderer.Render(_health);
+        _game.LevelFinished += () => Repair(_wallRepairBetweenLevelsPercents);
     }
 
     public void TakeDamage(float damage, ElementType transmittingElement)
@@ -26,13 +26,16 @@ public class Wall : MonoBehaviour, ITakeDamage
         _health.TakeDamage(damage, transmittingElement);
     }
 
-    public void Upgrade()
+    public void IncreaseMaxHealth(float value)
     {
-        _health.IncreaseMaxHealth(_health.MaxHealth * _healthUpgradeModifier);
-        _health.RestoreHealth(_health.MaxHealth * _healthRestoreModifier);
+        if (value < 0)
+            throw new ArgumentOutOfRangeException();
+
+        _health.IncreaseMaxHealth(value);
+        _health.RestoreHealth(value);
     }
 
-    public void RestoreHealth(float percents)
+    public void Repair(float percents)
     {
         if (percents < 0)
             throw new ArgumentOutOfRangeException();

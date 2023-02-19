@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public abstract class UIButton : MonoBehaviour
 {
-    [SerializeField] private Button _button;
+    [SerializeField] protected Button Button;
 
     private void Start()
     {
-        _button.onClick.AddListener(OnButtonClick);
+        Button.onClick.AddListener(OnButtonClick);
     }
 
     private void OnDestroy()
     {
-        _button.onClick.RemoveListener(OnButtonClick);
+        Button.onClick.RemoveListener(OnButtonClick);
     }
 
     protected abstract void OnButtonClick();

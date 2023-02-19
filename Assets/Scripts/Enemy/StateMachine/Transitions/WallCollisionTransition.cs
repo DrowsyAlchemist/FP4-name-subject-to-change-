@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class WallCollisionTransition : EnemyTransition
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out Wall _))
             NeedTransit = true;

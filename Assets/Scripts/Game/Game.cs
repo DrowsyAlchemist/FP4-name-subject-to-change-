@@ -46,7 +46,6 @@ public class Game : MonoBehaviour
         {
             _levelMessage.Show("Victory!");
             _player.StopPlaying();
-            _wall.Upgrade();
             enabled = false;
             LevelFinished?.Invoke();
             StartCoroutine(StartNextLevelWithDelay(_secondsBetweenLevels));
@@ -96,12 +95,6 @@ public class Game : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(0);
-
-#if !UNITY_WEBGL || UNITY_EDITOR
-        yield break;
-#endif
-
-        VideoAd.Show(onOpenCallback: () => Time.timeScale = 0, onCloseCallback: () => Time.timeScale = 1);
     }
 
     private IEnumerator InitYandexSDK()

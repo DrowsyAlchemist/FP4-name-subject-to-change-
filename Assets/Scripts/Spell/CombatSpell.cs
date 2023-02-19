@@ -6,6 +6,7 @@ public abstract class CombatSpell : UpgradeableSpell
 {
     [SerializeField] private int _damage = 1;
     [SerializeField] private ElementType _element;
+    [SerializeField] private GameObject _hitEffectTemplate;
 
     private Mover _mover;
 
@@ -19,6 +20,7 @@ public abstract class CombatSpell : UpgradeableSpell
 
     private void OnTriggerEnter(Collider other)
     {
+        Instantiate(_hitEffectTemplate, transform.position, Quaternion.identity, null);
         Hit(other);
     }
 

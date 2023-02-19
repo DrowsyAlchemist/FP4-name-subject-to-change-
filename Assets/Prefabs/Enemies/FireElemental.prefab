@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
-  _damage: 15
+  _damage: 10
   _secondsBetweenAttacks: 1.35
   _attackDelay: 0.3
 --- !u!114 &-5306624921358122104

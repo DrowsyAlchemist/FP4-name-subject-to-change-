@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHealth: 50
   _healthRenderer: {fileID: 3800688000054269776}
-  _reward: 5
+  _reward: 8
   _element: 3
   _elementShower: {fileID: 6041815678279554100}
 --- !u!114 &1728889483961768562
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
-  _damage: 10
+  _damage: 7
   _secondsBetweenAttacks: 1.35
   _attackDelay: 0.35
 --- !u!114 &8688557847371360354
