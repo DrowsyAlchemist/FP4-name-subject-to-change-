@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Agava.YandexGames;
+using System;
 
 public class Game : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Game : MonoBehaviour
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
     public static Wall Wall => _instance._wall;
+
+    public event Action LevelFinished;
 
     private void Awake()
     {
@@ -45,6 +48,7 @@ public class Game : MonoBehaviour
             _player.StopPlaying();
             _wall.Upgrade();
             enabled = false;
+            LevelFinished?.Invoke();
             StartCoroutine(StartNextLevelWithDelay(_secondsBetweenLevels));
         }
     }
@@ -59,7 +63,7 @@ public class Game : MonoBehaviour
         _wall.Destroyed += OnWallDestroyed;
         _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
         _enemySpawner.AllowSpawning();
-        _level.LevelFinished += () => enabled = true;
+        _level.EnemySpawnFinished += () => enabled = true;
         StartCoroutine(StartNextLevelWithDelay(0));
     }
 

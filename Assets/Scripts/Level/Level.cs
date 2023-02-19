@@ -9,7 +9,7 @@ public class Level : MonoBehaviour
 
     public int CurrentLevel { get; private set; } = -1;
 
-    public event Action LevelFinished;
+    public event Action EnemySpawnFinished;
 
     private void Awake()
     {
@@ -37,6 +37,6 @@ public class Level : MonoBehaviour
 
     private void OnLevelFinished()
     {
-        LevelFinished?.Invoke();
+        EnemySpawnFinished?.Invoke();
     }
 }
