@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Agava.YandexGames;
 
 public class Game : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InitYandexSDK());
         enabled = false;
         _menuWindow.PlayButtonClicked += StartGame;
     }
@@ -67,6 +69,13 @@ public class Game : MonoBehaviour
         _player.Play();
         _level.StartNextLevel();
         _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+        yield break;
+#endif
+
+        if (_level.CurrentLevel % 2 == 1)
+            InterstitialAd.Show(onOpenCallback: () => Time.timeScale = 0, onCloseCallback: (_) => Time.timeScale = 1);
     }
 
     private void OnWallDestroyed()
@@ -83,5 +92,21 @@ public class Game : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(0);
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+        yield break;
+#endif
+
+        VideoAd.Show(onOpenCallback: () => Time.timeScale = 0, onCloseCallback: () => Time.timeScale = 1);
+    }
+
+    private IEnumerator InitYandexSDK()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        yield break;
+#endif
+
+        while (YandexGamesSdk.IsInitialized == false)
+            yield return YandexGamesSdk.Initialize();
     }
 }

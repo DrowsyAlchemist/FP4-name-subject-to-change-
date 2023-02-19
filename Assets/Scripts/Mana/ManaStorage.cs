@@ -2,7 +2,7 @@ using System;
 
 public class ManaStorage
 {
-    public int Amount { get; private set; } = 1000;
+    public int Amount { get; private set; } // = 1000;
 
     public event Action<int> AmountChanged;
 
