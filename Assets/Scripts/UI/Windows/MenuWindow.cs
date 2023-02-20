@@ -22,11 +22,13 @@ public class MenuWindow : MonoBehaviour
     public void Open()
     {
         _window.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Close()
     {
         _window.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void OnPlayButtonClicked()

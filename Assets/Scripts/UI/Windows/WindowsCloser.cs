@@ -3,6 +3,7 @@ using UnityEngine;
 public class WindowsCloser : MonoBehaviour
 {
     [SerializeField] private RectTransform[] _windowsToClose;
+    [SerializeField] private RectTransform _pauseWindow;
 
     private static WindowsCloser _instance;
 
@@ -17,7 +18,19 @@ public class WindowsCloser : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            CloseAllAndContinueGame();
+        {
+            foreach (var window in _windowsToClose)
+            {
+                if (window.gameObject.activeSelf == true)
+                {
+                    CloseAllAndContinueGame();
+                    return;
+                }
+                _pauseWindow.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
     }
 
     public static void CloseAllAndContinueGame()
