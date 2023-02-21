@@ -130,6 +130,7 @@ MonoBehaviour:
   _cost: 30
   _damage: 15
   _element: 2
+  _hitEffectTemplate: {fileID: 1459862227383078, guid: fc3d0811404303d48bd2c14c6b3de22c, type: 3}
 --- !u!1001 &8351049817278604694
 PrefabInstance:
   m_ObjectHideFlags: 0

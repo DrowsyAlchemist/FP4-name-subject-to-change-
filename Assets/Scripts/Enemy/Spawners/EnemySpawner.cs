@@ -20,21 +20,25 @@ public class EnemySpawner : MonoBehaviour
         IsSpawningAllowed = false;
     }
 
-    public void Spawn(Enemy template)
+    public void Spawn(Enemy template, bool hasShield = false)
     {
         if (template == null)
             throw new ArgumentNullException();
 
         if (IsSpawningAllowed)
-            StartCoroutine(SpawnEnemy(template));
+            StartCoroutine(SpawnEnemy(template, hasShield));
     }
 
-    private IEnumerator SpawnEnemy(Enemy template)
+    private IEnumerator SpawnEnemy(Enemy template, bool hasShield)
     {
         yield return new WaitForEndOfFrame();
         int spawnPointIndex = UnityEngine.Random.Range(0, _spawnPoints.Length);
         Transform spawnPoint = _spawnPoints[spawnPointIndex];
         Enemy enemy = Instantiate(template, spawnPoint.position, Quaternion.identity, null);
+
+        if (hasShield)
+            enemy.SetShield();
+
         EnemySpawned?.Invoke(enemy);
     }
 }

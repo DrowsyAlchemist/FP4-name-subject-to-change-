@@ -25,7 +25,7 @@ public sealed class EnemyOrderSpawner : SequenceSpawner
 
     protected override void SpawnNext()
     {
-        _enemySpawner.Spawn(_enemyOrder.EnemyTemplate);
+        _enemySpawner.Spawn(_enemyOrder.EnemyTemplate, _enemyOrder.HasShield);
     }
 
     private void OnEnemySpawned(Enemy _)

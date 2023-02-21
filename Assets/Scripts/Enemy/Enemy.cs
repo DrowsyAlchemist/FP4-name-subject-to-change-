@@ -15,13 +15,17 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     [SerializeField] private ElementShower _elementShower;
 
+    [SerializeField] private Transform _shieldPoint;
+
     private Health _health;
     private EnemyStateMachine _stateMachine;
     private CharacterAnimator _animator;
 
+    public bool IsAlive { get; private set; } = true;
     public ElementType Element => _element;
     public int Reward => _reward;
-    public bool IsAlive { get; private set; } = true;
+    public bool HasShield { get; private set; }
+    public MagicShield Shield { get; private set; }
 
     public event Action<Enemy> Died;
 
@@ -37,6 +41,14 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private void OnDestroy()
     {
         _health.CurrentHealthChanged -= OnHealthChanged;
+    }
+
+    public void SetShield()
+    {
+        HasShield = true;
+        Shield = ShieldCreator.CreateRandomShield();
+        Shield.transform.position = _shieldPoint.position;
+        Shield.transform.SetParent(transform);
     }
 
     public void StopAction()

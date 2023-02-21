@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0da04d6b79eb89442a878a07546a9d3b, type: 2}
+  - {fileID: 2100000, guid: 69c3c648559bfd34eaae3ff327107596, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialhealth: 100
-  _healthRenderer: {fileID: 0}
+  _wallRepairBetweenLevelsPercents: 15
   _element: 0
-  _healthUpgradeModifier: 0.05
-  _healthRestoreModifier: 0.1
+  _healthRenderer: {fileID: 0}
+  _game: {fileID: 0}

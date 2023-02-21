@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ac7291a3c857042b6f495be9aaaae6, type: 3}
   m_Name: MagicShield
   m_EditorClassIdentifier: 
-  _fireShieldMaterial: {fileID: 2100000, guid: 2f30115cf00a6b44caf4547a6f9cf69b, type: 2}
-  _windShieldMaterial: {fileID: 2100000, guid: 88485dca38ca9f34f938f1b8e74910d9, type: 2}
-  _lightningShieldMaterial: {fileID: 2100000, guid: 8102246956ab15544baccd96b9357c12, type: 2}
-  _earthShieldMaterial: {fileID: 2100000, guid: ed1bd1eae7075154e91c87a5b4d01af4, type: 2}
-  _waterShieldMaterial: {fileID: 2100000, guid: 0da04d6b79eb89442a878a07546a9d3b, type: 2}
+  _fireShieldMaterial: {fileID: 2100000, guid: 77ac2c1ae17c2724b98f9e792b98fd67, type: 2}
+  _windShieldMaterial: {fileID: 2100000, guid: a43883051dc9ea246869c15d0017303a, type: 2}
+  _lightningShieldMaterial: {fileID: 2100000, guid: 6def409dc71c70c459673f933b520f8c, type: 2}
+  _earthShieldMaterial: {fileID: 2100000, guid: 00ad06370081a414989c61033ec38e44, type: 2}
+  _waterShieldMaterial: {fileID: 2100000, guid: f2c61814cb4181a4ba06385d10e71caf, type: 2}

@@ -130,6 +130,7 @@ MonoBehaviour:
   _cost: 250
   _damage: 20
   _element: 1
+  _hitEffectTemplate: {fileID: 1845955007268882, guid: 4cabf25c31d288c49a8f3c404269fd50, type: 3}
   _targetLayers:
     serializedVersion: 2
     m_Bits: 8
