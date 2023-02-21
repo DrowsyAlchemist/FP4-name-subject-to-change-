@@ -134,7 +134,7 @@ MonoBehaviour:
   _targetLayers:
     serializedVersion: 2
     m_Bits: 8
-  _explosionRadius: 1.75
+  _explosionRadius: 2
 --- !u!1 &7085529574228545056
 GameObject:
   m_ObjectHideFlags: 0

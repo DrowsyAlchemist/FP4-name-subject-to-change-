@@ -4968,7 +4968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelSpawner: {fileID: 808878917}
   _levelSetups:
-  - {fileID: 11400000, guid: 3c633766fbf93f34b8a66d27835204d2, type: 2}
+  - {fileID: 11400000, guid: dc84322f5219f074a83bc657611ec7dd, type: 2}
   - {fileID: 11400000, guid: 0edb25fcb14749a45bc16d272c89c715, type: 2}
   - {fileID: 11400000, guid: e2bb21c0e9ad65d449aad27b3a531f2f, type: 2}
   - {fileID: 11400000, guid: c67e094f8153d3c4489eb4c624dfbf22, type: 2}
@@ -4988,6 +4988,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d13b7c7363b887c4b873e4c7274afd25, type: 2}
   - {fileID: 11400000, guid: 1232e1066fdf58e428f0bbab90c2e4a6, type: 2}
   - {fileID: 11400000, guid: cc387220a26a57643a15a291b5a54881, type: 2}
+  - {fileID: 11400000, guid: 541edbe5cbce39542aba84ad00e219e9, type: 2}
 --- !u!1 &839588477
 GameObject:
   m_ObjectHideFlags: 0
