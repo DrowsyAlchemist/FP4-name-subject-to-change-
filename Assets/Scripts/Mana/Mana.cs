@@ -8,7 +8,7 @@ public class Mana : MonoBehaviour
 
     public ManaStorage ManaStorage { get; private set; }
 
-    public void Init (EnemySpawner enemySpawner)
+    public void Init(EnemySpawner enemySpawner)
     {
         ManaStorage = new ManaStorage();
         _manaRenderer.Render(ManaStorage);

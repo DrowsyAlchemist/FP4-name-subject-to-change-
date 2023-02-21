@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Agava.YandexGames;
 using System;
 
@@ -13,6 +12,8 @@ public class Game : MonoBehaviour
     [SerializeField] private Mana _mana;
     [SerializeField] private Wall _wall;
     [SerializeField] private EnemySpawner _enemySpawner;
+
+    [SerializeField] private Score _score;
 
     [SerializeField] private MenuWindow _menuWindow;
 
@@ -31,11 +32,14 @@ public class Game : MonoBehaviour
             Destroy(gameObject);
         else
             _instance = this;
+
+        _score.InitScore();
     }
 
     private void Start()
     {
         StartCoroutine(InitYandexSDK());
+        _score.ResetScore(); ;
         enabled = false;
         _menuWindow.PlayButtonClicked += StartGame;
     }
@@ -44,18 +48,18 @@ public class Game : MonoBehaviour
     {
         if (_aliveEnemiesHolder.Count == 0)
         {
-            _levelMessage.Show("Victory!");
             _player.StopPlaying();
             enabled = false;
             LevelFinished?.Invoke();
+            _levelMessage.Show("Victory!\nScore: " + _score.CurrentScore);
             StartCoroutine(StartNextLevelWithDelay(_secondsBetweenLevels));
         }
     }
 
     private void StartGame()
-    {
+    {   
+        PlayerPrefs.DeleteAll(); /////
         _menuWindow.Close();
-        PlayerPrefs.DeleteAll();
         _store.Fill();
         _mana.Init(_enemySpawner);
         _player.Play();
@@ -94,7 +98,7 @@ public class Game : MonoBehaviour
     private IEnumerator Restart()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
+        _menuWindow.Open();
     }
 
     private IEnumerator InitYandexSDK()

@@ -1,6 +1,6 @@
 using System;
 
-public class Health: ITakeDamage
+public class Health: ITakeDamage, IReadonlyHealth
 {
     private readonly ElementType _element;
 

@@ -11,6 +11,8 @@ public class Wall : MonoBehaviour, ITakeDamage
 
     private Health _health;
 
+    public IReadonlyHealth Health => _health;
+
     public event Action Destroyed;
 
     private void Awake()
