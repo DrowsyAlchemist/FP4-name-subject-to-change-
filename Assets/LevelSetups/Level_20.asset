@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _secondsBetweenWaves: 7
   _waves:
-  - _secondsBetweenOrders: 3
+  - _secondsBetweenOrders: 2
     _enemySequences:
     - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
       _hasShield: 0
-      _enemyCount: 3
-      _spawnDelay: 2
+      _enemyCount: 5
+      _spawnDelay: 1
     - _enemyTemplate: {fileID: 4224802919306438436, guid: 8e797b54786a7ee43913a550dd985a01, type: 3}
       _hasShield: 0
       _enemyCount: 1
       _spawnDelay: 1
     - _enemyTemplate: {fileID: 4657523496991153131, guid: 48057c21ff3f194439345a136716e77f, type: 3}
       _hasShield: 0
-      _enemyCount: 3
+      _enemyCount: 4
       _spawnDelay: 1
     - _enemyTemplate: {fileID: 4224802919306438436, guid: 8e797b54786a7ee43913a550dd985a01, type: 3}
       _hasShield: 0

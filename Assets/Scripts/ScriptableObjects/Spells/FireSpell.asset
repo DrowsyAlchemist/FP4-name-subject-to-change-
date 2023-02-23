@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FireSpell
   m_EditorClassIdentifier: 
   _id: FireSpell
+  _maxLevel: 4
   _firstLevelSpell: {fileID: 4785126266395327685, guid: 34a4295d3ec03b54892e994f28d360ea, type: 3}
   _secondLevelSpell: {fileID: 7804289808415347984, guid: 8044169a4ab3e2f4a963c99d9994bb1d, type: 3}
   _thirdLevelSpell: {fileID: 3772045865992162522, guid: 67509b693545c0e45acf18608cfdc332, type: 3}
-  _fourthLevelSpell: {fileID: 4785126266395327685, guid: c4fbcf467ba57ce4ea179109efa07c8b, type: 3}
+  _fourthLevelSpell: {fileID: -3682678283857250944, guid: c4fbcf467ba57ce4ea179109efa07c8b, type: 3}

@@ -20,12 +20,14 @@ public class RepairWallButton : UIButton
 
 #if !UNITY_WEBGL || UNITY_EDITOR
         _wall.Repair(_restorePercents);
+        _game.OpenPauseMenu();
         return;
 #endif
 
         VideoAd.Show(
             onOpenCallback: () => Time.timeScale = 0,
-            onCloseCallback: () => Time.timeScale = 1,
             onRewardedCallback: () => _wall.Repair(_restorePercents));
+
+        _game.OpenPauseMenu();
     }
 }

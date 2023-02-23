@@ -38,6 +38,7 @@ public class WindowsCloser : MonoBehaviour
         foreach (var window in _instance._windowsToClose)
             window.gameObject.SetActive(false);
 
-        Time.timeScale = 1;
+        if (_instance._pauseWindow.gameObject.activeSelf == false)
+            Time.timeScale = 1;
     }
 }

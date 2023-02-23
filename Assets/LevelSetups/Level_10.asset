@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _secondsBetweenWaves: 1
   _waves:
-  - _secondsBetweenOrders: 4
+  - _secondsBetweenOrders: 3.5
     _enemySequences:
     - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
-      _enemyCount: 4
+      _hasShield: 0
+      _enemyCount: 5
       _spawnDelay: 1
     - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
+      _hasShield: 0
       _enemyCount: 2
-      _spawnDelay: 3
+      _spawnDelay: 2

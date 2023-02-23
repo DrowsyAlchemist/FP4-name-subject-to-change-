@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: WindSpell
   m_EditorClassIdentifier: 
   _id: WindSpell
+  _maxLevel: 4
   _firstLevelSpell: {fileID: 4785126266395327685, guid: 5612fd2ae014a0c45b57c21cf69559ba, type: 3}
   _secondLevelSpell: {fileID: -4001876475553752627, guid: 5b72feefb39734349b0bba336bce0843, type: 3}
   _thirdLevelSpell: {fileID: -4793317783182816516, guid: 78137d52ae7749f4b90243e19fa1db36, type: 3}
-  _fourthLevelSpell: {fileID: 4785126266395327685, guid: 9718c11e8122d774892e71e24da14a6e, type: 3}
+  _fourthLevelSpell: {fileID: 8802051268403374662, guid: 9718c11e8122d774892e71e24da14a6e, type: 3}

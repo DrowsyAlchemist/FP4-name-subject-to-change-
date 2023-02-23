@@ -12,21 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b9bce190970534c95067287adb822e, type: 3}
   m_Name: Level_17
   m_EditorClassIdentifier: 
-  _secondsBetweenWaves: 7
+  _secondsBetweenWaves: 5
   _waves:
-  - _secondsBetweenOrders: 3
+  - _secondsBetweenOrders: 2.5
     _enemySequences:
     - _enemyTemplate: {fileID: 4232342823267937575, guid: ce3b10d985368424fb87461eed735295, type: 3}
+      _hasShield: 0
       _enemyCount: 1
       _spawnDelay: 3
     - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
+      _hasShield: 0
+      _enemyCount: 6
+      _spawnDelay: 1.2
+    - _enemyTemplate: {fileID: 4657523496991153131, guid: 48057c21ff3f194439345a136716e77f, type: 3}
+      _hasShield: 0
       _enemyCount: 4
       _spawnDelay: 1
-    - _enemyTemplate: {fileID: 4657523496991153131, guid: 48057c21ff3f194439345a136716e77f, type: 3}
-      _enemyCount: 4
-      _spawnDelay: 2
   - _secondsBetweenOrders: 3
     _enemySequences:
     - _enemyTemplate: {fileID: 4232342823267937575, guid: ce3b10d985368424fb87461eed735295, type: 3}
+      _hasShield: 0
       _enemyCount: 1
       _spawnDelay: 3

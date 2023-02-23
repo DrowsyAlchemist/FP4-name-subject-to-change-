@@ -19,6 +19,8 @@ public class Game : MonoBehaviour
 
     [SerializeField] private LevelMessage _levelMessage;
 
+    [SerializeField] private RectTransform _pauseMenu;
+
     private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
@@ -56,8 +58,14 @@ public class Game : MonoBehaviour
         }
     }
 
+    public void OpenPauseMenu()
+    {
+        _pauseMenu.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
     private void StartGame()
-    {   
+    {
         PlayerPrefs.DeleteAll(); /////
         _menuWindow.Close();
         _store.Fill();
@@ -67,22 +75,25 @@ public class Game : MonoBehaviour
         _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
         _enemySpawner.AllowSpawning();
         _level.EnemySpawnFinished += () => enabled = true;
-        StartCoroutine(StartNextLevelWithDelay(0));
+        StartNextLevel();
+    }
+
+    private void StartNextLevel()
+    {
+        _player.Play();
+        _level.StartNextLevel();
+        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
     }
 
     private IEnumerator StartNextLevelWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        _player.Play();
-        _level.StartNextLevel();
-        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
-
-#if !UNITY_WEBGL || UNITY_EDITOR
-        yield break;
-#endif
 
         if (_level.CurrentLevel % 2 == 1)
-            InterstitialAd.Show(onOpenCallback: () => Time.timeScale = 0, onCloseCallback: (_) => Time.timeScale = 1);
+            ShowInterstitialAd();
+
+        OpenPauseMenu();
+        StartNextLevel();
     }
 
     private void OnWallDestroyed()
@@ -109,5 +120,13 @@ public class Game : MonoBehaviour
 
         while (YandexGamesSdk.IsInitialized == false)
             yield return YandexGamesSdk.Initialize();
+    }
+
+    private void ShowInterstitialAd()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return;
+#endif
+        InterstitialAd.Show(onOpenCallback: () => Time.timeScale = 0);
     }
 }

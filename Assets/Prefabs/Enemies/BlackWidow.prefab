@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007212096780540390}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.6}
+  m_LocalPosition: {x: 0, y: 1, z: 2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHealth: 50
   _healthRenderer: {fileID: 3800688000054269776}
-  _reward: 8
+  _reward: 10
   _element: 3
   _elementShower: {fileID: 6041815678279554100}
   _shieldPoint: {fileID: 8721059935420636515}
@@ -166,7 +166,7 @@ MonoBehaviour:
   - {fileID: 3961361717959008985}
   - {fileID: 8688557847371360354}
   _speed: 2.3
-  _speedWithShield: 1
+  _speedWithShield: 1.2
 --- !u!114 &3961361717959008985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
-  _damage: 7
+  _damage: 8
   _secondsBetweenAttacks: 1.35
   _attackDelay: 0.35
 --- !u!114 &8688557847371360354

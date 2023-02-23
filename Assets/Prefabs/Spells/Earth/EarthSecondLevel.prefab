@@ -127,14 +127,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 3611180234a0def4081df72d81523243, type: 3}
   _lable: Earth
-  _cost: 250
+  _cost: 300
   _damage: 20
   _element: 4
   _hitEffectTemplate: {fileID: 1845955007268882, guid: 4cabf25c31d288c49a8f3c404269fd50, type: 3}
   _targetLayers:
     serializedVersion: 2
     m_Bits: 8
-  _explosionRadius: 2
+  _explosionRadius: 2.2
 --- !u!1 &7085529574228545056
 GameObject:
   m_ObjectHideFlags: 0

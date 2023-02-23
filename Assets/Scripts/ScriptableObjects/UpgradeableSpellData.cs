@@ -5,13 +5,14 @@ using UnityEngine;
 public class UpgradeableSpellData : ScriptableObject
 {
     [SerializeField] private string _id;
+    [SerializeField] private int _maxLevel = 4;
+
     [SerializeField] private UpgradeableSpell _firstLevelSpell;
     [SerializeField] private UpgradeableSpell _secondLevelSpell;
     [SerializeField] private UpgradeableSpell _thirdLevelSpell;
     [SerializeField] private UpgradeableSpell _fourthLevelSpell;
 
-    public readonly int MaxLevel = 3;
-
+    public int MaxLevel => _maxLevel;
     public int UpgradeLevel => PlayerPrefs.GetInt(_id, 0);
 
     public event Action<UpgradeableSpellData> Upgrated;

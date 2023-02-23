@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: WaterSpell
   m_EditorClassIdentifier: 
   _id: WaterSpell
+  _maxLevel: 4
   _firstLevelSpell: {fileID: 4785126266395327685, guid: 490b78952b8a98741ac6392c18087cda, type: 3}
   _secondLevelSpell: {fileID: -85801714310105250, guid: b929f2ac20a6a8448954bd1820070dbd, type: 3}
   _thirdLevelSpell: {fileID: -5712537015978839173, guid: f9d18d83c82e073438c13141e44f31ea, type: 3}
-  _fourthLevelSpell: {fileID: 4785126266395327685, guid: f07fb4ff14a93654d9b734ae05251e1b, type: 3}
+  _fourthLevelSpell: {fileID: 1652456820678705485, guid: f07fb4ff14a93654d9b734ae05251e1b, type: 3}
