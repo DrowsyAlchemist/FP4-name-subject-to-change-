@@ -57,6 +57,11 @@ public class Enemy : MonoBehaviour, ITakeDamage
         _animator.PlayIdle();
     }
 
+    public void Vanish()
+    {
+        Destroy(gameObject);
+    }
+
     public void TakeDamage(float damage, ElementType transmittingElement)
     {
         _health.TakeDamage(damage, transmittingElement);

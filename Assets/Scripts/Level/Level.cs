@@ -16,6 +16,15 @@ public class Level : MonoBehaviour
         _levelSpawner.SequenceFinished += OnLevelFinished;
     }
 
+    public void StartLevel(int level)
+    {
+        if (level < 0)
+            throw new System.ArgumentOutOfRangeException();
+
+        CurrentLevel = level;
+        _levelSpawner.StartSpawn(_levelSetups[CurrentLevel]);
+    }
+
     public void StartNextLevel()
     {
         CurrentLevel++;

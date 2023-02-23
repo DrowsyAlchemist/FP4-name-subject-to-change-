@@ -21,6 +21,8 @@ public class Game : MonoBehaviour
 
     [SerializeField] private RectTransform _pauseMenu;
 
+    [SerializeField] private RectTransform _gameOverMenu;
+
     private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
@@ -98,18 +100,44 @@ public class Game : MonoBehaviour
 
     private void OnWallDestroyed()
     {
-        _wall.Destroyed -= OnWallDestroyed;
         _levelMessage.Show("GameOver");
         _player.StopPlaying();
-        _enemySpawner.StopSpawning();
         _aliveEnemiesHolder.StopAllEnemies();
-        StartCoroutine(Restart());
+        StartCoroutine(ShowGameOverMenu());
     }
 
-    private IEnumerator Restart()
+    private IEnumerator ShowGameOverMenu()
     {
-        yield return new WaitForSeconds(2);
-        _menuWindow.Open();
+        yield return new WaitForSeconds(_secondsBetweenLevels);
+        _gameOverMenu.gameObject.SetActive(true);
+    }
+
+    public void TryLevelAgain()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+            RestartLevel();
+            return;
+#endif
+
+            VideoAd.Show(
+                onRewardedCallback: () => RestartLevel());
+    }
+
+    private void RestartLevel()
+    {
+        try
+        {
+            _level.StartLevel(_level.CurrentLevel);
+            _aliveEnemiesHolder.KillAllEnemies();
+            _wall.Repair(100);
+            _gameOverMenu.gameObject.SetActive(false);
+            _player.Play();
+            _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
+        }
+        catch (Exception)
+        {
+            Debug.Log("Error!");
+        }
     }
 
     private IEnumerator InitYandexSDK()

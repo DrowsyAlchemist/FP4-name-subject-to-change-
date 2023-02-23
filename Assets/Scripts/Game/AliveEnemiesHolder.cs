@@ -17,6 +17,12 @@ public class AliveEnemiesHolder
             enemy.StopAction();
     }
 
+    public void KillAllEnemies()
+    {
+        foreach (var enemy in _aliveEnemies)
+            enemy.Vanish();
+    }
+
     private void OnEnemySpawned(Enemy enemy)
     {
         enemy.Died += OnEnemyDied;
