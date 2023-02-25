@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
 
     [SerializeField] private Score _score;
 
-    [SerializeField] private MenuWindow _menuWindow;
+    [SerializeField] private MainMenu _menuWindow;
 
     [SerializeField] private LevelMessage _levelMessage;
 
@@ -28,6 +28,7 @@ public class Game : MonoBehaviour
 
     public static Wall Wall => _instance._wall;
 
+    public event Action LevelStarted;
     public event Action LevelFinished;
 
     private void Awake()
@@ -43,9 +44,9 @@ public class Game : MonoBehaviour
     private void Start()
     {
         StartCoroutine(InitYandexSDK());
-        _score.ResetScore(); ;
         enabled = false;
         _menuWindow.PlayButtonClicked += StartGame;
+        _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
     }
 
     private void Update()
@@ -69,15 +70,26 @@ public class Game : MonoBehaviour
     private void StartGame()
     {
         PlayerPrefs.DeleteAll(); /////
+        enabled = false;
         _menuWindow.Close();
+        _score.ResetScore();
         _store.Fill();
-        _mana.Init(_enemySpawner);
-        _player.Play();
         _wall.Destroyed += OnWallDestroyed;
-        _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
+        _aliveEnemiesHolder.KillAllEnemies();
+        _mana.ResetMana();
+
         _enemySpawner.AllowSpawning();
         _level.EnemySpawnFinished += () => enabled = true;
-        StartNextLevel();
+
+
+
+        _level.AbortSpawn();
+        _level.StartLevel(0);
+        _wall.Repair(100);
+        _gameOverMenu.gameObject.SetActive(false);
+        _player.Play();
+        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
+        LevelStarted?.Invoke();
     }
 
     private void StartNextLevel()
@@ -85,6 +97,7 @@ public class Game : MonoBehaviour
         _player.Play();
         _level.StartNextLevel();
         _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
+        LevelStarted?.Invoke();
     }
 
     private IEnumerator StartNextLevelWithDelay(float delay)
@@ -115,29 +128,28 @@ public class Game : MonoBehaviour
     public void TryLevelAgain()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
-            RestartLevel();
-            return;
+        RestartLevel(_level.CurrentLevel);
+        return;
 #endif
 
-            VideoAd.Show(
-                onRewardedCallback: () => RestartLevel());
+        VideoAd.Show(
+            onRewardedCallback: () => RestartLevel(_level.CurrentLevel));
     }
 
-    private void RestartLevel()
+    private void RestartLevel(int level)
     {
-        try
-        {
-            _level.StartLevel(_level.CurrentLevel);
-            _aliveEnemiesHolder.KillAllEnemies();
-            _wall.Repair(100);
-            _gameOverMenu.gameObject.SetActive(false);
-            _player.Play();
-            _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
-        }
-        catch (Exception)
-        {
-            Debug.Log("Error!");
-        }
+        enabled = false;
+        _level.AbortSpawn();
+        _level.StartLevel(level);
+        _aliveEnemiesHolder.KillAllEnemies();
+        _wall.Repair(100);
+        _gameOverMenu.gameObject.SetActive(false);
+        _player.Play();
+        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
+        LevelStarted?.Invoke();
+        _mana.UndoLevelMana();
+        Time.timeScale = 0;
+        _pauseMenu.gameObject.SetActive(true);
     }
 
     private IEnumerator InitYandexSDK()

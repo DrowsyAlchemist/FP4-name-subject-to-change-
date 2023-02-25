@@ -19,8 +19,8 @@ public class AliveEnemiesHolder
 
     public void KillAllEnemies()
     {
-        foreach (var enemy in _aliveEnemies)
-            enemy.Vanish();
+        while (_aliveEnemies.Count > 0)
+            _aliveEnemies[0].Vanish();
     }
 
     private void OnEnemySpawned(Enemy enemy)

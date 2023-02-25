@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MenuWindow : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     [SerializeField] private RectTransform _window;
     [SerializeField] private Button _playButton;

@@ -34,6 +34,12 @@ public abstract class SequenceSpawner : MonoBehaviour
         }
     }
 
+    public virtual void Abort()
+    {
+        enabled = false;
+        _isFinished = true;
+    }
+
     protected abstract void SpawnNext();
 
     protected void SpawnSequence(ISpawnSequence sequence)

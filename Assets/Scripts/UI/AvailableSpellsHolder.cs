@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AvailableSpellsHolder : MonoBehaviour
@@ -6,6 +7,7 @@ public class AvailableSpellsHolder : MonoBehaviour
     [SerializeField] private SpellRenderer _spellRenderer;
     [SerializeField] private SpellCaster _caster;
 
+    private List<SpellRenderer> _spells = new List<SpellRenderer>();
     private SpellRenderer _highlighted;
 
     private void OnDestroy()
@@ -19,6 +21,11 @@ public class AvailableSpellsHolder : MonoBehaviour
 
     public void SetDefaultSpell(UpgradeableSpellData defaultSpell)
     {
+        while(_spells.Count>0)
+        {
+            Destroy(_spells[0].gameObject);
+            _spells.RemoveAt(0);
+        }
         var defaultSpellRenderer = AddSpell(defaultSpell);
         OnRendererClick(defaultSpellRenderer);
     }
@@ -29,6 +36,7 @@ public class AvailableSpellsHolder : MonoBehaviour
         var spellRenderer = Instantiate(_spellRenderer, _container);
         spellRenderer.Render(spellData);
         spellRenderer.ButtonClicked += OnRendererClick;
+        _spells.Add(spellRenderer);
         return spellRenderer;
     }
 

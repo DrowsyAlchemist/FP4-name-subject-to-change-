@@ -8,6 +8,7 @@ public abstract class CombatSpell : UpgradeableSpell
     [SerializeField] private ElementType _element;
     [SerializeField] private GameObject _hitEffectTemplate;
 
+    private Game _game;
     private Mover _mover;
 
     protected int Damage => _damage;
@@ -24,7 +25,23 @@ public abstract class CombatSpell : UpgradeableSpell
         Hit(other);
     }
 
+    private void OnDestroy()
+    {
+        _game.LevelStarted -= OnLevelStarted;
+    }
+
     protected abstract void Hit(Collider collider);
+
+    public void Init(Game game)
+    {
+        _game = game;
+        game.LevelStarted += OnLevelStarted;
+    }
+
+    private void OnLevelStarted()
+    {
+        Destroy(gameObject);
+    }
 
     public void Launch()
     {

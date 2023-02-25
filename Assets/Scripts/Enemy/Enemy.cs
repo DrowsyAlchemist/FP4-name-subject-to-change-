@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     public void Vanish()
     {
+        Died?.Invoke(this);
         Destroy(gameObject);
     }
 
@@ -73,8 +74,8 @@ public class Enemy : MonoBehaviour, ITakeDamage
         if (health <= 0)
         {
             IsAlive = false;
-            StartCoroutine(Die());
             Died?.Invoke(this);
+            StartCoroutine(Die());
         }
     }
 
@@ -83,7 +84,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         _stateMachine.Pause();
         _animator.PlayDie();
         GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<Collider>().isTrigger = true;
+        GetComponent<Collider>().enabled = false;
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(_animator.GetCurrentAnimationLength());
         Destroy(gameObject);

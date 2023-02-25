@@ -16,6 +16,11 @@ public class Level : MonoBehaviour
         _levelSpawner.SequenceFinished += OnLevelFinished;
     }
 
+    public void AbortSpawn()
+    {
+        _levelSpawner.Abort();
+    }
+
     public void StartLevel(int level)
     {
         if (level < 0)

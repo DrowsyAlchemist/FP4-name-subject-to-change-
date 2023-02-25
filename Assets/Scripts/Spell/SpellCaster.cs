@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpellCaster : MonoBehaviour
 {
     [SerializeField] private Transform _castPoint;
+    [SerializeField] private Game _game;
 
     private CombatSpell _spellTemplate;
 
@@ -19,6 +20,7 @@ public class SpellCaster : MonoBehaviour
     public void CastSpell()
     {
         var spell = Instantiate(_spellTemplate, _castPoint.position, Quaternion.identity, null);
+        spell.Init(_game);
         spell.Launch();
     }
 }

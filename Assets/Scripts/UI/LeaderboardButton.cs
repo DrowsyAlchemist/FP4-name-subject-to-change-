@@ -10,6 +10,11 @@ public class LeaderboardButton : OpenWindowButton
     protected override void OnButtonClick()
     {
         base.OnButtonClick();
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return;
+#endif
+
         Leaderboard.GetEntries(_leaderboardName, (result) =>
         {
             _text.text = $"My rank = {result.userRank} \n";

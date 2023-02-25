@@ -17,6 +17,12 @@ public sealed class EnemyWaveSpawner : SequenceSpawner
         _orderSpawner.SequenceFinished -= OnOrderSpawned;
     }
 
+    public override void Abort()
+    {
+        base.Abort();
+        _orderSpawner.Abort();
+    }
+
     public void SpawnWave(EnemyWave wave)
     {
         _enemyWave = wave ?? throw new System.ArgumentNullException();

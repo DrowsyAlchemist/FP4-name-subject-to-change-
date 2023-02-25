@@ -23,6 +23,16 @@ public class Wall : MonoBehaviour, ITakeDamage
         _game.LevelFinished += () => Repair(_wallRepairBetweenLevelsPercents);
     }
 
+    private void OnDestroy()
+    {
+        _health.HealthIsOver -= OnHealthOver;
+    }
+
+    public void ResetWall()
+    {
+        _health = new Health(_initialhealth, _element);
+    }
+
     public void TakeDamage(float damage, ElementType transmittingElement)
     {
         _health.TakeDamage(damage, transmittingElement);
@@ -49,7 +59,6 @@ public class Wall : MonoBehaviour, ITakeDamage
 
     private void OnHealthOver()
     {
-        _health.HealthIsOver -= OnHealthOver;
         Destroyed?.Invoke();
     }
 }

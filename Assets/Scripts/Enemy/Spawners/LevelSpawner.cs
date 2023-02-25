@@ -17,6 +17,12 @@ public sealed class LevelSpawner : SequenceSpawner
         _enemyWaveSpawner.SequenceFinished -= OnWaveFinished;
     }
 
+    public override void Abort()
+    {
+        base.Abort();
+        _enemyWaveSpawner.Abort();
+    }
+
     public void StartSpawn(LevelSetup levelSetup)
     {
         _levelSetup = levelSetup ?? throw new System.ArgumentNullException();

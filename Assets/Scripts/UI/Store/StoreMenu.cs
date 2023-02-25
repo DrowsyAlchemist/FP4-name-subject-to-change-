@@ -11,6 +11,8 @@ public class StoreMenu : MonoBehaviour
     [SerializeField] private AvailableSpellsHolder _playerSpellsHolder;
     [SerializeField] private Mana _playerMana;
 
+    private List<WareRenderer> _wareRenderers = new List<WareRenderer>();
+
     private void OnDestroy()
     {
         foreach (var wareRenderer in _waresContainer.GetComponentsInChildren<WareRenderer>())
@@ -19,6 +21,12 @@ public class StoreMenu : MonoBehaviour
 
     public void Fill()
     {
+        while (_wareRenderers.Count > 0)
+        {
+            Destroy(_wareRenderers[0].gameObject);
+            _wareRenderers.RemoveAt(0);
+        }
+
         _defaultCombatSpell.Upgrade();
         AddWare(_defaultCombatSpell);
         _playerSpellsHolder.SetDefaultSpell(_defaultCombatSpell);
@@ -32,6 +40,7 @@ public class StoreMenu : MonoBehaviour
         var renderer = Instantiate(_wareRendererTemplate, _waresContainer);
         renderer.Render(wareData);
         renderer.BuyButtonClicked += OnBuyButtonClick;
+        _wareRenderers.Add(renderer);
     }
 
     private void OnBuyButtonClick(WareRenderer renderer)
