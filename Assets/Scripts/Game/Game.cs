@@ -23,6 +23,8 @@ public class Game : MonoBehaviour
 
     [SerializeField] private RectTransform _gameOverMenu;
 
+    [SerializeField] private RectTransform _howToPlayPanel;
+
     private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
@@ -81,15 +83,15 @@ public class Game : MonoBehaviour
         _enemySpawner.AllowSpawning();
         _level.EnemySpawnFinished += () => enabled = true;
 
-
-
         _level.AbortSpawn();
         _level.StartLevel(0);
         _wall.Repair(100);
-        _gameOverMenu.gameObject.SetActive(false);
         _player.Play();
         _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
         LevelStarted?.Invoke();
+        _gameOverMenu.gameObject.SetActive(false);
+        _howToPlayPanel.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void StartNextLevel()

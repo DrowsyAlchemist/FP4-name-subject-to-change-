@@ -4667,6 +4667,7 @@ MonoBehaviour:
   _levelMessage: {fileID: 266372289}
   _pauseMenu: {fileID: 508433029}
   _gameOverMenu: {fileID: 21783333}
+  _howToPlayPanel: {fileID: 930305224}
 --- !u!4 &523543973
 Transform:
   m_ObjectHideFlags: 0
@@ -6687,6 +6688,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 541edbe5cbce39542aba84ad00e219e9, type: 2}
   - {fileID: 11400000, guid: 196de0fe1a4acae4ca99e6a8f5c6a5eb, type: 2}
   - {fileID: 11400000, guid: 7fdae9d579560904fae610635aa59aba, type: 2}
+  - {fileID: 11400000, guid: 8b159148f67a13644b3844265609b3ba, type: 2}
+  - {fileID: 11400000, guid: f3cc3dc6f91d2f7458fe66d04f77096f, type: 2}
+  - {fileID: 11400000, guid: a0ad4649a66de814588f3277d32d1df9, type: 2}
+  - {fileID: 11400000, guid: 293e83ccc44ae6745bd3038e6a71c3bb, type: 2}
+  - {fileID: 11400000, guid: d4b6b0d998acb174cbe0fb6990bb81e8, type: 2}
   - {fileID: 11400000, guid: cce223737e5dadf4bb3237f53b8a48e2, type: 2}
   - {fileID: 11400000, guid: 8215fd0570503c042becd780af836442, type: 2}
   - {fileID: 11400000, guid: 69cd8d1606ed6d04f9d3bb0457ceb921, type: 2}
@@ -7254,7 +7260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _windowsToClose:
-  - {fileID: 1322505028}
   - {fileID: 639551585}
   - {fileID: 930305224}
   - {fileID: 1075612528}
@@ -9460,10 +9465,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 930305223}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 865541082}
+        m_TargetAssemblyTypeName: WindowsCloser, Assembly-CSharp
+        m_MethodName: CloseAllAndContinueGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

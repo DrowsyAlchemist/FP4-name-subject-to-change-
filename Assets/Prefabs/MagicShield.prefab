@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd304c494934bab47a71425a698f21bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 120
   _healthRenderer: {fileID: 4004303406562154507}
   _meshRenderer: {fileID: 4004303407079742136}
 --- !u!1 &4004303407571061053
