@@ -4,7 +4,7 @@ public class ManaStorage
 {
     private int _savedAmount;
 
-    public int Amount { get; private set; } // = 100000;
+    public int Amount { get; private set; }
 
     public event Action<int> AmountChanged;
 
@@ -37,8 +37,8 @@ public class ManaStorage
 
     public void Reset()
     {
-        Amount = 0;
-        _savedAmount = 0;
+        Amount = 10000;
+        _savedAmount = Amount;
         AmountChanged?.Invoke(Amount);
     }
 
