@@ -13,7 +13,7 @@ public class Mana : MonoBehaviour
         ManaStorage = new ManaStorage();
         _manaRenderer.Render(ManaStorage);
         _enemySpawner.EnemySpawned += OnEnemySpawned;
-        _game.LevelFinished += OnLevelFinished;
+        _game.LevelCompleted += OnLevelFinished;
         
     }
     private void OnDestroy()

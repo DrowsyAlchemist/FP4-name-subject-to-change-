@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HowToPlayWindow : MonoBehaviour
+public class HowToPlayMenu : MonoBehaviour
 {
     [SerializeField] private List<RectTransform> _pages;
     [SerializeField] private Button _nextPageButton;

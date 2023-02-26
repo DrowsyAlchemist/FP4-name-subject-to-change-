@@ -5,6 +5,8 @@ using System;
 
 public class Game : MonoBehaviour
 {
+    [SerializeField] private int _levelsBetweenAd = 3;
+
     [SerializeField] private Player _player;
     [SerializeField] private Level _level;
     [SerializeField] private float _secondsBetweenLevels;
@@ -15,89 +17,93 @@ public class Game : MonoBehaviour
 
     [SerializeField] private Score _score;
 
-    [SerializeField] private MainMenu _menuWindow;
+    [SerializeField] private MainMenu _mainMenu;
+    [SerializeField] private PauseMenu _pauseMenu;
+    [SerializeField] private GameOverMenu _gameOverMenu;
 
     [SerializeField] private LevelMessage _levelMessage;
-
-    [SerializeField] private RectTransform _pauseMenu;
-
-    [SerializeField] private RectTransform _gameOverMenu;
 
     [SerializeField] private RectTransform _howToPlayPanel;
 
     private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
-    public static Wall Wall => _instance._wall;
-
     public event Action LevelStarted;
-    public event Action LevelFinished;
+    public event Action LevelCompleted;
 
     private void Awake()
     {
-        if (_instance != null)
-            Destroy(gameObject);
-        else
+        if (_instance == null)
+        {
             _instance = this;
-
-        _score.InitScore();
+            Init();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        StartCoroutine(InitYandexSDK());
-        enabled = false;
-        _menuWindow.PlayButtonClicked += StartGame;
-        _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
+        _wall.Destroyed -= OnWallDestroyed;
     }
 
     private void Update()
     {
         if (_aliveEnemiesHolder.Count == 0)
         {
-            _player.StopPlaying();
-            enabled = false;
-            LevelFinished?.Invoke();
-            _levelMessage.Show("Victory!\nScore: " + _score.CurrentScore);
+            CompleteLevel();
             StartCoroutine(StartNextLevelWithDelay(_secondsBetweenLevels));
         }
     }
 
-    public void OpenPauseMenu()
+    public static void Pause()
     {
-        _pauseMenu.gameObject.SetActive(true);
+        _instance._pauseMenu.Open();
         Time.timeScale = 0;
     }
 
-    private void StartGame()
+    public static void Continue()
     {
-        PlayerPrefs.DeleteAll(); /////
+        _instance._pauseMenu.Close();
+        Time.timeScale = 1;
+    }
+
+    public void StartNewGame()
+    {
+        PlayerPrefs.DeleteAll();
+
         enabled = false;
-        _menuWindow.Close();
+        _level.AbortSpawn();
+        _aliveEnemiesHolder.KillAllEnemies();
+
         _score.ResetScore();
         _store.Fill();
-        _wall.Destroyed += OnWallDestroyed;
-        _aliveEnemiesHolder.KillAllEnemies();
         _mana.ResetMana();
+        _wall.ResetWall();
 
-        _enemySpawner.AllowSpawning();
-        _level.EnemySpawnFinished += () => enabled = true;
+        StartLevel(0);
 
-        _level.AbortSpawn();
-        _level.StartLevel(0);
-        _wall.Repair(100);
-        _player.Play();
-        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
-        LevelStarted?.Invoke();
-        _gameOverMenu.gameObject.SetActive(false);
+        _mainMenu.Close();
         _howToPlayPanel.gameObject.SetActive(true);
-        Time.timeScale = 0;
+        Pause();
     }
 
-    private void StartNextLevel()
+    private void Init()
     {
+        _score.InitScore();
+        StartCoroutine(InitYandexSDK());
+        enabled = false;
+        _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
+        _wall.Destroyed += OnWallDestroyed;
+        _level.EnemySpawnFinished += () => enabled = true;
+    }
+
+    private void StartLevel(int level) // Rename
+    {
+        _level.StartLevel(level);
         _player.Play();
-        _level.StartNextLevel();
         _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
         LevelStarted?.Invoke();
     }
@@ -106,11 +112,19 @@ public class Game : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        if (_level.CurrentLevel % 2 == 1)
+        if (_level.CurrentLevel % _levelsBetweenAd == 1)
             ShowInterstitialAd();
 
-        OpenPauseMenu();
-        StartNextLevel();
+        StartLevel(_level.CurrentLevel + 1);
+        Pause();
+    }
+
+    private void CompleteLevel()
+    {
+        _player.StopPlaying();
+        enabled = false;
+        _levelMessage.Show("Victory!\nScore: " + _score.CurrentScore);
+        LevelCompleted?.Invoke();
     }
 
     private void OnWallDestroyed()
@@ -124,7 +138,7 @@ public class Game : MonoBehaviour
     private IEnumerator ShowGameOverMenu()
     {
         yield return new WaitForSeconds(_secondsBetweenLevels);
-        _gameOverMenu.gameObject.SetActive(true);
+        _gameOverMenu.Open();
     }
 
     public void TryLevelAgain()
@@ -142,16 +156,13 @@ public class Game : MonoBehaviour
     {
         enabled = false;
         _level.AbortSpawn();
-        _level.StartLevel(level);
         _aliveEnemiesHolder.KillAllEnemies();
+        StartLevel(_level.CurrentLevel);
+        Pause();
+
         _wall.Repair(100);
-        _gameOverMenu.gameObject.SetActive(false);
-        _player.Play();
-        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
-        LevelStarted?.Invoke();
+        _gameOverMenu.Close();
         _mana.UndoLevelMana();
-        Time.timeScale = 0;
-        _pauseMenu.gameObject.SetActive(true);
     }
 
     private IEnumerator InitYandexSDK()

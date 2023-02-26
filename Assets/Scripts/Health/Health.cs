@@ -26,6 +26,9 @@ public class Health: ITakeDamage, IReadonlyHealth
         if (damage < 0)
             throw new ArgumentOutOfRangeException();
 
+        if (CurrentHealth <= 0)
+            return;
+
         damage *= Element.GetInteractionModifier(transmittingElement, _element);
         CurrentHealth -= damage;
 
@@ -54,5 +57,16 @@ public class Health: ITakeDamage, IReadonlyHealth
             CurrentHealth = MaxHealth;
 
         CurrentHealthChanged?.Invoke(CurrentHealth);
+    }
+
+    public void Reset(float maxHealth)
+    {
+        if (maxHealth <= 0)
+            throw new ArgumentOutOfRangeException();
+
+        MaxHealth = maxHealth;
+        CurrentHealth = maxHealth;
+        CurrentHealthChanged?.Invoke(CurrentHealth);
+        MaxHealthChanged?.Invoke(MaxHealth);
     }
 }

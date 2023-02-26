@@ -21,13 +21,13 @@ public class ScoreCounter
         _game = game;
         _enemySpawner = enemySpawner;
         _wall = wall;
-        game.LevelFinished += OnLevelFinished;
+        game.LevelCompleted += OnLevelFinished;
         enemySpawner.EnemySpawned += OnEnemySpawned;
     }
 
     ~ScoreCounter()
     {
-        _game.LevelFinished -= OnLevelFinished;
+        _game.LevelCompleted -= OnLevelFinished;
         _enemySpawner.EnemySpawned -= OnEnemySpawned;
     }
 

@@ -39,6 +39,6 @@ public class AttackState : EnemyState
         yield return new WaitForSeconds(_attackDelay);
 
         if (_enemy.IsAlive)
-            Game.Wall.TakeDamage(_damage, _enemy.Element);
+            Enemy.Target.TakeDamage(_damage, _enemy.Element);
     }
 }

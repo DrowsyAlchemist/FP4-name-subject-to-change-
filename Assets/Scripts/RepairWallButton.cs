@@ -11,7 +11,7 @@ public class RepairWallButton : UIButton
 
     private void Awake()
     {
-        _game.LevelFinished += () => Button.interactable = true;
+        _game.LevelCompleted += () => Button.interactable = true;
         _wall.Destroyed += () => Button.interactable = false;
     }
 
@@ -21,14 +21,12 @@ public class RepairWallButton : UIButton
 
 #if !UNITY_WEBGL || UNITY_EDITOR
         _wall.Repair(_restorePercents);
-        _game.OpenPauseMenu();
+        Game.Pause();
         return;
 #endif
 
         VideoAd.Show(
-            onOpenCallback: () => Time.timeScale = 0,
+            onOpenCallback: () => Game.Pause(),
             onRewardedCallback: () => _wall.Repair(_restorePercents));
-
-        _game.OpenPauseMenu();
     }
 }

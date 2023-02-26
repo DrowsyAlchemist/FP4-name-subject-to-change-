@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private Game _game;
     [SerializeField] private RectTransform _window;
     [SerializeField] private Button _playButton;
 
-    public event Action PlayButtonClicked;
-
-    private void Awake()
+    private void Start()
     {
         _playButton.onClick.AddListener(OnPlayButtonClicked);
     }
@@ -22,17 +21,16 @@ public class MainMenu : MonoBehaviour
 
     public void Open()
     {
-        SceneManager.LoadScene(0);
+        _window.gameObject.SetActive(true);
     }
 
     public void Close()
     {
-        _window.gameObject.SetActive(false);
-        Time.timeScale = 1;
+        _window.gameObject.SetActive(false);   
     }
 
     private void OnPlayButtonClicked()
     {
-        PlayButtonClicked?.Invoke();
+        _game.StartNewGame();
     }
 }

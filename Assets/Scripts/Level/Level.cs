@@ -30,19 +30,19 @@ public class Level : MonoBehaviour
         _levelSpawner.StartSpawn(_levelSetups[CurrentLevel]);
     }
 
-    public void StartNextLevel()
-    {
-        CurrentLevel++;
+    //public void StartNextLevel()
+    //{
+    //    CurrentLevel++;
 
-        if (CurrentLevel < _levelSetups.Count)
-        {
-            _levelSpawner.StartSpawn(_levelSetups[CurrentLevel]);
-        }
-        else
-        {
-            Debug.Log("Levels ran over.");
-        }
-    }
+    //    if (CurrentLevel < _levelSetups.Count)
+    //    {
+    //        _levelSpawner.StartSpawn(_levelSetups[CurrentLevel]);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Levels ran over.");
+    //    }
+    //}
 
     private void OnDestroy()
     {

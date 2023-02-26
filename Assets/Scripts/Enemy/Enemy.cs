@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private EnemyStateMachine _stateMachine;
     private CharacterAnimator _animator;
 
+    public Wall Target { get; private set; }
     public bool IsAlive { get; private set; } = true;
     public ElementType Element => _element;
     public int Reward => _reward;
@@ -43,7 +44,15 @@ public class Enemy : MonoBehaviour, ITakeDamage
         _health.CurrentHealthChanged -= OnHealthChanged;
     }
 
-    public void SetShield()
+    public void Init(Wall target, bool hasShield)
+    {
+        Target = target ?? throw new System.ArgumentNullException();
+
+        if (hasShield)
+            SetShield();
+    }
+
+    private void SetShield()
     {
         HasShield = true;
         Shield = ShieldCreator.CreateRandomShield();
