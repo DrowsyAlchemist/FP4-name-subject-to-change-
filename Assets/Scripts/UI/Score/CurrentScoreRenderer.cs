@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using Lean.Localization;
 
 public class CurrentScoreRenderer : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class CurrentScoreRenderer : MonoBehaviour
     private void Start()
     {
         _score.CurrentScoreChanged += OnScoreChanged;
-        OnScoreChanged(_score.CurrentScore);
     }
 
     private void OnDestroy()
@@ -18,8 +18,14 @@ public class CurrentScoreRenderer : MonoBehaviour
         _score.CurrentScoreChanged -= OnScoreChanged;
     }
 
+    private void OnEnable()
+    {
+        OnScoreChanged(_score.CurrentScore);
+    }
+
     private void OnScoreChanged(int score)
     {
-        _currentScoreText.text = _textBeforeScore + score.ToString();
+        string textBeforeScore = LeanLocalization.GetTranslationText(_textBeforeScore);
+        _currentScoreText.text = textBeforeScore + score.ToString();
     }
 }

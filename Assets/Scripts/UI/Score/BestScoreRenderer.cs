@@ -1,3 +1,4 @@
+using Lean.Localization;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class BestScoreRenderer : MonoBehaviour
     private void Start()
     {
         _score.BestScoreChanged += OnScoreChanged;
-        OnScoreChanged(_score.BestScore);
     }
 
     private void OnDestroy()
@@ -18,8 +18,14 @@ public class BestScoreRenderer : MonoBehaviour
         _score.BestScoreChanged -= OnScoreChanged;
     }
 
+    private void OnEnable()
+    {
+        OnScoreChanged(_score.BestScore);
+    }
+
     private void OnScoreChanged(int score)
     {
-        _bestScoreText.text = _textBeforeScore + score.ToString();
+        string textBeforeScore = LeanLocalization.GetTranslationText(_textBeforeScore);
+        _bestScoreText.text = textBeforeScore + score.ToString();
     }
 }

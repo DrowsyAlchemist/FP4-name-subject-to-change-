@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Agava.YandexGames;
 using System;
+using Lean.Localization;
 
 public class Game : MonoBehaviour
 {
@@ -100,11 +101,12 @@ public class Game : MonoBehaviour
         _level.EnemySpawnFinished += () => enabled = true;
     }
 
-    private void StartLevel(int level) // Rename
+    private void StartLevel(int level)
     {
         _level.StartLevel(level);
         _player.Play();
-        _levelMessage.Show("Level " + (_level.CurrentLevel + 1));
+        string levelText = LeanLocalization.GetTranslationText("Level");
+        _levelMessage.Show(levelText + " " + (_level.CurrentLevel + 1));
         LevelStarted?.Invoke();
     }
 
@@ -123,13 +125,16 @@ public class Game : MonoBehaviour
     {
         _player.StopPlaying();
         enabled = false;
-        _levelMessage.Show("Victory!\nScore: " + _score.CurrentScore);
+        string victoryText = LeanLocalization.GetTranslationText("Victory");
+        //string scoreText = LeanLocalization.GetTranslationText("Score");
+        _levelMessage.Show(victoryText + "!\n");
         LevelCompleted?.Invoke();
     }
 
     private void OnWallDestroyed()
     {
-        _levelMessage.Show("GameOver");
+        string gameOverText = LeanLocalization.GetTranslationText("GameOver");
+        _levelMessage.Show(gameOverText);
         _player.StopPlaying();
         _aliveEnemiesHolder.StopAllEnemies();
         StartCoroutine(ShowGameOverMenu());

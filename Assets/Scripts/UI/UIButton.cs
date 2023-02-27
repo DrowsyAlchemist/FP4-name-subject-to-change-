@@ -5,7 +5,7 @@ public abstract class UIButton : MonoBehaviour
 {
     [SerializeField] protected Button Button;
 
-    private void Start()
+    protected virtual void Start()
     {
         Button.onClick.AddListener(OnButtonClick);
     }

@@ -1,3 +1,4 @@
+using Lean.Localization;
 using UnityEngine;
 
 public abstract class UpgradeableSpell : MonoBehaviour
@@ -7,6 +8,11 @@ public abstract class UpgradeableSpell : MonoBehaviour
     [SerializeField] private int _cost;
 
     public Sprite Sprite => _sprite;
-    public string Lable => _lable;
+    public string Lable => GetLable();
     public int Cost => _cost;
+
+    private string GetLable()
+    {
+       return LeanLocalization.GetTranslationText(_lable);
+    }
 }
