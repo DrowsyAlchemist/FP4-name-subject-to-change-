@@ -4,30 +4,38 @@ using Agava.YandexGames;
 
 public class Score : MonoBehaviour
 {
+    [SerializeField] private LeaderboardMenu _leaderboardMenu;
     [SerializeField] private Game _game;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Wall _wall;
 
     private const string LeaderboardName = "MagicWallLeaderboard";
     private ScoreCounter _counter;
+    private int _bestScore;
 
     public int BestScore
     {
         get
         {
 #if !UNITY_WEBGL || UNITY_EDITOR
-           return PlayerPrefs.GetInt(LeaderboardName);
-#else
-            int score = 0;
-            Leaderboard.GetEntries(LeaderboardName, (result) => score = result.userRank);
-            return score;
+            return PlayerPrefs.GetInt(LeaderboardName);
 #endif
+            if (YandexGamesSdk.IsInitialized)
+                Leaderboard.GetPlayerEntry(LeaderboardName, (entry) => _bestScore = entry.score);
+
+            return _bestScore;
         }
     }
+
     public int CurrentScore => _counter.Score;
 
     public event Action<int> CurrentScoreChanged;
     public event Action<int> BestScoreChanged;
+
+    private void Start()
+    {
+        _leaderboardMenu.Authorized += () => BestScoreChanged?.Invoke(BestScore);
+    }
 
     private void OnDestroy()
     {
@@ -57,7 +65,6 @@ public class Score : MonoBehaviour
 #else
             Leaderboard.SetScore(LeaderboardName, score);
 #endif
-
             BestScoreChanged?.Invoke(score);
         }
         CurrentScoreChanged?.Invoke(score);

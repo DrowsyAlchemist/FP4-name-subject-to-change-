@@ -35,14 +35,29 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         if (_instance == null)
-        {
             _instance = this;
-            Init();
-        }
         else
-        {
             Destroy(gameObject);
-        }
+    }
+
+    private IEnumerator Start()
+    {
+        _score.InitScore();
+        enabled = false;
+        _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
+        _wall.Destroyed += OnWallDestroyed;
+        _level.EnemySpawnFinished += () => enabled = true;
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+        yield break;
+#endif
+        while (YandexGamesSdk.IsInitialized == false)
+            yield return new WaitForSeconds(0.5f);
+
+        ShowStickyAd();
+
+        if (PlayerAccount.HasPersonalProfileDataPermission == false)
+            PlayerAccount.RequestPersonalProfileDataPermission();
     }
 
     private void OnDestroy()
@@ -91,16 +106,6 @@ public class Game : MonoBehaviour
         Pause();
     }
 
-    private void Init()
-    {
-        _score.InitScore();
-        StartCoroutine(InitYandexSDK());
-        enabled = false;
-        _aliveEnemiesHolder = new AliveEnemiesHolder(_enemySpawner);
-        _wall.Destroyed += OnWallDestroyed;
-        _level.EnemySpawnFinished += () => enabled = true;
-    }
-
     private void StartLevel(int level)
     {
         _level.StartLevel(level);
@@ -108,6 +113,7 @@ public class Game : MonoBehaviour
         string levelText = LeanLocalization.GetTranslationText("Level");
         _levelMessage.Show(levelText + " " + (_level.CurrentLevel + 1));
         LevelStarted?.Invoke();
+        //HideStickyAd();
     }
 
     private IEnumerator StartNextLevelWithDelay(float delay)
@@ -126,9 +132,9 @@ public class Game : MonoBehaviour
         _player.StopPlaying();
         enabled = false;
         string victoryText = LeanLocalization.GetTranslationText("Victory");
-        //string scoreText = LeanLocalization.GetTranslationText("Score");
         _levelMessage.Show(victoryText + "!\n");
         LevelCompleted?.Invoke();
+        //ShowStickyAd();
     }
 
     private void OnWallDestroyed()
@@ -149,15 +155,15 @@ public class Game : MonoBehaviour
     public void TryLevelAgain()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
-        RestartLevel(_level.CurrentLevel);
+        RestartCurrentLevel();
         return;
 #endif
 
         VideoAd.Show(
-            onRewardedCallback: () => RestartLevel(_level.CurrentLevel));
+            onRewardedCallback: () => RestartCurrentLevel());
     }
 
-    private void RestartLevel(int level)
+    private void RestartCurrentLevel()
     {
         enabled = false;
         _level.AbortSpawn();
@@ -186,5 +192,21 @@ public class Game : MonoBehaviour
         return;
 #endif
         InterstitialAd.Show(onOpenCallback: () => Time.timeScale = 0);
+    }
+
+    private void ShowStickyAd()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return;
+#endif
+        StickyAd.Show();
+    }
+
+    private void HideStickyAd()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return;
+#endif
+        StickyAd.Hide();
     }
 }
