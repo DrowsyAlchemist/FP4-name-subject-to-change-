@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ public class IncreaseWallMaxHealthButton : UIButton
     {
         if (_playerMana.ManaStorage.CanGiveMana(_initialCost))
         {
+            Sound.SellSound.Play();
             Button.interactable = false;
             _playerMana.ManaStorage.GiveMana(_initialCost);
             _wall.IncreaseMaxHealth(_extraHealth);

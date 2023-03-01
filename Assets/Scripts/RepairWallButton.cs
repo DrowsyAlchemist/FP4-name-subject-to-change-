@@ -24,9 +24,14 @@ public class RepairWallButton : UIButton
         Game.Pause();
         return;
 #endif
-
         VideoAd.Show(
-            onOpenCallback: () => Game.Pause(),
-            onRewardedCallback: () => _wall.Repair(_restorePercents));
+            onOpenCallback: () =>
+            {
+                Game.Pause();
+                Sound.BackgroundMusic.Stop();
+            },
+            onRewardedCallback: () => _wall.Repair(_restorePercents),
+            onCloseCallback: () => Sound.BackgroundMusic.Play()
+            );
     }
 }

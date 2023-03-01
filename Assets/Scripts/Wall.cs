@@ -8,6 +8,7 @@ public class Wall : MonoBehaviour, ITakeDamage
     [SerializeField] private ElementType _element;
     [SerializeField] private HealthRenderer _healthRenderer;
     [SerializeField] private Game _game;
+    [SerializeField] private AudioSource _hitSound;
 
     private Health _health;
 
@@ -36,6 +37,7 @@ public class Wall : MonoBehaviour, ITakeDamage
     public void TakeDamage(float damage, ElementType transmittingElement)
     {
         _health.TakeDamage(damage, transmittingElement);
+        _hitSound.Play();
     }
 
     public void IncreaseMaxHealth(float value)

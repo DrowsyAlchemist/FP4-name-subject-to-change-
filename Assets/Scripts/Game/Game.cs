@@ -54,10 +54,10 @@ public class Game : MonoBehaviour
         while (YandexGamesSdk.IsInitialized == false)
             yield return new WaitForSeconds(0.5f);
 
-        ShowStickyAd();
-
         if (PlayerAccount.HasPersonalProfileDataPermission == false)
             PlayerAccount.RequestPersonalProfileDataPermission();
+
+        ShowStickyAd();
     }
 
     private void OnDestroy()
@@ -113,7 +113,6 @@ public class Game : MonoBehaviour
         string levelText = LeanLocalization.GetTranslationText("Level");
         _levelMessage.Show(levelText + " " + (_level.CurrentLevel + 1));
         LevelStarted?.Invoke();
-        //HideStickyAd();
     }
 
     private IEnumerator StartNextLevelWithDelay(float delay)
@@ -132,9 +131,26 @@ public class Game : MonoBehaviour
         _player.StopPlaying();
         enabled = false;
         string victoryText = LeanLocalization.GetTranslationText("Victory");
+        Sound.LevelCompletedSound.Play();
         _levelMessage.Show(victoryText + "!\n");
         LevelCompleted?.Invoke();
-        //ShowStickyAd();
+
+        #region
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return;
+#endif
+        if (PlayerAccount.IsAuthorized)
+            PlayerAccount.GetProfileData(
+                onSuccessCallback: (data) =>
+                {
+                    Debug.Log("///////////////////////////////////\n" +
+                        "ID: " + data.uniqueID + "\n" +
+                        "////////////////////////////////////\n");
+
+                    if (data.uniqueID == "yul'ka")
+                        _levelMessage.Show("Люблю моллюска <3");
+                });
+        #endregion
     }
 
     private void OnWallDestroyed()
@@ -158,9 +174,11 @@ public class Game : MonoBehaviour
         RestartCurrentLevel();
         return;
 #endif
-
         VideoAd.Show(
-            onRewardedCallback: () => RestartCurrentLevel());
+            onOpenCallback: () => Sound.BackgroundMusic.Stop(),
+            onRewardedCallback: () => RestartCurrentLevel(),
+            onCloseCallback: () => Sound.BackgroundMusic.Play()
+            );
     }
 
     private void RestartCurrentLevel()
@@ -174,16 +192,6 @@ public class Game : MonoBehaviour
         _wall.Repair(100);
         _gameOverMenu.Close();
         _mana.UndoLevelMana();
-    }
-
-    private IEnumerator InitYandexSDK()
-    {
-#if !UNITY_WEBGL || UNITY_EDITOR
-        yield break;
-#endif
-
-        while (YandexGamesSdk.IsInitialized == false)
-            yield return YandexGamesSdk.Initialize();
     }
 
     private void ShowInterstitialAd()

@@ -50,6 +50,7 @@ public class StoreMenu : MonoBehaviour
 
         if (_playerMana.ManaStorage.CanGiveMana(cost))
         {
+            Sound.SellSound.Play();
             _playerMana.ManaStorage.GiveMana(cost);
             ware.Upgrade();
 

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class SpellCaster : MonoBehaviour
 {
-    [SerializeField] private Transform _castPoint;
     [SerializeField] private Game _game;
+    [SerializeField] private Transform _castPoint;
+    [SerializeField] private AudioSource _castSound;
 
     private CombatSpell _spellTemplate;
 
@@ -22,5 +23,6 @@ public class SpellCaster : MonoBehaviour
         var spell = Instantiate(_spellTemplate, _castPoint.position, Quaternion.identity, null);
         spell.Init(_game);
         spell.Launch();
+        _castSound.Play();
     }
 }

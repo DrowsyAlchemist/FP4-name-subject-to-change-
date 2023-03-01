@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float damage, ElementType transmittingElement)
     {
+        Sound.SpellHitSound.Play();
         _health.TakeDamage(damage, transmittingElement);
         _elementShower.Show(Element);
     }
@@ -90,6 +91,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private IEnumerator Die()
     {
+        Sound.EnemyDeadSound.Play();
         _stateMachine.Pause();
         _animator.PlayDie();
         GetComponent<Rigidbody>().isKinematic = true;
