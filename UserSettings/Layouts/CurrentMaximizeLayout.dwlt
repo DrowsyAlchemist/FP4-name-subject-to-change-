@@ -59,7 +59,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 523, y: 294}
+  m_TargetSize: {x: 334, y: 594}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -68,16 +68,16 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 08000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -261.5
-    m_HBaseRangeMax: 261.5
-    m_VBaseRangeMin: -147
-    m_VBaseRangeMax: 147
+    m_HBaseRangeMin: -167
+    m_HBaseRangeMax: 167
+    m_VBaseRangeMin: -297
+    m_VBaseRangeMax: 297
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -224,10 +224,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 48}
-      m_SelectedIDs: f0150000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 084efeff289ffeff60a0fefff8f9ffff00faffffd2faffff2afbffffa0630000c463000038640000966400007e6500002e66000024680000527801005c780100fa78010040790100487901009e7901000a7a0100167a0100627a01006c7a0100807a0100347b0100ce7b0100e87b01003c7c0100987c0100a07c0100aa7c0100c27c01005a7d0100807d0100b67d0100c87d01000c7e0100c67e0100
+      m_ExpandedIDs: eedeffffbeebffff08edffff5cedffff94efffff08f0ffff2afbffff88670000a8930000aa940000ec9400005095000076950000d8950000ec950000e2960000ba970000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.8258403, y: -1.81146, z: -3.818368}
+    m_Target: {x: -0.0006609245, y: -1.9772397, z: -4.158091}
     speed: 2
-    m_Value: {x: 0.8258403, y: -1.81146, z: -3.818368}
+    m_Value: {x: -0.0006609245, y: -1.9772397, z: -4.158091}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -610,9 +610,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.5573007, y: -0.004169305, z: 0.0029040538, w: -0.8304432}
   m_Size:
-    m_Target: 0.39098838
+    m_Target: 0.5192946
     speed: 2
-    m_Value: 0.39098838
+    m_Value: 0.5192946
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -694,7 +694,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 97474
+  m_LastSelectedObjectID: -5238
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -719,7 +719,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 48744
+  controlID: 5671
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -788,22 +788,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Mana
+    - Assets/Sprites/UI/Elements
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 55
   m_LastFolders:
-  - Assets/Scripts/Mana
+  - Assets/Sprites/UI/Elements
   m_LastFoldersGridSize: 55
   m_LastProjectPath: D:\GitHub\FP4-name-subject-to-change-
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 34}
-    m_SelectedIDs: 868b0000
-    m_LastClickedID: 35718
-    m_ExpandedIDs: 00000000508b0000528b0000548b0000568b0000588b00005a8b00005c8b00005e8b0000608b0000628b0000648b0000
+    scrollPos: {x: 0, y: 262}
+    m_SelectedIDs: 928c0000
+    m_LastClickedID: 35986
+    m_ExpandedIDs: 000000002e8c0000308c0000328c0000348c0000368c0000388c00003a8c00003c8c00003e8c0000408c0000428c0000748c00008e8c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -831,7 +831,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000508b0000528b0000548b0000568b0000588b00005a8b00005c8b00005e8b0000608b0000628b0000648b0000
+    m_ExpandedIDs: 000000002e8c0000308c0000328c0000348c0000368c0000388c00003a8c00003c8c00003e8c0000408c0000428c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -856,9 +856,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f0150000
-    m_LastClickedInstanceID: 5616
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300008cbd00006abd000072bd000050bd00009a99030068e8010090650000c0e8010042e901009a6500007a6d0600846d0600cc660000d062010000000000f8ed0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -995,9 +995,9 @@ MonoBehaviour:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 210}
-    m_SelectedIDs: f88b0000
-    m_LastClickedID: 35832
-    m_ExpandedIDs: 00000000508b0000528b0000548b0000568b0000588b00005a8b00005c8b00005e8b0000608b0000628b0000648b0000928b0000
+    m_SelectedIDs: 8e8c0000
+    m_LastClickedID: 35982
+    m_ExpandedIDs: 000000002e8c0000308c0000328c0000348c0000368c0000388c00003a8c00003c8c00003e8c0000408c0000428c0000748c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1025,7 +1025,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000508b0000528b0000548b0000568b0000588b00005a8b00005c8b00005e8b0000608b0000628b0000648b0000
+    m_ExpandedIDs: 000000002e8c0000308c0000328c0000348c0000368c0000388c00003a8c00003c8c00003e8c0000408c0000428c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1050,8 +1050,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f0150000
-    m_LastClickedInstanceID: 5616
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 646600008cbd000076bd000072bd00006abd0000104f0300044f03000a4f0300
     m_RenameOverlay:
