@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
   - component: {fileID: -995401614573360553}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EarthFourthLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _explosionRadius: 2.2
+  _shieldDamageModifier: 1.5
 --- !u!1 &7702287066411641896
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ GameObject:
   - component: {fileID: 7705493120647831376}
   - component: {fileID: 7503118434560665874}
   - component: {fileID: 7504498375434360744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4970,7 +4971,7 @@ GameObject:
   - component: {fileID: 7705825097445767476}
   - component: {fileID: 7503043667451509950}
   - component: {fileID: 7504919344734070290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9794,7 +9795,7 @@ GameObject:
   - component: {fileID: 7705560808734148422}
   - component: {fileID: 7520850657484097558}
   - component: {fileID: 7504416555097279202}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EarthMagicFireEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14621,7 +14622,7 @@ GameObject:
   - component: {fileID: 7706006106166900086}
   - component: {fileID: 7503268095492511628}
   - component: {fileID: 7503986792992885088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

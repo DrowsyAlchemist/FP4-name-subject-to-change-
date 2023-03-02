@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4785126266395327737}
   - component: {fileID: 4785126266395327686}
   - component: {fileID: -4793317783182816516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WindThirdLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +173,22 @@ PrefabInstance:
     - target: {fileID: 3076061629397253911, guid: 9aa762f4e33caa64ca16f9d642bc9832, type: 3}
       propertyPath: m_Name
       value: MagicFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076061629397253911, guid: 9aa762f4e33caa64ca16f9d642bc9832, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076086651387370319, guid: 9aa762f4e33caa64ca16f9d642bc9832, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076531532209436193, guid: 9aa762f4e33caa64ca16f9d642bc9832, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076851617451886367, guid: 9aa762f4e33caa64ca16f9d642bc9832, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3078679687890328911, guid: 9aa762f4e33caa64ca16f9d642bc9832, type: 3}
       propertyPath: m_RootOrder

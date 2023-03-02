@@ -8950,7 +8950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelSpawner: {fileID: 808878917}
   _levelSetups:
-  - {fileID: 11400000, guid: dc84322f5219f074a83bc657611ec7dd, type: 2}
+  - {fileID: 11400000, guid: 3c633766fbf93f34b8a66d27835204d2, type: 2}
   - {fileID: 11400000, guid: 0edb25fcb14749a45bc16d272c89c715, type: 2}
   - {fileID: 11400000, guid: e2bb21c0e9ad65d449aad27b3a531f2f, type: 2}
   - {fileID: 11400000, guid: c67e094f8153d3c4489eb4c624dfbf22, type: 2}
@@ -14045,7 +14045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6796119, y: 0.8344477}
   m_AnchorMax: {x: 0.6796119, y: 0.8344477}
-  m_AnchoredPosition: {x: 169.50003, y: 123.51318}
+  m_AnchoredPosition: {x: 169.50002, y: 123.51318}
   m_SizeDelta: {x: 171, y: 171}
   m_Pivot: {x: 0.50000006, y: 0.49999973}
 --- !u!114 &1431792689

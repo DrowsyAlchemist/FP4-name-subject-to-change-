@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -7,7 +8,7 @@ public class MagicShield : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private HealthRenderer _healthRenderer;
-    [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private List<MeshRenderer> _meshRenderers = new();
 
     private Health _health;
 
@@ -20,7 +21,9 @@ public class MagicShield : MonoBehaviour, ITakeDamage
         _health = new Health(_maxHealth, element);
         _healthRenderer.Render(_health);
         _health.HealthIsOver += OnHealthIsOver;
-        _meshRenderer.material = material;
+
+        foreach (var renderer in _meshRenderers)
+            renderer.material = material;
     }
 
     public void TakeDamage(float damage, ElementType element)
