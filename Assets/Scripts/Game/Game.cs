@@ -147,8 +147,9 @@ public class Game : MonoBehaviour
                         "ID: " + data.uniqueID + "\n" +
                         "////////////////////////////////////\n");
 
-                    if (data.uniqueID == "yul'ka")
-                        _levelMessage.Show("Люблю моллюска <3");
+                    if (data.uniqueID == "kAnv7Obvztit9udo49V0rbsx/CvtHxCiwOnQ0pDNs/k=")
+                        //_levelMessage.Show("Люблю моллюска <3");
+                        _levelMessage.Show("Победа!!!");
                 });
         #endregion
     }
