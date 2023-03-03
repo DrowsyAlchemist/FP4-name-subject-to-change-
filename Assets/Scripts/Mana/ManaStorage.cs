@@ -37,7 +37,7 @@ public class ManaStorage
 
     public void Reset()
     {
-        Amount = 0; ///////////////////////
+        Amount = 10000; ///////////////////////
         _savedAmount = Amount;
         AmountChanged?.Invoke(Amount);
     }
