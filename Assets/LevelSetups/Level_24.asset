@@ -12,31 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b9bce190970534c95067287adb822e, type: 3}
   m_Name: Level_24
   m_EditorClassIdentifier: 
-  _secondsBetweenWaves: 5
+  _secondsBetweenWaves: 2
   _waves:
-  - _secondsBetweenOrders: 2
+  - _secondsBetweenOrders: 6
     _enemySequences:
     - _enemyTemplate: {fileID: 4232342823267937575, guid: ce3b10d985368424fb87461eed735295, type: 3}
       _hasShield: 0
-      _enemyCount: 1
-      _spawnDelay: 0
-    - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
+      _enemyCount: 2
+      _spawnDelay: 3
+    - _enemyTemplate: {fileID: 4657523496991153131, guid: 48057c21ff3f194439345a136716e77f, type: 3}
       _hasShield: 0
-      _enemyCount: 1
-      _spawnDelay: 0
+      _enemyCount: 5
+      _spawnDelay: 1.5
     - _enemyTemplate: {fileID: 4224802919306438436, guid: 8e797b54786a7ee43913a550dd985a01, type: 3}
       _hasShield: 0
       _enemyCount: 1
-      _spawnDelay: 0
-  - _secondsBetweenOrders: 2
-    _enemySequences:
-    - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
-      _hasShield: 1
-      _enemyCount: 1
-      _spawnDelay: 0
-  - _secondsBetweenOrders: 2
-    _enemySequences:
-    - _enemyTemplate: {fileID: 4224802919306438436, guid: 8e797b54786a7ee43913a550dd985a01, type: 3}
-      _hasShield: 0
-      _enemyCount: 1
-      _spawnDelay: 0
+      _spawnDelay: 2

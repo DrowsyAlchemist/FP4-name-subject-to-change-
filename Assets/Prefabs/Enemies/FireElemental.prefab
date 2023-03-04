@@ -134,7 +134,7 @@ MonoBehaviour:
   - {fileID: 8660831743335549235}
   - {fileID: -5306624921358122104}
   _speed: 2.15
-  _speedWithShield: 1.2
+  _speedWithShield: 1.35
 --- !u!114 &8660831743335549235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1732807260338961822}
-  _seconds: 1
+  _seconds: 1.1
 --- !u!1 &2827193606153582471
 GameObject:
   m_ObjectHideFlags: 0

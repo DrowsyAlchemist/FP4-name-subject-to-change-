@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _secondsBetweenWaves: 1
   _waves:
-  - _secondsBetweenOrders: 3.5
+  - _secondsBetweenOrders: 2
     _enemySequences:
     - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
       _hasShield: 0

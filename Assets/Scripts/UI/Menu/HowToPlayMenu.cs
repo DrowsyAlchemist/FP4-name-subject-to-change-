@@ -14,6 +14,9 @@ public class HowToPlayMenu : Menu
 
     private void OnEnable()
     {
+        foreach (var page in _pages)
+            page.gameObject.SetActive(false);
+
         ShowPage(0);
     }
 

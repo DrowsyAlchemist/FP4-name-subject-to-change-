@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         Shield = ShieldCreator.CreateRandomShield();
         Shield.transform.position = _shieldPoint.position;
         Shield.transform.SetParent(transform);
+        Shield.Destroyed += () => HasShield = false;
     }
 
     public void StopAction()
@@ -72,6 +73,9 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float damage, ElementType transmittingElement)
     {
+        if (HasShield)
+            return;
+
         Sound.SpellHitSound.Play();
         _health.TakeDamage(damage, transmittingElement);
         _elementShower.Show(Element);

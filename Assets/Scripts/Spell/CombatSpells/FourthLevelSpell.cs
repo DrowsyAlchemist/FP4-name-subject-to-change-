@@ -3,7 +3,7 @@ using UnityEngine;
 public class FourthLevelSpell : CombatSpell
 {
     [SerializeField] private LayerMask _targetLayers;
-    [SerializeField] private float _explosionRadius = 2;
+    [SerializeField] private float _explosionRadius = 2.2f;
     [SerializeField] private float _shieldDamageModifier = 1.5f;
 
     protected override void Hit(Collider collider)

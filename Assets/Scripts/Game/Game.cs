@@ -6,6 +6,7 @@ using Lean.Localization;
 
 public class Game : MonoBehaviour
 {
+    [SerializeField] private int _startLevel = 0;
     [SerializeField] private int _adStartLevel = 2;
     [SerializeField] private int _levelsBetweenAd = 3;
 
@@ -99,7 +100,7 @@ public class Game : MonoBehaviour
         _wall.ResetWall();
         _store.Fill();
 
-        StartLevel(0);
+        StartLevel(_startLevel);
 
         _mainMenu.Close();
         _howToPlayMenu.Open();

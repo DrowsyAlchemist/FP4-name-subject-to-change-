@@ -35,9 +35,9 @@ public class ManaStorage
         return amount;
     }
 
-    public void Reset()
+    public void Reset(int initialAmount = 0)
     {
-        Amount = 0; ///////////////////////
+        Amount = initialAmount;
         _savedAmount = Amount;
         AmountChanged?.Invoke(Amount);
     }
@@ -49,7 +49,9 @@ public class ManaStorage
 
     public void Load()
     {
-        Amount = _savedAmount;
+        if (Amount > _savedAmount)
+            Amount = _savedAmount;
+
         AmountChanged?.Invoke(Amount);
     }
 }

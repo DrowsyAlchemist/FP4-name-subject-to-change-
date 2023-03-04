@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private int _loopLevels = 10;
     [SerializeField] private LevelSpawner _levelSpawner;
     [SerializeField] private List<LevelSetup> _levelSetups;
 
@@ -24,10 +25,14 @@ public class Level : MonoBehaviour
     public void StartLevel(int level)
     {
         if (level < 0)
-            throw new System.ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException();
 
         CurrentLevel = level;
-        _levelSpawner.StartSpawn(_levelSetups[CurrentLevel]);
+
+        while (level >= _levelSetups.Count)
+            level -= _loopLevels;
+
+        _levelSpawner.StartSpawn(_levelSetups[level]);
     }
 
     public void AbortSpawn()

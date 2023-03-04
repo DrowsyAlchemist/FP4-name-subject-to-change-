@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
+    [SerializeField] private int _initialMana = 0;
     [SerializeField] private ManaRenderer _manaRenderer;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Game _game;
@@ -14,7 +15,7 @@ public class Mana : MonoBehaviour
         _manaRenderer.Render(ManaStorage);
         _enemySpawner.EnemySpawned += OnEnemySpawned;
         _game.LevelCompleted += OnLevelFinished;
-        
+
     }
     private void OnDestroy()
     {
@@ -23,7 +24,7 @@ public class Mana : MonoBehaviour
 
     public void ResetMana()
     {
-        ManaStorage.Reset();
+        ManaStorage.Reset(_initialMana);
     }
 
     public void UndoLevelMana()

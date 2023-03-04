@@ -265,8 +265,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 5541398762514633749}
   - {fileID: 183909786931093166}
-  _speed: 2
-  _speedWithShield: 1.2
+  _speed: 1.7
+  _speedWithShield: 1.35
 --- !u!114 &5541398762514633749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3232000412117672120}
-  _seconds: 1
+  _seconds: 1.1
 --- !u!1001 &3782157655793416952
 PrefabInstance:
   m_ObjectHideFlags: 0

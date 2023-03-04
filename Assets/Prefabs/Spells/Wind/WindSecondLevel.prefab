@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4785126266395327736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.43724543, y: -8.428896, z: -3.759}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3730098426462690075}
@@ -127,14 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 18b2fad355233d94687fd4b8eec64c87, type: 3}
   _lable: Wind
-  _cost: 300
-  _damage: 20
+  _cost: 250
+  _damage: 15
   _element: 2
-  _hitEffectTemplate: {fileID: 1845955007268882, guid: 4cabf25c31d288c49a8f3c404269fd50, type: 3}
-  _targetLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  _explosionRadius: 2.2
+  _hitEffectTemplate: {fileID: 1459862227383078, guid: fc3d0811404303d48bd2c14c6b3de22c, type: 3}
 --- !u!1001 &1835870081866040916
 PrefabInstance:
   m_ObjectHideFlags: 0
