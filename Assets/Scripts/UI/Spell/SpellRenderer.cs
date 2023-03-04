@@ -10,7 +10,7 @@ public class SpellRenderer : MonoBehaviour
     [SerializeField] private Image _highlightedFrame;
     [SerializeField] private TMP_Text _levelText;
 
-    public UpgradeableSpellData SpellData { get; private set; }
+    public SpellData SpellData { get; private set; }
 
     public event Action<SpellRenderer> ButtonClicked;
 
@@ -29,7 +29,7 @@ public class SpellRenderer : MonoBehaviour
         _highlightedFrame.gameObject.SetActive(isHighlighted);
     }
 
-    public void Render(UpgradeableSpellData spellData)
+    public void Render(SpellData spellData)
     {
         if (SpellData != null)
             SpellData.Upgrated -= OnSpellUpgraded;
@@ -39,7 +39,7 @@ public class SpellRenderer : MonoBehaviour
         UpdateRender(spellData);
     }
 
-    private void UpdateRender(UpgradeableSpellData spellData)
+    private void UpdateRender(SpellData spellData)
     {
         _image.sprite = spellData.GetCurrentSpell().Sprite;
         _levelText.text = spellData.UpgradeLevel.ToString();
@@ -50,7 +50,7 @@ public class SpellRenderer : MonoBehaviour
         ButtonClicked?.Invoke(this);
     }
 
-    private void OnSpellUpgraded(UpgradeableSpellData spellData)
+    private void OnSpellUpgraded(SpellData spellData)
     {
         UpdateRender(spellData);
     }

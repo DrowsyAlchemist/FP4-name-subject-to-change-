@@ -31,11 +31,6 @@ public class FourthLevelSpell : CombatSpell
                         if (hit.TryGetComponent(out ITakeDamage target))
                             target.TakeDamage(Damage, Element);
         }
-        Collapse();
-    }
-
-    private void Collapse()
-    {
         Destroy(gameObject);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Collider))]
-public abstract class CombatSpell : UpgradeableSpell
+public abstract class CombatSpell : Spell
 {
     [SerializeField] private int _damage = 1;
     [SerializeField] private ElementType _element;
@@ -38,14 +38,14 @@ public abstract class CombatSpell : UpgradeableSpell
         game.LevelStarted += OnLevelStarted;
     }
 
-    private void OnLevelStarted()
-    {
-        Destroy(gameObject);
-    }
-
     public void Launch()
     {
         _mover.StartMovement();
+    }
+
+    private void OnLevelStarted()
+    {
+        Destroy(gameObject);
     }
 
     private void OnValidate()

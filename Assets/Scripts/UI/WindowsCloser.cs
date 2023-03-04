@@ -26,9 +26,8 @@ public class WindowsCloser : MonoBehaviour
                     CloseAllAndContinueGame();
                     return;
                 }
-                _pauseWindow.gameObject.SetActive(true);
-                Time.timeScale = 0;
             }
+            Game.Pause();
         }
 
     }

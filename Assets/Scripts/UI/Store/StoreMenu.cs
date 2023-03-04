@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class StoreMenu : MonoBehaviour
 {
-    [SerializeField] private UpgradeableSpellData _defaultCombatSpell;
-
-    [SerializeField] private List<UpgradeableSpellData> _waresData;
+    [SerializeField] private SpellData _defaultCombatSpell;
+    [SerializeField] private List<SpellData> _waresData;
     [SerializeField] private WareRenderer _wareRendererTemplate;
     [SerializeField] private RectTransform _waresContainer;
     [SerializeField] private AvailableSpellsHolder _playerSpellsHolder;
@@ -26,7 +25,6 @@ public class StoreMenu : MonoBehaviour
             Destroy(_wareRenderers[0].gameObject);
             _wareRenderers.RemoveAt(0);
         }
-
         _defaultCombatSpell.Upgrade();
         AddWare(_defaultCombatSpell);
         _playerSpellsHolder.SetDefaultSpell(_defaultCombatSpell);
@@ -35,7 +33,7 @@ public class StoreMenu : MonoBehaviour
             AddWare(wareData);
     }
 
-    private void AddWare(UpgradeableSpellData wareData)
+    private void AddWare(SpellData wareData)
     {
         var renderer = Instantiate(_wareRendererTemplate, _waresContainer);
         renderer.Render(wareData);
@@ -45,7 +43,7 @@ public class StoreMenu : MonoBehaviour
 
     private void OnBuyButtonClick(WareRenderer renderer)
     {
-        UpgradeableSpellData ware = renderer.WareData;
+        SpellData ware = renderer.WareData;
         int cost = ware.GetNextLevelCost();
 
         if (_playerMana.ManaStorage.CanGiveMana(cost))

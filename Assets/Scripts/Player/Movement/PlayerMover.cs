@@ -18,7 +18,7 @@ public class PlayerMover : Mover
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 direction = _input.GetDirection().normalized;
         _rigidbody.velocity = direction * _speed;

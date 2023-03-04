@@ -42,7 +42,7 @@ public class Health: ITakeDamage, IReadonlyHealth
 
     public void IncreaseMaxHealth(float value)
     {
-        if (value <= 0)
+        if (value < 0)
             throw new ArgumentOutOfRangeException("value");
 
         MaxHealth += value;
@@ -51,6 +51,9 @@ public class Health: ITakeDamage, IReadonlyHealth
 
     public void RestoreHealth(float value)
     {
+        if (value < 0)
+            throw new ArgumentOutOfRangeException("value");
+
         CurrentHealth += value;
 
         if (CurrentHealth > MaxHealth)

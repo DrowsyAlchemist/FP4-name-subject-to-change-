@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverMenu : MonoBehaviour
+public class GameOverMenu : Menu
 {
     [SerializeField] private Game _game;
     [SerializeField] private MainMenu _mainMenu;    
@@ -19,16 +19,6 @@ public class GameOverMenu : MonoBehaviour
     {
         _tryAgainButton.onClick.RemoveListener(OnTryAgainButtonClick);
         _backToMenuButton.onClick.RemoveListener(OnBackToMenuButtonClick);
-    }
-
-    public void Open()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void Close()
-    {
-        gameObject.SetActive(false);
     }
 
     private void OnTryAgainButtonClick()

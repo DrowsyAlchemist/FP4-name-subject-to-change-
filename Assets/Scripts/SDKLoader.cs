@@ -1,12 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using Agava.YandexGames;
-using System;
 
 public class SDKLoader : MonoBehaviour
 {
-    public event Action SDKInitialized;
-
     private IEnumerator Start()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
@@ -17,6 +14,5 @@ public class SDKLoader : MonoBehaviour
             yield return YandexGamesSdk.Initialize();
 
         gameObject.SetActive(false);
-        SDKInitialized?.Invoke();
     }
 }

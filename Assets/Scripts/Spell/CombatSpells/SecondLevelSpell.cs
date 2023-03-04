@@ -8,12 +8,14 @@ public class SecondLevelSpell : CombatSpell
     protected override void Hit(Collider collider)
     {
         #region DegugRegion
+#if UNITY_EDITOR
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.back, Color.yellow, 1);
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.forward, Color.yellow, 1);
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.left, Color.yellow, 1);
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.right, Color.yellow, 1);
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.up, Color.yellow, 1);
         Debug.DrawRay(transform.position, _explosionRadius * Vector3.down, Color.yellow, 1);
+#endif
         #endregion
 
         if (collider.TryGetComponent(out MagicShield shield))
@@ -30,11 +32,6 @@ public class SecondLevelSpell : CombatSpell
                         if (hit.TryGetComponent(out ITakeDamage target))
                             target.TakeDamage(Damage, Element);
         }
-        Collapse();
-    }
-
-    private void Collapse()
-    {
         Destroy(gameObject);
     }
 }

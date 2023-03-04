@@ -12,9 +12,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     [SerializeField] private HealthRenderer _healthRenderer;
     [SerializeField] private int _reward = 2;
     [SerializeField] private ElementType _element;
-
     [SerializeField] private ElementShower _elementShower;
-
     [SerializeField] private Transform _shieldPoint;
 
     private Health _health;
@@ -46,7 +44,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     public void Init(Wall target, bool hasShield)
     {
-        Target = target ?? throw new System.ArgumentNullException();
+        Target = target ?? throw new ArgumentNullException();
 
         if (hasShield)
             SetShield();

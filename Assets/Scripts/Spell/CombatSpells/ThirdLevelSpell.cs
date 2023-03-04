@@ -7,14 +7,9 @@ public class ThirdLevelSpell : CombatSpell
         if (collider.TryGetComponent(out MagicShield shield))
         {
             shield.TakeDamage(Damage, Element);
-            Collapse();
+            Destroy(gameObject);
         }
         if (collider.TryGetComponent(out ITakeDamage subject))
             subject.TakeDamage(Damage, Element);
-    }
-
-    private void Collapse()
-    {
-        Destroy(gameObject);
     }
 }

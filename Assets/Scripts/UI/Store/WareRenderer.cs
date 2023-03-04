@@ -11,7 +11,7 @@ public class WareRenderer : MonoBehaviour
     [SerializeField] private TMP_Text _upgradeLevelText;
     [SerializeField] private Button _buyButton;
 
-    public UpgradeableSpellData WareData { get; private set; }
+    public SpellData WareData { get; private set; }
 
     public event Action<WareRenderer> BuyButtonClicked;
 
@@ -25,14 +25,13 @@ public class WareRenderer : MonoBehaviour
         _buyButton.onClick.RemoveListener(OnBuyButtonClick);
     }
 
-    public void Render(UpgradeableSpellData wareData)
+    public void Render(SpellData wareData)
     {
         WareData = wareData;
         RenderNextLevelWare(WareData);
-
     }
 
-    private void RenderNextLevelWare(UpgradeableSpellData wareData)
+    private void RenderNextLevelWare(SpellData wareData)
     {
         int nextLevel = wareData.UpgradeLevel + 1;
 
@@ -44,7 +43,7 @@ public class WareRenderer : MonoBehaviour
         else
         {
             _upgradeLevelText.text = nextLevel.ToString();
-            UpgradeableSpell spell = wareData.GetSpell(nextLevel);
+            Spell spell = wareData.GetSpell(nextLevel);
             _image.sprite = spell.Sprite;
             _lable.text = spell.Lable;
             _costText.text = spell.Cost.ToString();

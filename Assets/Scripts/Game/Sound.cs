@@ -7,8 +7,10 @@ public class Sound : MonoBehaviour
     [SerializeField] private string _masterVolumeName;
     [SerializeField] private float _maxValue = 0;
     [SerializeField] private float _minValue = -80;
+
     [SerializeField] private Sprite _turnedOnSprite;
     [SerializeField] private Sprite _muteSprite;
+
     [SerializeField] private AudioSource _backgroundMusic;
     [SerializeField] private AudioSource _clickSound;
     [SerializeField] private AudioSource _sellSound;

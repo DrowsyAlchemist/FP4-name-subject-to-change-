@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : Menu
 {
     [SerializeField] private Game _game;
     [SerializeField] private RectTransform _window;
@@ -17,16 +15,6 @@ public class MainMenu : MonoBehaviour
     private void OnDestroy()
     {
         _playButton.onClick.RemoveListener(OnPlayButtonClicked);
-    }
-
-    public void Open()
-    {
-        _window.gameObject.SetActive(true);
-    }
-
-    public void Close()
-    {
-        _window.gameObject.SetActive(false);   
     }
 
     private void OnPlayButtonClicked()

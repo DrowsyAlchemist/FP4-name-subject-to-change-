@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Menu
 {
     [SerializeField] private RectTransform _pauseWindow;
     [SerializeField] private MainMenu _mainMenu;
@@ -18,16 +18,6 @@ public class PauseMenu : MonoBehaviour
     {
         _continueButton.onClick.RemoveListener(OnContinueButtonClick);
         _backToMenuButton.onClick.RemoveListener(OnBackToMenuButtonClick);
-    }
-
-    public void Open()
-    {
-        _pauseWindow.gameObject.SetActive(true);
-    }
-
-    public void Close()
-    {
-        _pauseWindow.gameObject.SetActive(false);
     }
 
     private void OnContinueButtonClick()

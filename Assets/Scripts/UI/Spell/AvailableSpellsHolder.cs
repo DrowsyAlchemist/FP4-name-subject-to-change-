@@ -19,7 +19,7 @@ public class AvailableSpellsHolder : MonoBehaviour
         }
     }
 
-    public void SetDefaultSpell(UpgradeableSpellData defaultSpell)
+    public void SetDefaultSpell(SpellData defaultSpell)
     {
         while(_spells.Count>0)
         {
@@ -30,7 +30,7 @@ public class AvailableSpellsHolder : MonoBehaviour
         OnRendererClick(defaultSpellRenderer);
     }
 
-    public SpellRenderer AddSpell(UpgradeableSpellData spellData)
+    public SpellRenderer AddSpell(SpellData spellData)
     {
         spellData.Upgrated += OnSpellUpgraded;
         var spellRenderer = Instantiate(_spellRenderer, _container);
@@ -57,7 +57,7 @@ public class AvailableSpellsHolder : MonoBehaviour
         }
     }
 
-    private void OnSpellUpgraded(UpgradeableSpellData spellData)
+    private void OnSpellUpgraded(SpellData spellData)
     {
         if (spellData == _highlighted.SpellData)
             _caster.SetSpell(spellData.GetCurrentSpell() as CombatSpell);

@@ -1,7 +1,7 @@
 using Lean.Localization;
 using UnityEngine;
 
-public abstract class UpgradeableSpell : MonoBehaviour
+public abstract class Spell : MonoBehaviour
 {
     [SerializeField] private Sprite _sprite;
     [SerializeField] private string _lable;

@@ -7,11 +7,6 @@ public class FirstLevelCombatSpell : CombatSpell
         if (collider.TryGetComponent(out ITakeDamage subject))
             subject.TakeDamage(Damage, Element);
 
-        Collapse();
-    }
-
-    private void Collapse()
-    {
         Destroy(gameObject);
     }
 }

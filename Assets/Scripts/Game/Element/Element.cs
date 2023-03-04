@@ -4,15 +4,14 @@ public class Element : MonoBehaviour
 {
     [SerializeField] private float _interactionIncreaseModifier = 2;
 
-    [SerializeField] private Sprite _light;
-    [SerializeField] private Sprite _fire;
-    [SerializeField] private Sprite _wind;
-    [SerializeField] private Sprite _lightning;
-    [SerializeField] private Sprite _earth;
-    [SerializeField] private Sprite _water;
+    [SerializeField] private Sprite _lightSprite;
+    [SerializeField] private Sprite _fireSprite;
+    [SerializeField] private Sprite _windSprite;
+    [SerializeField] private Sprite _lightningSprite;
+    [SerializeField] private Sprite _earthSprite;
+    [SerializeField] private Sprite _waterSprite;
 
     private const int MaxElementsDifference = 4;
-
     private static Element _instance;
 
     private void Awake()
@@ -49,12 +48,12 @@ public class Element : MonoBehaviour
     {
         return element switch
         {
-            ElementType.Light => _instance._light,
-            ElementType.Fire => _instance._fire,
-            ElementType.Wind => _instance._wind,
-            ElementType.Lightning => _instance._lightning,
-            ElementType.Earth => _instance._earth,
-            ElementType.Water => _instance._water,
+            ElementType.Light => _instance._lightSprite,
+            ElementType.Fire => _instance._fireSprite,
+            ElementType.Wind => _instance._windSprite,
+            ElementType.Lightning => _instance._lightningSprite,
+            ElementType.Earth => _instance._earthSprite,
+            ElementType.Water => _instance._waterSprite,
             _ => throw new System.NotImplementedException(),
         };
     }

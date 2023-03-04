@@ -1,28 +1,28 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UpgradeableItem", menuName = "ScriptableObjects/UpgradeableItem", order = 51)]
-public class UpgradeableSpellData : ScriptableObject
+[CreateAssetMenu(fileName = "Spell", menuName = "ScriptableObjects/Spell", order = 51)]
+public class SpellData : ScriptableObject
 {
     [SerializeField] private string _id;
     [SerializeField] private int _maxLevel = 4;
 
-    [SerializeField] private UpgradeableSpell _firstLevelSpell;
-    [SerializeField] private UpgradeableSpell _secondLevelSpell;
-    [SerializeField] private UpgradeableSpell _thirdLevelSpell;
-    [SerializeField] private UpgradeableSpell _fourthLevelSpell;
+    [SerializeField] private Spell _firstLevelSpell;
+    [SerializeField] private Spell _secondLevelSpell;
+    [SerializeField] private Spell _thirdLevelSpell;
+    [SerializeField] private Spell _fourthLevelSpell;
 
     public int MaxLevel => _maxLevel;
     public int UpgradeLevel => PlayerPrefs.GetInt(_id, 0);
 
-    public event Action<UpgradeableSpellData> Upgrated;
+    public event Action<SpellData> Upgrated;
 
-    public UpgradeableSpell GetCurrentSpell()
+    public Spell GetCurrentSpell()
     {
         return GetSpell(UpgradeLevel);
     }
 
-    public UpgradeableSpell GetSpell(int upgradeLevel)
+    public Spell GetSpell(int upgradeLevel)
     {
         switch (upgradeLevel)
         {

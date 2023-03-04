@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class LevelMessage : MonoBehaviour
+public class GameMessage : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
 

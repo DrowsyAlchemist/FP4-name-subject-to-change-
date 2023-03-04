@@ -6,26 +6,29 @@ using Lean.Localization;
 
 public class Game : MonoBehaviour
 {
+    [SerializeField] private int _adStartLevel = 2;
     [SerializeField] private int _levelsBetweenAd = 3;
 
     [SerializeField] private Player _player;
+    [SerializeField] private Wall _wall;
+    [SerializeField] private Mana _mana;
+    [SerializeField] private StoreMenu _store;
+    [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private Score _score;
     [SerializeField] private Level _level;
     [SerializeField] private float _secondsBetweenLevels;
-    [SerializeField] private StoreMenu _store;
-    [SerializeField] private Mana _mana;
-    [SerializeField] private Wall _wall;
-    [SerializeField] private EnemySpawner _enemySpawner;
-
-    [SerializeField] private Score _score;
 
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private GameOverMenu _gameOverMenu;
+    [SerializeField] private HowToPlayMenu _howToPlayMenu;
 
-    [SerializeField] private LevelMessage _levelMessage;
+    [SerializeField] private GameMessage _gameMessage;
 
-    [SerializeField] private RectTransform _howToPlayPanel;
 
+    private const string LevelPhrase = "Level";
+    private const string VictoryPhrase = "Victory";
+    private const string GameOverPhrase = "GameOver";
     private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
@@ -56,8 +59,6 @@ public class Game : MonoBehaviour
 
         if (PlayerAccount.HasPersonalProfileDataPermission == false)
             PlayerAccount.RequestPersonalProfileDataPermission();
-
-        ShowStickyAd();
     }
 
     private void OnDestroy()
@@ -65,7 +66,7 @@ public class Game : MonoBehaviour
         _wall.Destroyed -= OnWallDestroyed;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_aliveEnemiesHolder.Count == 0)
         {
@@ -93,16 +94,15 @@ public class Game : MonoBehaviour
         enabled = false;
         _level.AbortSpawn();
         _aliveEnemiesHolder.KillAllEnemies();
-
         _score.ResetScore();
-        _store.Fill();
         _mana.ResetMana();
         _wall.ResetWall();
+        _store.Fill();
 
         StartLevel(0);
 
         _mainMenu.Close();
-        _howToPlayPanel.gameObject.SetActive(true);
+        _howToPlayMenu.Open();
         Pause();
     }
 
@@ -110,8 +110,8 @@ public class Game : MonoBehaviour
     {
         _level.StartLevel(level);
         _player.Play();
-        string levelText = LeanLocalization.GetTranslationText("Level");
-        _levelMessage.Show(levelText + " " + (_level.CurrentLevel + 1));
+        string levelText = LeanLocalization.GetTranslationText(LevelPhrase);
+        _gameMessage.Show(levelText + " " + (_level.CurrentLevel + 1));
         LevelStarted?.Invoke();
     }
 
@@ -119,7 +119,7 @@ public class Game : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        if (_level.CurrentLevel % _levelsBetweenAd == 1)
+        if (_level.CurrentLevel % _levelsBetweenAd == _adStartLevel)
             ShowInterstitialAd();
 
         StartLevel(_level.CurrentLevel + 1);
@@ -130,9 +130,9 @@ public class Game : MonoBehaviour
     {
         _player.StopPlaying();
         enabled = false;
-        string victoryText = LeanLocalization.GetTranslationText("Victory");
+        string victoryText = LeanLocalization.GetTranslationText(VictoryPhrase);
         Sound.LevelCompletedSound.Play();
-        _levelMessage.Show(victoryText + "!\n");
+        _gameMessage.Show(victoryText + "!\n");
         LevelCompleted?.Invoke();
 
         #region
@@ -149,15 +149,15 @@ public class Game : MonoBehaviour
 
                     if (data.uniqueID == "kAnv7Obvztit9udo49V0rbsx/CvtHxCiwOnQ0pDNs/k=")
                         //_levelMessage.Show("Люблю моллюска <3");
-                        _levelMessage.Show("Победа!!!");
+                        _gameMessage.Show("Победа!!!");
                 });
         #endregion
     }
 
     private void OnWallDestroyed()
     {
-        string gameOverText = LeanLocalization.GetTranslationText("GameOver");
-        _levelMessage.Show(gameOverText);
+        string gameOverText = LeanLocalization.GetTranslationText(GameOverPhrase);
+        _gameMessage.Show(gameOverText);
         _player.StopPlaying();
         _aliveEnemiesHolder.StopAllEnemies();
         StartCoroutine(ShowGameOverMenu());
@@ -187,12 +187,12 @@ public class Game : MonoBehaviour
         enabled = false;
         _level.AbortSpawn();
         _aliveEnemiesHolder.KillAllEnemies();
-        StartLevel(_level.CurrentLevel);
-        Pause();
-
         _wall.Repair(100);
-        _gameOverMenu.Close();
         _mana.UndoLevelMana();
+
+        StartLevel(_level.CurrentLevel);
+        _gameOverMenu.Close();
+        Pause();
     }
 
     private void ShowInterstitialAd()

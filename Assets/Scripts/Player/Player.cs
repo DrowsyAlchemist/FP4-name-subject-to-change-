@@ -22,9 +22,9 @@ public class Player : MonoBehaviour
         enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _elapsedTime += Time.deltaTime;
+        _elapsedTime += Time.fixedDeltaTime;
 
         if (_elapsedTime > _secondsBetweenCasts)
         {

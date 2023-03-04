@@ -18,7 +18,7 @@ public class HealthRenderer : MonoBehaviour
     public void Render(Health health)
     {
         UnsubscribeFromHealth(_health);
-        _health = health ?? throw new System.ArgumentNullException();
+        _health = health ?? throw new ArgumentNullException();
         UpdateRenderer();
         health.MaxHealthChanged += OnHealthChanged;
         health.CurrentHealthChanged += OnHealthChanged;

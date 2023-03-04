@@ -57,6 +57,8 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 391584432233c4e0a864435a50a098c5, type: 3}
     - {fileID: 2800000, guid: 1f6359cc39532464595f4eeeedb325e0, type: 3}
     - {fileID: 2800000, guid: 97b5197e255dc744084b235a5db32063, type: 3}
+    - {fileID: 2800000, guid: 77a9d892ce0a9494388c3e8e2c94b25e, type: 3}
+    - {fileID: 2800000, guid: f96ed64c1140a44688663b65a678910a, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -65,12 +67,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9e2e5000cde86e44d93e7a5252b43637, type: 3}
   - {fileID: 21300000, guid: 7af9652001132497ba7088f0b27ebe03, type: 3}
   - {fileID: 21300000, guid: a3f6ade06695e433b90d2395867e368a, type: 3}
+  - {fileID: 21300000, guid: 77a9d892ce0a9494388c3e8e2c94b25e, type: 3}
   - {fileID: 21300000, guid: 38376713d9fcd4046ac2727e7f6840a1, type: 3}
   - {fileID: 21300000, guid: 391584432233c4e0a864435a50a098c5, type: 3}
   - {fileID: 21300000, guid: 161b62044f01d41468f01c5510c23aff, type: 3}
   - {fileID: 21300000, guid: dd77367546bf4433dbbb2317a935df54, type: 3}
   - {fileID: 21300000, guid: e6eea4f7cbb9f46f79c0fe06180fa5b3, type: 3}
   - {fileID: 21300000, guid: 35d7e6588f1f34db1b9a5e62f4efdf77, type: 3}
+  - {fileID: 21300000, guid: f96ed64c1140a44688663b65a678910a, type: 3}
   - {fileID: 21300000, guid: 05661abc1924045c89b0e56f76854e4d, type: 3}
   - {fileID: 21300000, guid: 1f6359cc39532464595f4eeeedb325e0, type: 3}
   - {fileID: 21300000, guid: 97b5197e255dc744084b235a5db32063, type: 3}
@@ -79,12 +83,14 @@ SpriteAtlas:
   - GUI2
   - language_flag_rus
   - ranking_medal_gold
+  - language_flag_eng
   - background
   - btn_icon_ad
   - stage_reward_icon_book
   - equipment_frame_brown
   - equipment_frame_green
   - equipment_frame_blue
+  - language_flag_tur
   - mana
   - play_btn_pause
   - HighlightedFrame

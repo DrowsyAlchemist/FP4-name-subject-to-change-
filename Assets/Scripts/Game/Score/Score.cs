@@ -8,6 +8,7 @@ public class Score : MonoBehaviour
     [SerializeField] private Game _game;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Wall _wall;
+    [SerializeField] private SDKLoader _sdkLoader;
 
     private const string LeaderboardName = "MagicWallLeaderboard";
     private ScoreCounter _counter;

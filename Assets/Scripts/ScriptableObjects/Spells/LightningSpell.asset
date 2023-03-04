@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3031ce94ca34d47b03af506b89db8e, type: 3}
+  m_Script: {fileID: 11500000, guid: bc9112e0d20677341a15bde434942067, type: 3}
   m_Name: LightningSpell
   m_EditorClassIdentifier: 
   _id: LightningSpell
