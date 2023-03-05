@@ -31,7 +31,12 @@ public class RepairWallButton : UIButton
                 Sound.BackgroundMusic.Stop();
             },
             onRewardedCallback: () => _wall.Repair(_restorePercents),
-            onCloseCallback: () => Sound.BackgroundMusic.Play()
+            onCloseCallback: () => Sound.BackgroundMusic.Play(),
+            onErrorCallback: (error) =>
+            {
+                _wall.Repair(_restorePercents);
+                Debug.Log(error);
+            }
             );
     }
 }

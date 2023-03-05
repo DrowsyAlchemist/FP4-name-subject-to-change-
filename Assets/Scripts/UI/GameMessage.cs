@@ -8,6 +8,7 @@ public class GameMessage : MonoBehaviour
     [SerializeField] private TMP_Text _text;
 
     private const string ShowAnimation = "Show";
+    private const string IdleAnimation = "Idle";
     private Animator _animator;
 
     private void Awake()
@@ -17,21 +18,18 @@ public class GameMessage : MonoBehaviour
 
     public void Show(string message)
     {
-        if (IsAnimatorPlaying() == false)
-        {
-            _text.text = message;
-            _animator.Play(ShowAnimation);
-        }
+        _text.text = message;
+
+        if (IsAnimatorPlaying())
+            StartCoroutine(ResetAndShow());
         else
-        {
-            StartCoroutine(ShowWithDelay(message));
-        }
+            _animator.Play(ShowAnimation);
     }
 
-    private IEnumerator ShowWithDelay(string message)
+    private IEnumerator ResetAndShow()
     {
-        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
-        _text.text = message;
+        _animator.Play(IdleAnimation);
+        yield return new WaitForEndOfFrame();
         _animator.Play(ShowAnimation);
     }
 

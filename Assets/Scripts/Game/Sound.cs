@@ -20,7 +20,7 @@ public class Sound : MonoBehaviour
 
     private static Sound _instance;
 
-    public static bool IsOn { get; private set; } = true;
+    public static bool IsOn { get; private set; }
     public static Sprite TurnedOnSprite => _instance._turnedOnSprite;
     public static Sprite MuteSprite => _instance._muteSprite;
     public static AudioSource BackgroundMusic => _instance._backgroundMusic;
@@ -40,7 +40,7 @@ public class Sound : MonoBehaviour
 
     private void Start()
     {
-        TurnOn();
+        Mute();
     }
 
     public static void TurnOn()
