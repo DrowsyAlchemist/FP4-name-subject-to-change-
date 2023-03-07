@@ -3,22 +3,24 @@ using UnityEngine;
 public abstract class Pool : MonoBehaviour
 {
     [SerializeField] private int _initialSize = 6;
-    [SerializeField] private GameObject _template;
 
+    private GameObject _objTemplate;
     private GameObject[] _pool;
 
-    private void Awake()
+    protected void Init(GameObject template)
     {
+        _objTemplate = template ?? throw new System.ArgumentNullException();
         _pool = new GameObject[_initialSize];
 
         for (int i = 0; i < _initialSize; i++)
         {
-            var obj = Instantiate(_template, gameObject.transform);
+            var obj = Instantiate(_objTemplate, gameObject.transform);
             _pool[i] = obj;
+            obj.SetActive(false);
         }
     }
 
-    public GameObject GetObject()
+    protected GameObject GetObject()
     {
         foreach (var obj in _pool)
             if (obj.gameObject.activeSelf == false)
@@ -35,10 +37,11 @@ public abstract class Pool : MonoBehaviour
         for (int i = 0; i < _pool.Length; i++)
             newPool[i] = _pool[i];
 
-        var newObj = Instantiate(_template, gameObject.transform);
+        var newObj = Instantiate(_objTemplate, gameObject.transform);
         newObj.gameObject.SetActive(false);
         newPool[newSize - 1] = newObj;
         _pool = newPool;
+        Debug.Log("New object:" + newObj);
         return newObj;
     }
 }

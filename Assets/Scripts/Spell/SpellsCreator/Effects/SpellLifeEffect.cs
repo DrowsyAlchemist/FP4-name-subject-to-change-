@@ -1,18 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpellLifeEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<ParticleSystem> _particles;
 
-    // Update is called once per frame
-    void Update()
+    public void SetColor(Color color)
     {
-        
+        foreach (var particle in _particles)
+            particle.startColor = color;
     }
 }

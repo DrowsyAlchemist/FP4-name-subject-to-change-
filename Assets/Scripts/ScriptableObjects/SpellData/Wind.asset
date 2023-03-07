@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9112e0d20677341a15bde434942067, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: 
+  _id: WindSpell
+  _maxLevel: 4
+  _upgrageLevelInfo: {fileID: 11400000, guid: 79e60eafd457c2f4a94526e0b31a20c6, type: 2}
+  _element: 2
+  _sprite: {fileID: 21300000, guid: 18b2fad355233d94687fd4b8eec64c87, type: 3}
+  _material: {fileID: 2100000, guid: c4dab12b6ad08384ba8a3ce2f7eba5f7, type: 2}
+  _effectColor: {r: 0.31764707, g: 0.50980395, b: 1, a: 0.6509804}
+  _lable: Wind

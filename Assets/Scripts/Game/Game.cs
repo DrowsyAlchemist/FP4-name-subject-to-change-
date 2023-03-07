@@ -7,6 +7,7 @@ using Lean.Localization;
 public class Game : MonoBehaviour
 {
     [SerializeField] private int _startLevel = 0;
+
     [SerializeField] private int _adStartLevel = 2;
     [SerializeField] private int _levelsBetweenAd = 3;
 
@@ -26,20 +27,20 @@ public class Game : MonoBehaviour
 
     [SerializeField] private GameMessage _gameMessage;
 
-
     private const string LevelPhrase = "Level";
     private const string VictoryPhrase = "Victory";
     private const string GameOverPhrase = "GameOver";
-    private static Game _instance;
     private AliveEnemiesHolder _aliveEnemiesHolder;
+
+    public static Game Instance { get; private set; }
 
     public event Action LevelStarted;
     public event Action LevelCompleted;
 
     private void Awake()
     {
-        if (_instance == null)
-            _instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Destroy(gameObject);
     }
@@ -78,13 +79,13 @@ public class Game : MonoBehaviour
 
     public static void Pause()
     {
-        _instance._pauseMenu.Open();
+        Instance._pauseMenu.Open();
         Time.timeScale = 0;
     }
 
     public static void Continue()
     {
-        _instance._pauseMenu.Close();
+        Instance._pauseMenu.Close();
         Time.timeScale = 1;
     }
 

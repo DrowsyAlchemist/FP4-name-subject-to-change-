@@ -28,6 +28,8 @@ public class WareRenderer : MonoBehaviour
     public void Render(SpellData wareData)
     {
         WareData = wareData;
+        _lable.text = wareData.Lable;
+        _image.sprite = wareData.Sprite;
         RenderNextLevelWare(WareData);
     }
 
@@ -43,10 +45,7 @@ public class WareRenderer : MonoBehaviour
         else
         {
             _upgradeLevelText.text = nextLevel.ToString();
-            Spell spell = wareData.GetSpell(nextLevel);
-            _image.sprite = spell.Sprite;
-            _lable.text = spell.Lable;
-            _costText.text = spell.Cost.ToString();
+            _costText.text = wareData.GetNextLevelCost().ToString();
         }
     }
 

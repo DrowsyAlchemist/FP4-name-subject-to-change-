@@ -41,7 +41,7 @@ public class SpellRenderer : MonoBehaviour
 
     private void UpdateRender(SpellData spellData)
     {
-        _image.sprite = spellData.GetCurrentSpell().Sprite;
+        _image.sprite = spellData.Sprite;
         _levelText.text = spellData.UpgradeLevel.ToString();
     }
 

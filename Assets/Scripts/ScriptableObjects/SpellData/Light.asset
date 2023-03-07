@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9112e0d20677341a15bde434942067, type: 3}
+  m_Name: Light
+  m_EditorClassIdentifier: 
+  _id: LightSpell
+  _maxLevel: 3
+  _upgrageLevelInfo: {fileID: 11400000, guid: 9c5b0ca03c27e12469da672438139070, type: 2}
+  _element: 0
+  _sprite: {fileID: 21300000, guid: a8d438de861ba7440985df84a2683092, type: 3}
+  _material: {fileID: 2100000, guid: 3f14258f0e1afb74ab23bf79d457c406, type: 2}
+  _effectColor: {r: 1, g: 0.9722222, b: 0.25, a: 1}
+  _lable: Light

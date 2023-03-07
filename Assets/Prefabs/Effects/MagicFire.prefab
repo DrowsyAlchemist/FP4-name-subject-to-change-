@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3078679687890328911}
   - component: {fileID: 2884944466093199903}
   - component: {fileID: 2914681627475890411}
+  - component: {fileID: 7349621887920842199}
   m_Layer: 0
   m_Name: MagicFire
   m_TagString: Untagged
@@ -4827,6 +4828,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7349621887920842199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3076061629397253911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1116798ea92007d4d9c97297a697ac67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particles:
+  - {fileID: 2884944466093199903}
+  - {fileID: 2915793733380656517}
 --- !u!1 &3076086651387370319
 GameObject:
   m_ObjectHideFlags: 0
@@ -9874,7 +9890,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 0.21960784}
+      maxColor: {r: 0, g: 0, b: 0, a: 0.29803923}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14698,7 +14714,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.26607513, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.9843137, b: 0.19215687, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

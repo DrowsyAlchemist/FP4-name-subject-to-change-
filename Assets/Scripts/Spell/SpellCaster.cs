@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class SpellCaster : MonoBehaviour
 {
-    [SerializeField] private Game _game;
+    [SerializeField] private SpellsCreator _spellsCreator;
     [SerializeField] private Transform _castPoint;
     [SerializeField] private AudioSource _castSound;
 
-    private CombatSpell _spellTemplate;
+    private ElementType _currentSpellElement;
 
     private void Awake()
     {
         enabled = false;
     }
 
-    public void SetSpell(CombatSpell spellTemplate)
+    public void SetSpell(ElementType spellElement)
     {
-        _spellTemplate = spellTemplate ?? throw new System.ArgumentNullException();
+        _currentSpellElement = spellElement;
     }
 
     public void CastSpell()
     {
-        var spell = Instantiate(_spellTemplate, _castPoint.position, Quaternion.identity, null);
-        spell.Init(_game);
+        var spell = _spellsCreator.Create(_currentSpellElement);
+        spell.transform.position = _castPoint.position;
         spell.Launch();
         _castSound.Play();
     }

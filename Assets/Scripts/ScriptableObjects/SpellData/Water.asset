@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9112e0d20677341a15bde434942067, type: 3}
+  m_Name: Water
+  m_EditorClassIdentifier: 
+  _id: WaterSpell
+  _maxLevel: 4
+  _upgrageLevelInfo: {fileID: 11400000, guid: 79e60eafd457c2f4a94526e0b31a20c6, type: 2}
+  _element: 5
+  _sprite: {fileID: 21300000, guid: eeae5c5cd0c3184449ead7e6398e9b0b, type: 3}
+  _material: {fileID: 2100000, guid: c6d38711520119c4e89ddf1ea6adc007, type: 2}
+  _effectColor: {r: 0, g: 0.36656475, b: 1, a: 0.6156863}
+  _lable: Water

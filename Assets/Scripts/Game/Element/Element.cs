@@ -44,7 +44,7 @@ public class Element : MonoBehaviour
             return isDifferencePositive ? reductionModifier : _instance._interactionIncreaseModifier;
     }
 
-    public static Sprite GetElementSprite(ElementType element)
+    public static Sprite GetSprite(ElementType element)
     {
         return element switch
         {

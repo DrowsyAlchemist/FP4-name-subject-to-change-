@@ -11,7 +11,7 @@ public class ElementShower : MonoBehaviour
     public void Show(ElementType element)
     {
         if (_image.sprite == null)
-            _image.sprite = Element.GetElementSprite(element);
+            _image.sprite = Element.GetSprite(element);
 
         _animator.Play(ShowAnimation);
     }

@@ -7,21 +7,18 @@ public class AvailableSpellsHolder : MonoBehaviour
     [SerializeField] private SpellRenderer _spellRenderer;
     [SerializeField] private SpellCaster _caster;
 
-    private List<SpellRenderer> _spells = new List<SpellRenderer>();
+    private readonly List<SpellRenderer> _spells = new();
     private SpellRenderer _highlighted;
 
     private void OnDestroy()
     {
         foreach (var renderer in _container.GetComponentsInChildren<SpellRenderer>())
-        {
             renderer.ButtonClicked -= OnRendererClick;
-            renderer.SpellData.Upgrated -= OnSpellUpgraded;
-        }
     }
 
     public void SetDefaultSpell(SpellData defaultSpell)
     {
-        while(_spells.Count>0)
+        while (_spells.Count > 0)
         {
             Destroy(_spells[0].gameObject);
             _spells.RemoveAt(0);
@@ -32,7 +29,6 @@ public class AvailableSpellsHolder : MonoBehaviour
 
     public SpellRenderer AddSpell(SpellData spellData)
     {
-        spellData.Upgrated += OnSpellUpgraded;
         var spellRenderer = Instantiate(_spellRenderer, _container);
         spellRenderer.Render(spellData);
         spellRenderer.ButtonClicked += OnRendererClick;
@@ -42,24 +38,11 @@ public class AvailableSpellsHolder : MonoBehaviour
 
     private void OnRendererClick(SpellRenderer spellRenderer)
     {
-        if (spellRenderer.SpellData.GetCurrentSpell() is CombatSpell combatSpell)
-        {
-            if (_highlighted != null)
-                _highlighted.SetHighlighted(false);
+        if (_highlighted != null)
+            _highlighted.SetHighlighted(false);
 
-            spellRenderer.SetHighlighted(true);
-            _highlighted = spellRenderer;
-            _caster.SetSpell(combatSpell);
-        }
-        else
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-
-    private void OnSpellUpgraded(SpellData spellData)
-    {
-        if (spellData == _highlighted.SpellData)
-            _caster.SetSpell(spellData.GetCurrentSpell() as CombatSpell);
+        spellRenderer.SetHighlighted(true);
+        _highlighted = spellRenderer;
+        _caster.SetSpell(spellRenderer.SpellData.Element);
     }
 }

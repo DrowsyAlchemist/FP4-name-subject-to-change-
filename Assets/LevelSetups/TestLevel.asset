@@ -19,7 +19,7 @@ MonoBehaviour:
     - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
       _hasShield: 0
       _enemyCount: 5
-      _spawnDelay: 2
+      _spawnDelay: 0.5
     - _enemyTemplate: {fileID: 4657523496991153131, guid: 48057c21ff3f194439345a136716e77f, type: 3}
       _hasShield: 0
       _enemyCount: 5

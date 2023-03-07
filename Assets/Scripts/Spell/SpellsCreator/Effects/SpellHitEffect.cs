@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellHitEffect : MonoBehaviour
+public abstract class SpellHitEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<ParticleSystem> _effects;
+
+    private const float SleepTime = 1;
+
+    public void Play()
     {
-        
+        foreach (var effect in _effects)
+            effect.Play();
+
+        transform.SetParent(null);
+
+        if (gameObject.activeSelf)
+            StartCoroutine(CheckParent());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator CheckParent()
     {
-        
+        while (gameObject.activeSelf)
+        {
+            yield return new WaitForSeconds(SleepTime);
+
+            if (_effects[0].IsAlive() == false)
+                gameObject.SetActive(false);
+        }
     }
 }
