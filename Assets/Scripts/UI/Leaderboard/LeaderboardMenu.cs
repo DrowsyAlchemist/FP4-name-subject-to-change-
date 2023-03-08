@@ -7,11 +7,12 @@ using System;
 public class LeaderboardMenu : MonoBehaviour
 {
     [SerializeField] private string _leaderboardName = "MagicWallLeaderboard";
+
     [SerializeField] private RectTransform _entriesContainer;
     [SerializeField] private LeaderboardEntryRenderer _playerRntryRenderer;
     [SerializeField] private LeaderboardEntryRenderer _entryRendererTemplate;
     [SerializeField] private Button _logInButton;
-
+    [SerializeField] private int _topPlayersCount = 10;
     private List<LeaderboardEntryRenderer> _entries = new ();
 
     public event Action Authorized;
@@ -44,7 +45,7 @@ public class LeaderboardMenu : MonoBehaviour
     {
         Clear();
         Leaderboard.GetPlayerEntry(_leaderboardName, (result) => _playerRntryRenderer.Render(result));
-        Leaderboard.GetEntries(_leaderboardName, (result) =>
+        Leaderboard.GetEntries(_leaderboardName, topPlayersCount: _topPlayersCount, onSuccessCallback: (result) =>
         {
             foreach (var entry in result.entries)
             {
