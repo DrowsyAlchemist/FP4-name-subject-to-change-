@@ -1,5 +1,6 @@
 using Agava.YandexGames;
 using Lean.Localization;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,17 +15,7 @@ public class LocalizationButton : UIButton
     protected override void Start()
     {
         base.Start();
-
-#if UNITY_WEBGL && !UNITY_EDITOR
-        string lang = YandexGamesSdk.Environment.i18n.lang;
-#else
-        string lang = "ru";
-#endif
-        foreach (var language in _languages)
-            if (language.Code == lang)
-                _currentLanguage = _languages.IndexOf(language);
-
-        Render(_currentLanguage);
+        StartCoroutine(SetEnvironmentLanguage());
     }
 
     protected override void OnButtonClick()
@@ -41,6 +32,24 @@ public class LocalizationButton : UIButton
     {
         LeanLocalization.SetCurrentLanguageAll(_languages[_currentLanguage].Name);
         _image.sprite = _languages[language].Sprite;
+    }
+
+    private IEnumerator SetEnvironmentLanguage()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        while (YandexGamesSdk.IsInitialized == false)
+            yield return null;
+
+            string lang = YandexGamesSdk.Environment.i18n.lang;
+#else
+        yield return null;
+        string lang = "ru";
+#endif
+        foreach (var language in _languages)
+            if (language.Code == lang)
+                _currentLanguage = _languages.IndexOf(language);
+
+        Render(_currentLanguage);
     }
 
     [System.Serializable]
