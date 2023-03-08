@@ -11890,7 +11890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1054a14d6916951488cf18db2dacba23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialMana: 10000
+  _initialMana: 0
   _manaRenderer: {fileID: 338981224}
   _enemySpawner: {fileID: 1730059377}
   _game: {fileID: 523543972}

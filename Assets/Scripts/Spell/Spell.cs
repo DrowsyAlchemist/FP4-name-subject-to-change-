@@ -32,9 +32,17 @@ public class Spell : MonoBehaviour
         _hitCount = 0;
     }
 
+    private void OnDisable()
+    {
+        if (_hitEffect != null)
+            _hitEffect.gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        _hitEffect.Play();
+        if (_hitEffect != null)
+            PlayHitEffect();
+
         Hit(other);
     }
 
@@ -52,11 +60,21 @@ public class Spell : MonoBehaviour
         _hitEffect = hitEffect;
         hitEffect.transform.SetParent(gameObject.transform);
         hitEffect.transform.position = transform.position;
+        hitEffect.gameObject.SetActive(true);
     }
 
     public void Launch()
     {
         _mover.StartMovement();
+    }
+
+    private void PlayHitEffect()
+    {
+        if (_hitEffect.transform.parent == gameObject.transform)
+            _hitEffect.Play();
+
+        _hitEffect.transform.SetParent(null);
+        _hitEffect = null;
     }
 
     private void Hit(Collider other)
@@ -126,7 +144,7 @@ public class Spell : MonoBehaviour
                             target.TakeDamage(_resources.GetDamage(), _resources.Element);
         }
         gameObject.SetActive(false);
-    }    
+    }
 
     private void OnValidate()
     {

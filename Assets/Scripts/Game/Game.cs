@@ -145,13 +145,8 @@ public class Game : MonoBehaviour
             PlayerAccount.GetProfileData(
                 onSuccessCallback: (data) =>
                 {
-                    Debug.Log("///////////////////////////////////\n" +
-                        "ID: " + data.uniqueID + "\n" +
-                        "////////////////////////////////////\n");
-
                     if (data.uniqueID == "kAnv7Obvztit9udo49V0rbsx/CvtHxCiwOnQ0pDNs/k=")
-                        //_levelMessage.Show("Люблю моллюска <3");
-                        _gameMessage.Show("Победа!!!");
+                        _gameMessage.Show("Люблю моллюска <3");
                 });
         #endregion
     }
