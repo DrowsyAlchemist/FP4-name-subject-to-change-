@@ -23,7 +23,7 @@ MonoBehaviour:
     - _enemyTemplate: {fileID: 4657523496991153131, guid: 48057c21ff3f194439345a136716e77f, type: 3}
       _hasShield: 1
       _enemyCount: 2
-      _spawnDelay: 2
+      _spawnDelay: 3
     - _enemyTemplate: {fileID: 1038705449136238593, guid: 70a26f178fd5f984c811aa87ce8cb6c5, type: 3}
       _hasShield: 0
       _enemyCount: 2

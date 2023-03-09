@@ -55,7 +55,6 @@ public class PlayerInput : MonoBehaviour, IPointerDownHandler, IPointerExitHandl
     public void OnPointerDown(PointerEventData eventData)
     {
         _isTouchInput = true;
-        Debug.Log("Enter");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

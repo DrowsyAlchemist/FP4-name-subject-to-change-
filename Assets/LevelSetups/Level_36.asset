@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _secondsBetweenWaves: 5
   _waves:
-  - _secondsBetweenOrders: 4
+  - _secondsBetweenOrders: 5
     _enemySequences:
     - _enemyTemplate: {fileID: 4224802919306438436, guid: 8e797b54786a7ee43913a550dd985a01, type: 3}
       _hasShield: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
     - _enemyTemplate: {fileID: 4520133561324810040, guid: ae11d06c12847f1449a7a396c3e1bae8, type: 3}
       _hasShield: 1
       _enemyCount: 2
-      _spawnDelay: 2
+      _spawnDelay: 3
     - _enemyTemplate: {fileID: 4232342823267937575, guid: ce3b10d985368424fb87461eed735295, type: 3}
       _hasShield: 0
       _enemyCount: 2

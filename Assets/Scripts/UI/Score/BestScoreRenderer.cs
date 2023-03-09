@@ -1,6 +1,8 @@
 using Lean.Localization;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using Agava.YandexGames;
 
 public class BestScoreRenderer : MonoBehaviour
 {
@@ -20,6 +22,18 @@ public class BestScoreRenderer : MonoBehaviour
 
     private void OnEnable()
     {
+        StartCoroutine(UpdateAfterInitialization());
+    }
+
+    private IEnumerator UpdateAfterInitialization()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        OnScoreChanged(_score.BestScore);
+        yield break;
+#endif
+        while (YandexGamesSdk.IsInitialized == false)
+            yield return null;
+
         OnScoreChanged(_score.BestScore);
     }
 
