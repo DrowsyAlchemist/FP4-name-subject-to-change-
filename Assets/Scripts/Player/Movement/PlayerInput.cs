@@ -41,7 +41,7 @@ public class PlayerInput : MonoBehaviour, IPointerDownHandler, IPointerExitHandl
     {
         _ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(_ray, out _hit, Mathf.Infinity, _layerMask))
+        if (Physics.Raycast(_ray, out _hit, Mathf.Infinity))
         {
             Vector3 targetPosition = _hit.point;
             float delta = targetPosition.x - _player.position.x;
@@ -55,6 +55,7 @@ public class PlayerInput : MonoBehaviour, IPointerDownHandler, IPointerExitHandl
     public void OnPointerDown(PointerEventData eventData)
     {
         _isTouchInput = true;
+        Debug.Log("Enter");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using Agava.WebUtility;
+using System;
 
 public class Sound : MonoBehaviour
 {
@@ -30,6 +32,8 @@ public class Sound : MonoBehaviour
     public static AudioSource EnemyDeadSound => _instance._enemyDeadSound;
     public static AudioSource LevelCompletedSound => _instance._levelCompletedSound;
 
+    public static event Action<bool> ConditionChanged;
+
     private void Awake()
     {
         if (_instance == false)
@@ -41,17 +45,32 @@ public class Sound : MonoBehaviour
     private void Start()
     {
         Mute();
+        WebApplication.InBackgroundChangeEvent += OnBackgroundChanged;
+        ConditionChanged.Invoke(false);
+    }
+
+    private void OnDestroy()
+    {
+        WebApplication.InBackgroundChangeEvent -= OnBackgroundChanged;
     }
 
     public static void TurnOn()
     {
         _instance._mixer.SetFloat(_instance._masterVolumeName, _instance._maxValue);
         IsOn = true;
+        ConditionChanged.Invoke(true);
     }
 
     public static void Mute()
     {
         _instance._mixer.SetFloat(_instance._masterVolumeName, _instance._minValue);
         IsOn = false;
+        ConditionChanged.Invoke(false);
+    }
+
+    private void OnBackgroundChanged(bool flag)
+    {
+        Mute();
+        ConditionChanged.Invoke(false);
     }
 }

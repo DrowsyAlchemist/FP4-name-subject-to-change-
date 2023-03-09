@@ -1000,10 +1000,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tHi! My name is Mikhail (a.k.a. Drowsy Alchemist), I am a novice developer,
-    and this is my first game on Yandex Games. I hope you like it :3\n\tI would be
-    very grateful if you rate the game and write a review (criticism is also welcome).\n\tHave
-    a nice game!"
+  m_text: "\t\u041F\u0440\u0438\u0432\u0435\u0442! \u041C\u0435\u043D\u044F \u0437\u043E\u0432\u0443\u0442
+    \u041C\u0438\u0445\u0430\u0438\u043B (a.k.a. Drowsy Alchemist), \u044F \u043D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439
+    \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A, \u0438 \u044D\u0442\u043E
+    \u043C\u043E\u044F \u043F\u0435\u0440\u0432\u0430\u044F \u0438\u0433\u0440\u0430
+    \u043D\u0430 \u042F\u043D\u0434\u0435\u043A\u0441 \u0418\u0433\u0440\u0430\u0445.
+    \u041D\u0430\u0434\u0435\u044E\u0441\u044C, \u0447\u0442\u043E \u043E\u043D\u0430
+    \u0442\u0435\u0431\u0435 \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F
+    :3\n\t\u0411\u0443\u0434\u0443 \u043E\u0447\u0435\u043D\u044C \u0431\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u0435\u043D,
+    \u0435\u0441\u043B\u0438 \u043E\u0446\u0435\u043D\u0438\u0448\u044C \u0438\u0433\u0440\u0443
+    \u0438 \u043D\u0430\u043F\u0438\u0448\u0435\u0448\u044C \u043E\u0442\u0437\u044B\u0432
+    (\u043A\u0440\u0438\u0442\u0438\u043A\u0430 \u0442\u043E\u0436\u0435 \u043F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442\u0441\u044F.)\n\t\u041F\u0440\u0438\u044F\u0442\u043D\u043E\u0439
+    \u0438\u0433\u0440\u044B!\n\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F
+    \u0441\u043E \u043C\u043D\u043E\u0439: michaelGulidow@yandex.ru"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
   m_sharedMaterial: {fileID: -5712704417116656134, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
@@ -3788,7 +3797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: "\u0418\u0433\u0440\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
   m_sharedMaterial: {fileID: -5712704417116656134, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
@@ -6192,7 +6201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 0
@@ -7639,7 +7648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0.00046823546}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.00075246766}
   m_SizeDelta: {x: 0.000045776367, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &648060087
@@ -8733,7 +8742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How To Play
+  m_text: "\u041A\u0430\u043A \u0438\u0433\u0440\u0430\u0442\u044C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
   m_sharedMaterial: {fileID: -5712704417116656134, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
@@ -8760,7 +8769,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.15
+  m_fontSize: 16.1
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9254,7 +9263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e05c7d7a200ed49ae08e9d468f3ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loopLevels: 10
+  _loopLevels: 6
   _levelSpawner: {fileID: 808878917}
   _levelSetups:
   - {fileID: 11400000, guid: 3c633766fbf93f34b8a66d27835204d2, type: 2}
@@ -9295,6 +9304,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07e698348497eea4488c1de623cb0834, type: 2}
   - {fileID: 11400000, guid: 7b85de4d2e8c3534fabd1ee035aece64, type: 2}
   - {fileID: 11400000, guid: 2b19d16ddf557ca408c00dc444c6e1b7, type: 2}
+  - {fileID: 11400000, guid: cfbb79afce6fa9f4e8968c27d2b562cf, type: 2}
+  - {fileID: 11400000, guid: acb55f03910fe4e469d506ee70e6c13b, type: 2}
 --- !u!1 &839588477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10849,7 +10860,7 @@ MonoBehaviour:
     Text: "\tHi! My name is Mikhail (a.k.a. Drowsy Alchemist), I am a novice developer,
       and this is my first game on Yandex Games. I hope you like it :3\n\tI would
       be very grateful if you rate the game and write a review (criticism is also
-      welcome).\n\tHave a nice game!"
+      welcome).\n\tHave a nice game!\nContact me: michaelGulidow@yandex.ru"
     Object: {fileID: 0}
   - Language: Russian
     Text: "\t\u041F\u0440\u0438\u0432\u0435\u0442! \u041C\u0435\u043D\u044F \u0437\u043E\u0432\u0443\u0442
@@ -10863,14 +10874,15 @@ MonoBehaviour:
       \u0435\u0441\u043B\u0438 \u043E\u0446\u0435\u043D\u0438\u0448\u044C \u0438\u0433\u0440\u0443
       \u0438 \u043D\u0430\u043F\u0438\u0448\u0435\u0448\u044C \u043E\u0442\u0437\u044B\u0432
       (\u043A\u0440\u0438\u0442\u0438\u043A\u0430 \u0442\u043E\u0436\u0435 \u043F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442\u0441\u044F.)\n\t\u041F\u0440\u0438\u044F\u0442\u043D\u043E\u0439
-      \u0438\u0433\u0440\u044B!"
+      \u0438\u0433\u0440\u044B!\n\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F
+      \u0441\u043E \u043C\u043D\u043E\u0439: michaelGulidow@yandex.ru"
     Object: {fileID: 0}
   - Language: Turkish
     Text: "\tSelam ! Benim ad\u0131m Mikhail (di\u011Fer ad\u0131yla Uykulu Simyac\u0131),
       acemi bir geli\u015Ftiriciyim ve bu Yandex Oyunlar\u0131'ndaki ilk oyunum.
       Umar\u0131m be\u011Fenirsiniz:3\n\tOyunu de\u011Ferlendirirseniz ve bir inceleme
       yazarsan\u0131z \xE7ok minnettar olurum (ele\u015Ftiri de kabul edilir).\n\t\u0130yi
-      oyunlar!"
+      oyunlar!\nBana ula\u015F\u0131n: michaelGulidow@yandex.ru"
     Object: {fileID: 0}
 --- !u!1 &934746710
 GameObject:
@@ -13162,7 +13174,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144.4
+  m_fontSize: 184.3
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14241,7 +14253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6796119, y: 0.8491832}
   m_AnchorMax: {x: 0.6796119, y: 0.8491832}
-  m_AnchoredPosition: {x: 169.50002, y: 86.01318}
+  m_AnchoredPosition: {x: 169.50003, y: 86.01318}
   m_SizeDelta: {x: 171, y: 172}
   m_Pivot: {x: 0.50000006, y: 0.49999973}
 --- !u!114 &1431792689
@@ -14411,9 +14423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Repair
-
-    the Wall'
+  m_text: "\u041F\u043E\u0447\u0438\u043D\u0438\u0442\u044C \u0441\u0442\u0435\u043D\u0443"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
   m_sharedMaterial: {fileID: -5712704417116656134, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
@@ -14739,7 +14749,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back To Menu
+  m_text: "\u041D\u0430\u0437\u0430\u0434 \u0432 \u043C\u0435\u043D\u044E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
   m_sharedMaterial: {fileID: -5712704417116656134, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
@@ -14766,7 +14776,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.35
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16328,7 +16338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: About Author
+  m_text: "\u041E\u0431 \u0430\u0432\u0442\u043E\u0440\u0435"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
   m_sharedMaterial: {fileID: -5712704417116656134, guid: e51412371ab5982459ac0f6ee3576b6c, type: 2}
@@ -16355,7 +16365,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.6
+  m_fontSize: 17
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -17072,8 +17082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 16000, y: 2860.7534}
+  m_AnchoredPosition: {x: 0.15, y: -10}
+  m_SizeDelta: {x: 13832.914, y: 2860.7534}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741463231
 MonoBehaviour:
@@ -18021,8 +18031,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8000, y: 1600, z: 0}
-  m_Center: {x: 0, y: 0, z: 10}
+  m_Size: {x: 13840.9, y: 1654.7842, z: 0}
+  m_Center: {x: -10.515528, y: -479.42078, z: 9.999973}
 --- !u!114 &1872787420
 MonoBehaviour:
   m_ObjectHideFlags: 0
