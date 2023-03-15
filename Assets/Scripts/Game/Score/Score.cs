@@ -21,8 +21,10 @@ public class Score : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
             return PlayerPrefs.GetInt(LeaderboardName);
 #endif
-            if (YandexGamesSdk.IsInitialized)
+            if (YandexGamesSdk.IsInitialized && PlayerAccount.IsAuthorized)
                 Leaderboard.GetPlayerEntry(LeaderboardName, (entry) => _bestScore = entry.score);
+            else
+                return PlayerPrefs.GetInt(LeaderboardName);
 
             return _bestScore;
         }
@@ -64,7 +66,10 @@ public class Score : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
             PlayerPrefs.SetInt(LeaderboardName, score);
 #else
-            Leaderboard.SetScore(LeaderboardName, score);
+            if (PlayerAccount.IsAuthorized)
+                Leaderboard.SetScore(LeaderboardName, score);
+            else
+                PlayerPrefs.SetInt(LeaderboardName, score);
 #endif
             BestScoreChanged?.Invoke(score);
         }

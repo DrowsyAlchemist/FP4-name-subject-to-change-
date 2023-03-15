@@ -35,6 +35,12 @@ public class SpellData : ScriptableObject
         return _upgrageLevelInfo.GetCost(UpgradeLevel + 1);
     }
 
+    public void ResetSpell()
+    {
+        PlayerPrefs.SetInt(_id, 0);
+        PlayerPrefs.Save();
+    }
+
     public void Upgrade()
     {
         PlayerPrefs.SetInt(_id, UpgradeLevel + 1);

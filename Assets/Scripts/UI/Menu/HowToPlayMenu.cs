@@ -18,6 +18,7 @@ public class HowToPlayMenu : Menu
             page.gameObject.SetActive(false);
 
         ShowPage(0);
+        _nextPageButton.gameObject.SetActive(true);
     }
 
     private void Start()
@@ -34,14 +35,12 @@ public class HowToPlayMenu : Menu
 
     private void OnNextPageButtonClick()
     {
-        if (_currentPage < _pages.Count - 1)
-            ShowPage(_currentPage + 1);
+        ShowPage(_currentPage + 1);
     }
 
     private void OnPreviousPageButtonClick()
     {
-        if (_currentPage > 0)
-            ShowPage(_currentPage - 1);
+        ShowPage(_currentPage - 1);
     }
 
     private void ShowPage(int page)
@@ -50,5 +49,7 @@ public class HowToPlayMenu : Menu
         _currentPage = page;
         _pages[page].gameObject.SetActive(true);
         _pageText.text = (page + 1) + "/" + _pages.Count;
+        _previousPageButton.gameObject.SetActive(_currentPage != 0);
+        _nextPageButton.gameObject.SetActive(_currentPage != _pages.Count - 1);
     }
 }

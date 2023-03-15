@@ -56,21 +56,38 @@ public class Sound : MonoBehaviour
 
     public static void TurnOn()
     {
-        _instance._mixer.SetFloat(_instance._masterVolumeName, _instance._maxValue);
+        _instance.TurnSoundOn();
         IsOn = true;
         ConditionChanged.Invoke(true);
     }
 
     public static void Mute()
     {
-        _instance._mixer.SetFloat(_instance._masterVolumeName, _instance._minValue);
+        _instance.TurnSoundOff();
         IsOn = false;
         ConditionChanged.Invoke(false);
     }
 
-    private void OnBackgroundChanged(bool flag)
+    private void OnBackgroundChanged(bool isOut)
     {
-        Mute();
-        ConditionChanged.Invoke(false);
+        if (isOut)
+        {
+            TurnSoundOff();
+        }
+        else
+        {
+            if (IsOn)
+                TurnSoundOn();
+        }
+    }
+
+    private void TurnSoundOn()
+    {
+        _instance._mixer.SetFloat(_instance._masterVolumeName, _instance._maxValue);
+    }
+
+    private void TurnSoundOff()
+    {
+        _instance._mixer.SetFloat(_instance._masterVolumeName, _instance._minValue);
     }
 }

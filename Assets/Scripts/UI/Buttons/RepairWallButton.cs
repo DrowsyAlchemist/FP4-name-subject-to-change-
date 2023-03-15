@@ -12,6 +12,7 @@ public class RepairWallButton : UIButton
     private void Awake()
     {
         _game.LevelCompleted += () => Button.interactable = true;
+        _game.NewGameStarted += () => Button.interactable = true;
         _wall.Destroyed += () => Button.interactable = false;
     }
 

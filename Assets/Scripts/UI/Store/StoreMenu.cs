@@ -18,13 +18,17 @@ public class StoreMenu : MonoBehaviour
             wareRenderer.BuyButtonClicked -= OnBuyButtonClick;
     }
 
-    public void Fill()
+    public void ResetStore()
     {
+        foreach (var wareData in _waresData)
+            wareData.ResetSpell();
+
         while (_wareRenderers.Count > 0)
         {
             Destroy(_wareRenderers[0].gameObject);
             _wareRenderers.RemoveAt(0);
         }
+        _defaultCombatSpell.ResetSpell();
         _defaultCombatSpell.Upgrade();
         AddWare(_defaultCombatSpell);
         _playerSpellsHolder.SetDefaultSpell(_defaultCombatSpell);

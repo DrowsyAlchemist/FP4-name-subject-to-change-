@@ -33,7 +33,9 @@ public class Game : MonoBehaviour
     private AliveEnemiesHolder _aliveEnemiesHolder;
 
     public static Game Instance { get; private set; }
+    private bool _isFirstGame = true;
 
+    public event Action NewGameStarted;
     public event Action LevelStarted;
     public event Action LevelCompleted;
 
@@ -91,21 +93,24 @@ public class Game : MonoBehaviour
 
     public void StartNewGame()
     {
-        PlayerPrefs.DeleteAll();
-
         enabled = false;
         _level.AbortSpawn();
         _aliveEnemiesHolder.KillAllEnemies();
         _score.ResetScore();
         _mana.ResetMana();
         _wall.ResetWall();
-        _store.Fill();
+        _store.ResetStore();
 
         StartLevel(_startLevel);
-
+        NewGameStarted?.Invoke();
         _mainMenu.Close();
-        _howToPlayMenu.Open();
         Pause();
+
+        if (_isFirstGame)
+        {
+            _isFirstGame = false;
+            _howToPlayMenu.Open();
+        }
     }
 
     private void StartLevel(int level)
@@ -197,7 +202,10 @@ public class Game : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
         return;
 #endif
-        InterstitialAd.Show(onOpenCallback: () => Time.timeScale = 0);
+        InterstitialAd.Show(
+            onOpenCallback: () => Sound.BackgroundMusic.Stop(),
+            onCloseCallback: (_) => Sound.BackgroundMusic.Play()
+            );
     }
 
     private void ShowStickyAd()
