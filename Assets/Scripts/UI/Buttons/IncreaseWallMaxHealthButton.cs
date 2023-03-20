@@ -17,7 +17,7 @@ public class IncreaseWallMaxHealthButton : UIButton
     {
         _game.LevelStarted += () => Button.interactable = true;
         _wall.Destroyed += () => Button.interactable = false;
-        _extraHealthText.text = "+" + _extraHealth + " hp";
+        _extraHealthText.text = "+" + _extraHealth;
         _costText.text = _initialCost.ToString();
     }
 
